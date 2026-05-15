@@ -6,7 +6,7 @@ from datetime import date
 
 from dotenv import load_dotenv
 
-from collectors import DiscordCollector, EbayCollector, PSACollector, RedditCollector, TCGPlayerCollector
+from collectors import DiscordCollector, PokemonTCGCollector, RedditCollector
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
 from analyzer.scoring import calculate_score, CardScore
@@ -36,9 +36,7 @@ def save_json(filename: str, data):
 
 def collect_all():
     collectors = [
-        EbayCollector(),
-        PSACollector(),
-        TCGPlayerCollector(),
+        PokemonTCGCollector(),
         RedditCollector(),
         DiscordCollector(),
     ]
@@ -62,6 +60,8 @@ def store_data(conn, all_data):
                 set_name=item.set_name,
                 card_number=item.card_number,
                 pokemon_name=item.pokemon_name,
+                artist=item.extra.get("artist", ""),
+                rarity=item.extra.get("rarity", ""),
             )
             if item.price is not None and item.price > 0:
                 insert_price(

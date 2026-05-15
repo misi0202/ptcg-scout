@@ -42,7 +42,11 @@ class CardScore:
 def get_ip_score(pokemon_name: str) -> float:
     if not pokemon_name:
         return 30.0
-    return float(TIER_MAP.get(pokemon_name.lower(), 30.0))
+    name_lower = pokemon_name.lower()
+    for key, score in TIER_MAP.items():
+        if key in name_lower:
+            return float(score)
+    return 30.0
 
 
 def get_aesthetic_score(keywords: list[str], mention_count: int) -> float:
