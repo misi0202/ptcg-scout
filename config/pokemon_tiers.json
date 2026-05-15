@@ -2,14 +2,15 @@
   "tier_1": {
     "score": 100,
     "pokemon": [
-      "Pikachu", "Charizard", "Gengar", "Mewtwo", "Mew", "Umbreon",
-      "Espeon", "Sylveon", "Vaporeon", "Jolteon", "Flareon", "Eevee",
-      "Rayquaza", "Lugia", "Ho-Oh"
+      "Pikachu", "Charizard", "Gengar", "Mewtwo", "Mew",
+      "Umbreon", "Eevee", "Rayquaza"
     ]
   },
   "tier_2": {
     "score": 85,
     "pokemon": [
+      "Lugia", "Ho-Oh",
+      "Espeon", "Sylveon", "Vaporeon", "Jolteon", "Flareon",
       "Gyarados", "Dragonite", "Tyranitar", "Gardevoir", "Lucario",
       "Greninja", "Mimikyu", "Snorlax", "Blaziken", "Darkrai",
       "Celebi", "Jirachi", "Arceus", "Zacian", "Zamazenta"
