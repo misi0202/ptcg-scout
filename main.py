@@ -6,7 +6,7 @@ from datetime import date
 
 from dotenv import load_dotenv
 
-from collectors import EbayCollector, PSACollector, RedditCollector, TCGPlayerCollector
+from collectors import DiscordCollector, EbayCollector, PSACollector, RedditCollector, TCGPlayerCollector
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
 from analyzer.scoring import calculate_score, CardScore
@@ -40,6 +40,7 @@ def collect_all():
         PSACollector(),
         TCGPlayerCollector(),
         RedditCollector(),
+        DiscordCollector(),
     ]
     all_data = []
     for collector in collectors:
@@ -68,12 +69,14 @@ def store_data(conn, all_data):
                     price=item.price, condition=item.condition,
                     sale_date=item.sale_date,
                 )
-            if item.source == "reddit" and item.pokemon_name:
+            if item.source in ("reddit", "discord") and item.pokemon_name:
+                mention_count = item.extra.get("score") or item.extra.get("reactions") or 1
+                mention_date = item.extra.get("created_utc") or item.extra.get("timestamp") or ""
                 insert_mention(
-                    conn, card_id=card_id, source="reddit",
+                    conn, card_id=card_id, source=item.source,
                     keyword=item.pokemon_name,
-                    mention_count=item.extra.get("score", 1),
-                    mention_date=item.extra.get("created_utc", ""),
+                    mention_count=mention_count,
+                    mention_date=mention_date,
                 )
         except Exception as e:
             logger.error("Failed to store item %s: %s", item.name, e)

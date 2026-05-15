@@ -46,7 +46,7 @@ Composite Score = (Aesthetic × 0.35 + IP Strength × 0.40 + Narrative × 0.25) 
 
 ```
 ptcg-scout/
-├── collectors/           # Data collection (eBay/PSA/TCGPlayer/Reddit)
+├── collectors/           # Data collection (eBay/PSA/TCGPlayer/Reddit/Discord)
 ├── analyzer/             # Scoring engine (scoring/supply-demand/trends/boxes)
 ├── notifier/             # Feishu webhook notifications
 ├── db/                   # SQLite storage
@@ -77,7 +77,7 @@ cd web && npm install && npm run build
 
 ## Scheduled Execution
 
-GitHub Actions runs daily at UTC 22:00 (Beijing Time 06:00 next day). Configure `FEISHU_WEBHOOK_URL`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` in repository Settings → Secrets → Actions.
+GitHub Actions runs daily at UTC 22:00 (Beijing Time 06:00 next day). Configure `FEISHU_WEBHOOK_URL`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `DISCORD_BOT_TOKEN`, `DISCORD_CHANNEL_IDS` in repository Settings → Secrets → Actions.
 
 ---
 
@@ -121,7 +121,7 @@ GitHub Actions runs daily at UTC 22:00 (Beijing Time 06:00 next day). Configure 
 
 ```
 ptcg-scout/
-├── collectors/           # 数据采集 (eBay/PSA/TCGPlayer/Reddit)
+├── collectors/           # 数据采集 (eBay/PSA/TCGPlayer/Reddit/Discord)
 ├── analyzer/             # 分析引擎 (评分/供需/趋势/卡盒)
 ├── notifier/             # 飞书 Webhook 通知
 ├── db/                   # SQLite 存储
@@ -152,4 +152,4 @@ cd web && npm install && npm run build
 
 ## 定时运行
 
-GitHub Actions 每日 UTC 22:00（北京时间次日 6:00）自动运行。在仓库 Settings → Secrets → Actions 中配置 `FEISHU_WEBHOOK_URL`、`REDDIT_CLIENT_ID`、`REDDIT_CLIENT_SECRET`。
+GitHub Actions 每日 UTC 22:00（北京时间次日 6:00）自动运行。在仓库 Settings → Secrets → Actions 中配置 `FEISHU_WEBHOOK_URL`、`REDDIT_CLIENT_ID`、`REDDIT_CLIENT_SECRET`、`DISCORD_BOT_TOKEN`、`DISCORD_CHANNEL_IDS`。
