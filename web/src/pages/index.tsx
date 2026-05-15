@@ -7,6 +7,9 @@ interface Card {
   id: number;
   name: string;
   pokemon: string;
+  image_url: string;
+  rarity: string;
+  artist: string;
   aesthetic: number;
   ip: number;
   narrative: number;
@@ -112,32 +115,44 @@ export default function Home({ cards }: { cards: Card[] }) {
           <Link
             key={card.id}
             href={`/card/${card.id}`}
-            className="block bg-gray-900 border border-gray-800 rounded-lg p-4 hover:border-gray-700 transition-colors"
+            className="block bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-gray-700 transition-colors"
           >
-            <div className="flex items-start justify-between mb-2">
-              <h3 className="font-semibold text-sm truncate flex-1 mr-2">
-                {card.name}
-              </h3>
-              <span className="text-lg font-bold tabular-nums">
-                {card.composite.toFixed(0)}
-              </span>
-            </div>
-            <div className="text-xs text-gray-500 mb-2">{card.pokemon}</div>
-            <div className="flex gap-2 text-xs mb-2">
-              <span className="bg-gray-800 px-2 py-0.5 rounded">IP {card.ip.toFixed(0)}</span>
-              <span className="bg-gray-800 px-2 py-0.5 rounded">审美 {card.aesthetic.toFixed(0)}</span>
-              <span className="bg-gray-800 px-2 py-0.5 rounded">Pop×{card.pop_mult.toFixed(2)}</span>
-            </div>
-            <div className="flex items-center justify-between text-xs">
-              <span className={SIGNAL_COLORS[card.signal] || "text-gray-400"}>
-                {card.signal_label}
-              </span>
-              <span className="text-gray-500">
-                ${card.avg_price_30d.toFixed(2)}
-                <span className={card.price_change_pct >= 0 ? "text-green-400 ml-1" : "text-red-400 ml-1"}>
-                  {card.price_change_pct >= 0 ? "+" : ""}{card.price_change_pct.toFixed(1)}%
+            {card.image_url && (
+              <div className="aspect-[2.5/3.5] overflow-hidden bg-gray-800">
+                <img
+                  src={card.image_url}
+                  alt={card.name}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <div className="p-4">
+              <div className="flex items-start justify-between mb-1">
+                <h3 className="font-semibold text-sm truncate flex-1 mr-2">
+                  {card.name}
+                </h3>
+                <span className="text-lg font-bold tabular-nums shrink-0">
+                  {card.composite.toFixed(0)}
                 </span>
-              </span>
+              </div>
+              <div className="text-xs text-gray-500 mb-2">{card.rarity} · {card.artist}</div>
+              <div className="flex gap-2 text-xs mb-2">
+                <span className="bg-gray-800 px-2 py-0.5 rounded">IP {card.ip.toFixed(0)}</span>
+                <span className="bg-gray-800 px-2 py-0.5 rounded">审美 {card.aesthetic.toFixed(0)}</span>
+                <span className="bg-gray-800 px-2 py-0.5 rounded">叙事 {card.narrative.toFixed(0)}</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className={SIGNAL_COLORS[card.signal] || "text-gray-400"}>
+                  {card.signal_label}
+                </span>
+                <span className="text-gray-500">
+                  ${card.avg_price_30d.toFixed(2)}
+                  <span className={card.price_change_pct >= 0 ? "text-green-400 ml-1" : "text-red-400 ml-1"}>
+                    {card.price_change_pct >= 0 ? "+" : ""}{card.price_change_pct.toFixed(1)}%
+                  </span>
+                </span>
+              </div>
             </div>
           </Link>
         ))}

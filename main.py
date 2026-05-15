@@ -62,6 +62,7 @@ def store_data(conn, all_data):
                 pokemon_name=item.pokemon_name,
                 artist=item.extra.get("artist", ""),
                 rarity=item.extra.get("rarity", ""),
+                image_url=item.extra.get("image_url", ""),
             )
             if item.price is not None and item.price > 0:
                 insert_price(
@@ -86,7 +87,7 @@ def store_data(conn, all_data):
 def run_scoring(conn) -> list[dict]:
     rows = conn.execute("""
         SELECT c.id, c.name, c.pokemon_name, c.set_name,
-               c.psa10_pop, c.psa_total_pop
+               c.psa10_pop, c.psa_total_pop, c.rarity, c.artist, c.image_url
         FROM cards c
     """).fetchall()
 
@@ -111,6 +112,8 @@ def run_scoring(conn) -> list[dict]:
             mention_count=mention_total,
             psa10_pop=row["psa10_pop"] or 0,
             set_name=row["set_name"] or "",
+            rarity=row["rarity"] or "",
+            artist=row["artist"] or "",
         )
 
         sd = sd_analyze(conn, row["id"])
@@ -120,6 +123,9 @@ def run_scoring(conn) -> list[dict]:
             "id": score.card_id,
             "name": score.name,
             "pokemon": score.pokemon_name,
+            "image_url": row["image_url"] or "",
+            "rarity": row["rarity"] or "",
+            "artist": row["artist"] or "",
             "aesthetic": score.aesthetic_score,
             "ip": score.ip_score,
             "narrative": score.narrative_score,

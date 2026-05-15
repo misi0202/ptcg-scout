@@ -16,7 +16,12 @@ for tier_data in TIER_CONFIG.values():
         for pokemon in tier_data["pokemon"]:
             TIER_MAP[pokemon.lower()] = tier_data["score"]
 
-NARRATIVE_TAGS = TIER_CONFIG.get("narrative_tags", {})
+NARRATIVE_TAGS: list[tuple[str, float, list[str]]] = []
+for tag_info in TIER_CONFIG.get("narrative_tags", {}).values():
+    if isinstance(tag_info, dict):
+        tag_score = float(tag_info.get("score", 0))
+        keywords = tag_info.get("keywords", [])
+        NARRATIVE_TAGS.append((tag_score, keywords))
 
 ART_KEYWORDS = [
     "art", "beautiful", "fire", "stunning", "gorgeous",
@@ -57,16 +62,13 @@ def get_aesthetic_score(keywords: list[str], mention_count: int) -> float:
     return score
 
 
-def get_narrative_score(name: str, set_name: str, extra_info: str = "") -> float:
-    text = f"{name} {set_name} {extra_info}".lower()
+def get_narrative_score(name: str, set_name: str, rarity: str = "", artist: str = "") -> float:
+    text = f"{name} {set_name} {rarity} {artist}".lower()
     best = 0.0
-    for tag_info in NARRATIVE_TAGS.values():
-        if not isinstance(tag_info, dict):
-            continue
-        tag_score = tag_info.get("score", 0)
-        for kw in tag_info.get("keywords", []):
+    for tag_score, keywords in NARRATIVE_TAGS:
+        for kw in keywords:
             if kw.lower() in text:
-                best = max(best, float(tag_score))
+                best = max(best, tag_score)
     return best if best > 0 else 10.0
 
 
@@ -92,11 +94,12 @@ def calculate_score(
     mention_count: int,
     psa10_pop: int,
     set_name: str = "",
-    extra_info: str = "",
+    rarity: str = "",
+    artist: str = "",
 ) -> CardScore:
     aesthetic = get_aesthetic_score(keywords, mention_count)
     ip = get_ip_score(pokemon_name)
-    narrative = get_narrative_score(name, set_name, extra_info)
+    narrative = get_narrative_score(name, set_name, rarity, artist)
     pop_mult = get_pop_multiplier(psa10_pop)
 
     base = aesthetic * 0.35 + ip * 0.40 + narrative * 0.25
@@ -107,8 +110,8 @@ def calculate_score(
         reasons.append(f"{pokemon_name} is a top-tier Pokemon")
     if aesthetic >= 70:
         reasons.append("strong art appeal")
-    if narrative >= 50:
-        reasons.append("narrative value detected")
+    if narrative >= 30:
+        reasons.append(f"narrative value: {narrative:.0f}")
     if pop_mult >= 1.10:
         reasons.append(f"PSA10 pop={psa10_pop}, very scarce")
 
@@ -124,5 +127,5 @@ def calculate_score(
         reason="; ".join(reasons) if reasons else "standard card",
     )
 
-    logger.debug("Scored %s: composite=%.2f (base=%.2f × %.2f)", name, composite, base, pop_mult)
+    logger.debug("Scored %s: composite=%.2f (base=%.2f x %.2f)", name, composite, base, pop_mult)
     return score

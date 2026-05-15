@@ -19,6 +19,9 @@ interface Card {
   id: number;
   name: string;
   pokemon: string;
+  image_url: string;
+  rarity: string;
+  artist: string;
   aesthetic: number;
   ip: number;
   narrative: number;
@@ -65,9 +68,17 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
         ← Back to rankings
       </button>
 
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold">{card.name}</h1>
-        <p className="text-gray-400 text-sm mt-1">{card.pokemon}</p>
+      <div className="flex gap-6 mb-8">
+        {card.image_url && (
+          <div className="w-48 shrink-0">
+            <img src={card.image_url} alt={card.name} className="w-full rounded-lg" />
+          </div>
+        )}
+        <div>
+          <h1 className="text-2xl font-bold">{card.name}</h1>
+          <p className="text-gray-400 text-sm mt-1">{card.rarity} · {card.artist}</p>
+          <p className="text-gray-500 text-sm mt-1">{card.pokemon}</p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">

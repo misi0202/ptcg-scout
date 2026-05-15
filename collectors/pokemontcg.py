@@ -8,23 +8,20 @@ logger = logging.getLogger(__name__)
 
 API_BASE = "https://api.pokemontcg.io/v2"
 
-MODERN_SETS = [
-    # Scarlet & Violet
-    "sv1", "sv2", "sv2a", "sv3", "sv3pt5", "sv4", "sv4pt5",
-    "sv5", "sv6", "sv6pt5", "sv7", "sv8", "sv8pt5", "sv9", "sv10",
-    # Sword & Shield
-    "swsh1", "swsh2", "swsh3", "swsh3pt5", "swsh4", "swsh4pt5",
-    "swsh5", "swsh6", "swsh7", "swsh8", "swsh9", "swsh10",
-    "swsh10pt5", "swsh11", "swsh12", "swsh12pt5",
-]
-
-POKEMON_NAMES = [
-    "pikachu", "charizard", "gengar", "mewtwo", "mew",
-    "umbreon", "espeon", "sylveon", "vaporeon", "jolteon", "flareon",
-    "rayquaza", "lugia", "ho-oh", "eevee", "gyarados", "dragonite",
-    "tyranitar", "gardevoir", "greninja", "mimikyu", "snorlax",
-    "blaziken", "darkrai", "celebi", "jirachi", "arceus",
-    "lucario", "zoroark", "garchomp", "metagross", "salamence",
+# Rarities to collect (IR/AR level and above)
+TARGET_RARITIES = [
+    "Illustration Rare",
+    "Special Illustration Rare",
+    "Art Rare",
+    "Ultra Rare",
+    "Hyper Rare",
+    "Secret Rare",
+    "Amazing Rare",
+    "Radiant Rare",
+    "Shiny Rare",
+    "Shiny Ultra Rare",
+    "ACE SPEC Rare",
+    "Master Ball",
 ]
 
 
@@ -35,16 +32,30 @@ class PokemonTCGCollector(BaseCollector):
         super().__init__(min_delay=1.0, max_delay=2.0)
         self.session.headers.update({"Accept": "application/json"})
 
+    def _get_all_sets(self) -> list[str]:
+        """Fetch all set IDs from the API."""
+        try:
+            resp = self.session.get(f"{API_BASE}/sets", params={"select": "id"}, timeout=30)
+            data = resp.json()
+            return [s["id"] for s in data.get("data", [])]
+        except Exception as e:
+            logger.error("[pokemontcg] Failed to fetch sets: %s", e)
+            return []
+
     def _fetch_cards(self, query: str, page_size: int = 50) -> list[dict]:
         url = f"{API_BASE}/cards"
         all_cards = []
         page = 1
-        while True:
-            params = {"q": query, "pageSize": page_size, "page": page,
-                       "select": "id,name,supertype,subtypes,set,number,rarity,artist,nationalPokedexNumbers,tcgplayer,cardmarket"}
+        while page <= 10:  # safety limit
+            params = {
+                "q": query,
+                "pageSize": page_size,
+                "page": page,
+                "select": "id,name,supertype,subtypes,set,number,rarity,artist,images,tcgplayer,cardmarket",
+            }
             resp = self.session.get(url, params=params, timeout=30)
             if resp.status_code != 200:
-                logger.warning("[pokemontcg] %d for query=%s page=%d", resp.status_code, query[:50], page)
+                logger.warning("[pokemontcg] %d for query=%s page=%d", resp.status_code, query[:60], page)
                 break
 
             data = resp.json()
@@ -62,16 +73,35 @@ class PokemonTCGCollector(BaseCollector):
         seen = set()
 
         try:
-            # Fetch cards by set
-            for set_id in MODERN_SETS:
-                cards = self._fetch_cards(f"set.id:{set_id}")
-                for card in cards:
+            # First, get all sets
+            all_sets = self._get_all_sets()
+            logger.info("[pokemontcg] Found %d sets total", len(all_sets))
+
+            # Build rarity filter for query
+            rarity_query = " OR ".join(f'rarity:"{r}"' for r in TARGET_RARITIES)
+
+            for set_id in all_sets:
+                # Fetch high-rarity cards from this set
+                query = f'set.id:{set_id} ({rarity_query})'
+                cards = self._fetch_cards(query)
+
+                promo_cards = []
+                # Also fetch promos from this set (regardless of rarity)
+                try:
+                    promo_query = f'set.id:{set_id} subtypes:promo'
+                    promo_cards = self._fetch_cards(promo_query)
+                except Exception:
+                    pass
+
+                all_set_cards = cards + promo_cards
+
+                for card in all_set_cards:
                     card_id = card.get("id", "")
                     if card_id in seen:
                         continue
                     seen.add(card_id)
 
-                    # Skip non-Pokemon cards
+                    # Skip non-Pokemon
                     supertype = card.get("supertype", "")
                     if supertype in ("Trainer", "Energy"):
                         continue
@@ -83,7 +113,6 @@ class PokemonTCGCollector(BaseCollector):
                     tcg = card.get("tcgplayer", {}) or {}
                     tcg_prices = tcg.get("prices", {}) or {}
 
-                    # Use holofoil/reverseHolofoil market price, fallback to normal
                     price = None
                     for variant in ("reverseHolofoil", "holofoil", "normal"):
                         vp = tcg_prices.get(variant, {}) or {}
@@ -91,12 +120,12 @@ class PokemonTCGCollector(BaseCollector):
                             price = float(vp["market"])
                             break
 
-                    # Pokemon name comes from the card name itself
-                    # (API card names contain the Pokemon name directly)
-                    pokemon_name = name
-
                     rarity = card.get("rarity", "") or ""
                     artist = card.get("artist", "") or ""
+                    images = card.get("images", {}) or {}
+                    image_url = images.get("large") or images.get("small") or ""
+
+                    pokemon_name = name
 
                     results.append(CardData(
                         name=name,
@@ -108,15 +137,17 @@ class PokemonTCGCollector(BaseCollector):
                         extra={
                             "rarity": rarity,
                             "artist": artist,
-                            "tcgplayer_low": tcg_prices.get("normal", {}).get("low") if tcg_prices else None,
-                            "tcgplayer_mid": tcg_prices.get("normal", {}).get("mid") if tcg_prices else None,
-                            "tcgplayer_high": tcg_prices.get("normal", {}).get("high") if tcg_prices else None,
+                            "image_url": image_url,
+                            "tcgplayer_low": (tcg_prices.get("normal", {}) or {}).get("low"),
+                            "tcgplayer_mid": (tcg_prices.get("normal", {}) or {}).get("mid"),
+                            "tcgplayer_high": (tcg_prices.get("normal", {}) or {}).get("high"),
                         },
                     ))
 
-                logger.info("[pokemontcg] Set %s: %d cards (total: %d)", set_id, len(cards), len(results))
+                if all_set_cards:
+                    logger.info("[pokemontcg] Set %s: %d cards (total: %d)", set_id, len(all_set_cards), len(results))
 
-            logger.info("[pokemontcg] Collected %d cards from %d sets", len(results), len(MODERN_SETS))
+            logger.info("[pokemontcg] Collected %d high-rarity cards from %d sets", len(results), len(all_sets))
 
         except Exception as e:
             logger.error("[pokemontcg] Collection failed: %s", e)
