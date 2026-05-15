@@ -1,0 +1,55 @@
+{
+  "tier_1": {
+    "score": 100,
+    "pokemon": [
+      "Pikachu", "Charizard", "Gengar", "Mewtwo", "Mew", "Umbreon",
+      "Espeon", "Sylveon", "Vaporeon", "Jolteon", "Flareon", "Eevee",
+      "Rayquaza", "Lugia", "Ho-Oh"
+    ]
+  },
+  "tier_2": {
+    "score": 85,
+    "pokemon": [
+      "Gyarados", "Dragonite", "Tyranitar", "Gardevoir", "Lucario",
+      "Greninja", "Mimikyu", "Snorlax", "Blaziken", "Darkrai",
+      "Celebi", "Jirachi", "Arceus", "Zacian", "Zamazenta"
+    ]
+  },
+  "tier_3": {
+    "score": 70,
+    "pokemon": [
+      "Machamp", "Alakazam", "Lapras", "Scizor", "Houndoom",
+      "Absol", "Salamence", "Metagross", "Garchomp", "Zoroark",
+      "Chandelure", "Hydreigon", "Aegislash", "Toxtricity"
+    ]
+  },
+  "tier_4": {
+    "score": 50,
+    "pokemon": [
+      "Venusaur", "Blastoise", "Pidgeot", "Nidoking", "Nidoqueen",
+      "Arcanine", "Scyther", "Electabuzz", "Magmar", "Aerodactyl"
+    ]
+  },
+  "narrative_tags": {
+    "anniversary": {
+      "score": 100,
+      "keywords": ["15th", "20th", "25th", "30th", "anniversary", "周年", "anniv"]
+    },
+    "collaboration": {
+      "score": 90,
+      "keywords": ["collab", "collaboration", "联名", "x ", " × "]
+    },
+    "special_artist": {
+      "score": 85,
+      "keywords": ["Mitsuhiro Arita", "Ken Sugimori", "Hitoshi Ariga", "TOKIYA", "Naoki Saito"]
+    },
+    "retired_artist": {
+      "score": 95,
+      "keywords": ["retired", "final", "last work", "遗作"]
+    },
+    "historical_moment": {
+      "score": 80,
+      "keywords": ["first", "premiere", "debut", "首次", "初登场"]
+    }
+  }
+}

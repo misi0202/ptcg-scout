@@ -1,0 +1,39 @@
+name: PTCG Daily Scout
+
+on:
+  schedule:
+    - cron: "0 22 * * *"  # UTC 22:00 = BJT 06:00
+  workflow_dispatch:       # manual trigger
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Scout
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: python main.py
+
+      - name: Commit data updates
+        run: |
+          git config user.name "ptcg-scout[bot]"
+          git config user.email "bot@ptcg-scout.local"
+          git add data/
+          git diff --cached --quiet || git commit -m "Update card data ($(date +%Y-%m-%d))"
+          git push
