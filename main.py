@@ -139,6 +139,7 @@ def run_scoring(conn) -> list[dict]:
 
 
 def save_history_snapshot(results: list[dict]):
+    os.makedirs(HISTORY_DIR, exist_ok=True)
     today = date.today().isoformat()
     path = os.path.join(HISTORY_DIR, f"{today}.json")
     with open(path, "w", encoding="utf-8") as f:

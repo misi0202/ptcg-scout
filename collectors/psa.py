@@ -7,7 +7,6 @@ from .base import BaseCollector, CardData
 logger = logging.getLogger(__name__)
 
 PSA_POP_URL = "https://www.psacard.com/pop/tcg-cards/pokemon/"
-PSA_CERT_URL = "https://www.psacard.com/cert/"
 
 
 class PSACollector(BaseCollector):
@@ -15,29 +14,55 @@ class PSACollector(BaseCollector):
 
     def __init__(self):
         super().__init__(min_delay=4.0, max_delay=8.0)
+        self.session.headers.update({
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
 
     def collect(self) -> list[CardData]:
         results = []
         try:
             resp = self.get(PSA_POP_URL)
+            logger.info("[psa] Response size: %d, status: %d",
+                       len(resp.text), resp.status_code)
+
             soup = BeautifulSoup(resp.text, "lxml")
 
-            rows = soup.select("table.pop-report-table tbody tr")
+            row_selectors = [
+                "table.pop-report-table tbody tr",
+                "table[class*=pop] tbody tr",
+                "table tbody tr",
+                "div[class*=table] div[class*=row]",
+            ]
+
+            rows = []
+            for sel in row_selectors:
+                rows = soup.select(sel)
+                if rows:
+                    logger.info("[psa] Matched %d rows with: %s", len(rows), sel)
+                    break
+
             for row in rows:
-                cells = row.select("td")
-                if len(cells) < 5:
+                cells = row.select("td") or row.select("div[class*=cell]")
+                if len(cells) < 4:
                     continue
 
                 card_name = cells[0].get_text(strip=True)
-                total_pop_text = cells[2].get_text(strip=True)
-                psa10_text = cells[4].get_text(strip=True) if len(cells) > 4 else "0"
+                if not card_name or len(card_name) < 3:
+                    continue
 
-                try:
-                    total_pop = int(total_pop_text.replace(",", ""))
-                    psa10_pop = int(psa10_text.replace(",", ""))
-                except ValueError:
-                    total_pop = 0
-                    psa10_pop = 0
+                total_pop = 0
+                psa10_pop = 0
+                for i, cell in enumerate(cells):
+                    text = cell.get_text(strip=True).replace(",", "")
+                    if "10" in card_name and i == 0:
+                        continue
+                    if text.isdigit():
+                        val = int(text)
+                        if i == len(cells) - 1 or psa10_pop == 0:
+                            psa10_pop = val
+                        else:
+                            total_pop = val if val > total_pop else total_pop
 
                 results.append(CardData(
                     name=card_name,
@@ -45,7 +70,7 @@ class PSACollector(BaseCollector):
                     source="psa",
                     extra={
                         "psa10_pop": psa10_pop,
-                        "psa_total_pop": total_pop,
+                        "psa_total_pop": total_pop or psa10_pop,
                     },
                 ))
 
