@@ -10,39 +10,39 @@ interface Snapshot {
 }
 
 export default function History({ snapshots }: { snapshots: Snapshot[] }) {
-  const [expanded, setExpanded] = useState<string>("");
+  const [expanded, setExpanded] = useState("");
 
   return (
-    <div className="min-h-screen p-6 max-w-4xl mx-auto">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold">历史快照</h1>
-        <p className="text-gray-400 mt-2">回溯每日评分快照（最近30天）</p>
+    <div className="min-h-screen px-4 py-8 max-w-3xl mx-auto relative z-10" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      <header className="mb-10 text-center">
+        <h1 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+          History <span className="text-amber-500">Snapshots</span>
+        </h1>
+        <p className="text-stone-500 text-sm">Last 30 days of card rankings</p>
       </header>
 
       <div className="space-y-2">
-        {snapshots.map((s) => (
-          <div key={s.date}>
+        {snapshots.map((s, i) => (
+          <div key={s.date} className="stagger-item" style={{ animationDelay: `${i * 40}ms` }}>
             <button
               onClick={() => setExpanded(expanded === s.date ? "" : s.date)}
-              className="w-full text-left bg-gray-900 border border-gray-800 rounded-lg p-4 hover:border-gray-700 transition-colors"
+              className="w-full text-left glass-card p-4 transition-all duration-200"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold">{s.date}</h3>
-                  <p className="text-xs text-gray-500">{s.count} cards · TOP: {s.topCard}</p>
+                  <h3 className="font-semibold text-sm">{s.date}</h3>
+                  <p className="text-xs text-stone-400">{s.count} cards · #{s.topCard}</p>
                 </div>
-                <span className="text-gray-500 text-sm">
-                  {expanded === s.date ? "收起 ↑" : "展开 →"}
-                </span>
+                <span className="text-stone-300 text-xs">{expanded === s.date ? "Collapse ↑" : "Expand →"}</span>
               </div>
             </button>
 
             {expanded === s.date && (
-              <div className="bg-gray-900 border border-gray-800 border-t-0 rounded-b-lg p-4 ml-4">
-                {s.topCards.map((c, i) => (
-                  <div key={i} className="flex justify-between py-1 text-sm">
-                    <span className="text-gray-300">{i + 1}. {c.name}</span>
-                    <span className="text-gray-400">{c.composite.toFixed(0)}</span>
+              <div className="glass-card mt-1 p-4 ml-4 rounded-lg">
+                {s.topCards.map((c, j) => (
+                  <div key={j} className="flex justify-between py-1 text-sm">
+                    <span className="text-stone-600">{j + 1}. {c.name}</span>
+                    <span className="font-semibold">{c.composite.toFixed(0)}</span>
                   </div>
                 ))}
               </div>
@@ -51,7 +51,7 @@ export default function History({ snapshots }: { snapshots: Snapshot[] }) {
         ))}
 
         {snapshots.length === 0 && (
-          <p className="text-gray-500 text-center py-12">暂无历史快照。数据将在每日运行后累积。</p>
+          <p className="text-center text-stone-400 py-12">No history yet. Data accumulates after daily runs.</p>
         )}
       </div>
     </div>
@@ -70,13 +70,10 @@ export async function getStaticProps() {
         count: content.length,
         topCard: content[0]?.name || "",
         topCards: content.slice(0, 5).map((c: any) => ({
-          name: c.name || "?",
-          composite: c.composite || 0,
+          name: c.name || "?", composite: c.composite || 0,
         })),
       };
     });
-  } catch {
-    // no data
-  }
+  } catch {}
   return { props: { snapshots } };
 }

@@ -2,6 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --accent-gold: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #fbbf24 100%);
+  --accent-blue: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
+  --accent-rose: linear-gradient(135deg, #f43f5e 0%, #ec4899 50%, #d946ef 100%);
+  --surface: #fafaf9;
+  --surface-card: rgba(255, 255, 255, 0.7);
+}
+
 body {
-  @apply bg-gray-950 text-gray-100;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: linear-gradient(135deg, #fefce8 0%, #f0f9ff 30%, #fdf2f8 60%, #fefce8 100%);
+  background-attachment: fixed;
+  color: #1c1917;
+  min-height: 100vh;
+}
+
+/* Animated gradient orb backgrounds */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, transparent 70%);
+  animation: orbFloat1 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -20%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  animation: orbFloat2 25s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 3%) scale(1.05); }
+  66% { transform: translate(-2%, 5%) scale(0.95); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-4%, -2%) scale(0.95); }
+  66% { transform: translate(3%, -4%) scale(1.05); }
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* Animated gradient border for hero */
+.gradient-border {
+  position: relative;
+  border-radius: 1.25rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1.35rem;
+  padding: 2px;
+  background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6, #3b82f6, #f59e0b);
+  background-size: 400% 400%;
+  animation: gradientSpin 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+@keyframes gradientSpin {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Staggered fade-in */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.5s ease forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Score badge gradient */
+.score-badge-high {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+.score-badge-mid {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+}
+
+/* Market price tag */
+.price-tag {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
+/* Row of 5 cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1280px) { .card-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1024px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Number tag */
+.rank-number {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
 }

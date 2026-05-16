@@ -14,55 +14,55 @@ interface Box {
 
 export default function Boxes({ boxes }: { boxes: Box[] }) {
   const [filter, setFilter] = useState("");
-
-  const filtered = filter
-    ? boxes.filter((b) => b.name.includes(filter) || b.set_name.includes(filter))
-    : boxes;
+  const filtered = filter ? boxes.filter((b) => b.name.includes(filter) || b.set_name.includes(filter)) : boxes;
 
   return (
-    <div className="min-h-screen p-6 max-w-4xl mx-auto">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold">卡盒追踪</h1>
-        <p className="text-gray-400 mt-2">监测卡盒低点信号</p>
+    <div className="min-h-screen px-4 py-8 max-w-4xl mx-auto relative z-10" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      <header className="mb-10 text-center">
+        <h1 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+          Box <span className="text-amber-500">Tracker</span>
+        </h1>
+        <p className="text-stone-500 text-sm">Reprint alerts & price low points</p>
       </header>
 
       <input
         type="text"
-        placeholder="搜索卡盒..."
-        className="bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm w-full max-w-sm mb-6"
+        placeholder="Search boxes..."
+        className="w-full max-w-sm mx-auto block mb-8 px-4 py-2.5 rounded-xl bg-white/60 backdrop-blur border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
 
       <div className="space-y-3">
-        {filtered.map((box) => (
+        {filtered.map((box, i) => (
           <div
-            key={box.id}
-            className={`bg-gray-900 border rounded-lg p-4 ${
-              box.low_point_alert ? "border-yellow-600" : "border-gray-800"
+            key={box.id || i}
+            className={`glass-card p-5 flex items-center justify-between stagger-item ${
+              box.low_point_alert ? "border-amber-300" : ""
             }`}
+            style={{ animationDelay: `${i * 50}ms` }}
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-semibold">{box.name}</h3>
-                <p className="text-xs text-gray-500">{box.set_name}</p>
-              </div>
-              <div className="text-right">
+            <div>
+              <h3 className="font-semibold">{box.name}</h3>
+              <p className="text-xs text-stone-400">{box.set_name}</p>
+            </div>
+            <div className="text-right">
+              {box.current_price > 0 && (
                 <div className="text-lg font-bold">${box.current_price.toFixed(2)}</div>
-                <span className={`text-xs px-2 py-0.5 rounded ${
-                  box.low_point_alert
-                    ? "bg-yellow-900 text-yellow-400"
-                    : "bg-gray-800 text-gray-400"
-                }`}>
-                  {box.low_point_alert ? "低点信号" : box.reprint_status || "正常"}
-                </span>
-              </div>
+              )}
+              <span className={`text-xs px-2 py-0.5 rounded-full border ${
+                box.low_point_alert
+                  ? "bg-amber-50 border-amber-200 text-amber-700"
+                  : "bg-stone-50 border-stone-200 text-stone-500"
+              }`}>
+                {box.low_point_alert ? "Low Point Signal" : box.reprint_status}
+              </span>
             </div>
           </div>
         ))}
 
         {filtered.length === 0 && (
-          <p className="text-gray-500 text-center py-12">暂无数据</p>
+          <p className="text-center text-stone-400 py-12">No box data yet</p>
         )}
       </div>
     </div>
@@ -72,10 +72,6 @@ export default function Boxes({ boxes }: { boxes: Box[] }) {
 export async function getStaticProps() {
   const dataPath = path.join(process.cwd(), "..", "data", "boxes.json");
   let boxes: Box[] = [];
-  try {
-    boxes = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-  } catch {
-    // no data
-  }
+  try { boxes = JSON.parse(fs.readFileSync(dataPath, "utf-8")); } catch {}
   return { props: { boxes } };
 }
