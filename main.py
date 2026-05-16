@@ -6,7 +6,7 @@ from datetime import date
 
 from dotenv import load_dotenv
 
-from collectors import PokemonTCGCollector, RedditCollector
+from collectors import EbayCollector, PokemonTCGCollector, RedditCollector
 from collectors.justtcg import enrich_top_cards
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
@@ -38,6 +38,7 @@ def save_json(filename: str, data):
 def collect_all():
     collectors = [
         PokemonTCGCollector(),
+        EbayCollector(),
         RedditCollector(),
     ]
     all_data = []
