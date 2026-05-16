@@ -1,28 +1,10 @@
-# API Conventions
+# APIs & Auth
+Keys in `.env` → `os.getenv()` → GitHub Secrets → workflow env vars. `.env.example` tracks key names without values.
 
-## Authentication
-- All API keys live in `.env` → loaded via `python-dotenv` → accessed via `os.getenv("KEY_NAME")`
-- Keys passed to GitHub Actions via `secrets.*` → injected as env vars in workflow
-- `.env.example` tracks required keys without values
+**No-auth APIs**: PokemonTCG (`api.pokemontcg.io/v2`): paginated `page`/`pageSize`, filter `q=field:value`, select fields. Reddit: `old.reddit.com/r/{sub}/hot.json` → `data.children[].data`.
 
-## External API Patterns
+**Auth APIs**: JustTCG (`x-api-key` header, 100 req/day): query `game=pokemon-japan`, filter variants by `language`/`condition` client-side. **Daily-cache Everything**: never repeat same query in one day.
 
-### Free / No-Auth APIs
-- **Pokemon TCG API** (`api.pokemontcg.io/v2`): no key, JSON responses, paginated with `page`/`pageSize`. Filter with `q=` parameter using field:value syntax (`set.id:sv1`, `rarity:"Illustration Rare"`). Select specific fields with `select=id,name,set,tcgplayer`.
-- **Reddit public JSON** (`old.reddit.com/r/{sub}/hot.json`): no key, returns nested `data.children[].data`. Rate limit: ~2s between requests.
+**Scraping**: eBay: cookie-prime homepage → search `LH_Sold=1&LH_Complete=1` → parse `li.s-item`. IP-rate-limited — works on CI fresh IP, may 403 locally.
 
-### Authenticated APIs
-- **JustTCG** (`api.justtcg.com/v1`): `x-api-key` header. Free tier: 100 req/day. Query `game=pokemon-japan` for JP cards. Variants embedded in response, filter by `language`/`condition` client-side. **Must daily-cache results** — never make the same query twice in one day.
-
-### Web Scraping
-- **eBay sold listings**: cookie-prime homepage first, then search `LH_Sold=1&LH_Complete=1`. Parse with BeautifulSoup+lxml, selector `li.s-item`. **IP-rate-limited** — works on GitHub Actions (fresh IP), may 403 locally after repeated requests.
-
-## Graceful Degradation
-- All collectors return `[]` when API key missing, 403, or rate-limited
-- Log warning never throw on API failure
-- `os.getenv("KEY")` check at top of `collect()` method, return early if missing
-
-## Data Model
-- Unified output: `CardData` dataclass (`collectors/base.py`)
-- Standard fields: name, set_name, card_number, pokemon_name, price, condition, sale_date, source
-- Extended fields in `extra: dict` (artist, rarity, image_url, jp_*, grade, keywords)
+**Degradation**: Every collector checks `os.getenv("KEY")` first → missing key = `return []`. Wrap `collect()` in try/except → log warning, never throw. All sources return `list[CardData]` (standard fields + `extra: dict`).
