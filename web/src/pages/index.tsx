@@ -10,6 +10,7 @@ interface Card {
   image_url: string;
   rarity: string;
   artist: string;
+  set_name: string;
   aesthetic: number;
   ip: number;
   narrative: number;
@@ -19,6 +20,7 @@ interface Card {
   signal_label: string;
   reason: string;
   avg_price_30d: number;
+  cm_price: number;
   price_change_pct: number;
   volume_30d: number;
   supply_demand_ratio: number;
@@ -33,10 +35,16 @@ const SIGNAL_COLORS: Record<string, string> = {
   insufficient_data: "text-gray-500",
 };
 
+const MARKET_LABELS: Record<string, string> = {
+  us: "TCGPlayer",
+  eu: "Cardmarket",
+};
+
 export default function Home({ cards }: { cards: Card[] }) {
   const [sortKey, setSortKey] = useState<string>("composite");
   const [filterPokemon, setFilterPokemon] = useState("");
   const [filterSignal, setFilterSignal] = useState("");
+  const [market, setMarket] = useState<"us" | "eu">("us");
 
   const sorted = useMemo(() => {
     let list = [...cards];
@@ -78,7 +86,6 @@ export default function Home({ cards }: { cards: Card[] }) {
           <option value="aesthetic">审美共识</option>
           <option value="narrative">叙事价值</option>
           <option value="pop_mult">稀有度</option>
-          <option value="price_change_pct">30天涨幅</option>
           <option value="avg_price_30d">均价</option>
         </select>
 
@@ -105,57 +112,72 @@ export default function Home({ cards }: { cards: Card[] }) {
           <option value="watch">🔵 关注</option>
         </select>
 
-        <div className="ml-auto text-sm text-gray-500 self-center">
-          {sorted.length} cards
+        <div className="flex items-center gap-2 ml-auto">
+          <span className="text-xs text-gray-500">Market:</span>
+          {(["us", "eu"] as const).map((m) => (
+            <button
+              key={m}
+              onClick={() => setMarket(m)}
+              className={`px-3 py-1.5 text-xs rounded border transition-colors ${
+                market === m
+                  ? "bg-blue-600 border-blue-500 text-white"
+                  : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-600"
+              }`}
+            >
+              {MARKET_LABELS[m]}
+            </button>
+          ))}
+          <span className="text-xs text-gray-600 ml-2">{sorted.length} cards</span>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {sorted.map((card) => (
-          <Link
-            key={card.id}
-            href={`/card/${card.id}`}
-            className="block bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-gray-700 transition-colors"
-          >
-            {card.image_url && (
-              <div className="aspect-[2.5/3.5] overflow-hidden bg-gray-800">
-                <img
-                  src={card.image_url}
-                  alt={card.name}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            )}
-            <div className="p-4">
-              <div className="flex items-start justify-between mb-1">
-                <h3 className="font-semibold text-sm truncate flex-1 mr-2">
-                  {card.name}
-                </h3>
-                <span className="text-lg font-bold tabular-nums shrink-0">
-                  {card.composite.toFixed(0)}
-                </span>
-              </div>
-              <div className="text-xs text-gray-500 mb-2">{card.rarity} · {card.artist}</div>
-              <div className="flex gap-2 text-xs mb-2">
-                <span className="bg-gray-800 px-2 py-0.5 rounded">IP {card.ip.toFixed(0)}</span>
-                <span className="bg-gray-800 px-2 py-0.5 rounded">审美 {card.aesthetic.toFixed(0)}</span>
-                <span className="bg-gray-800 px-2 py-0.5 rounded">叙事 {card.narrative.toFixed(0)}</span>
-              </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className={SIGNAL_COLORS[card.signal] || "text-gray-400"}>
-                  {card.signal_label}
-                </span>
-                <span className="text-gray-500">
-                  ${card.avg_price_30d.toFixed(2)}
-                  <span className={card.price_change_pct >= 0 ? "text-green-400 ml-1" : "text-red-400 ml-1"}>
-                    {card.price_change_pct >= 0 ? "+" : ""}{card.price_change_pct.toFixed(1)}%
+        {sorted.map((card) => {
+          const price = market === "eu" && card.cm_price ? card.cm_price : card.avg_price_30d;
+          const priceLabel = market === "eu" ? "€" : "$";
+          return (
+            <Link
+              key={card.id}
+              href={`/card/${card.id}`}
+              className="block bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-gray-700 transition-colors"
+            >
+              {card.image_url && (
+                <div className="aspect-[2.5/3.5] overflow-hidden bg-gray-800">
+                  <img
+                    src={card.image_url}
+                    alt={card.name}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="p-4">
+                <div className="flex items-start justify-between mb-1">
+                  <h3 className="font-semibold text-sm truncate flex-1 mr-2">
+                    {card.name}
+                  </h3>
+                  <span className="text-lg font-bold tabular-nums shrink-0">
+                    {card.composite.toFixed(0)}
                   </span>
-                </span>
+                </div>
+                <div className="text-xs text-gray-500 mb-2">{card.set_name} · {card.rarity}</div>
+                <div className="flex gap-2 text-xs mb-2">
+                  <span className="bg-gray-800 px-2 py-0.5 rounded">IP {card.ip.toFixed(0)}</span>
+                  <span className="bg-gray-800 px-2 py-0.5 rounded">美 {card.aesthetic.toFixed(0)}</span>
+                  <span className="bg-gray-800 px-2 py-0.5 rounded">叙 {card.narrative.toFixed(0)}</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className={SIGNAL_COLORS[card.signal] || "text-gray-400"}>
+                    {card.signal_label}
+                  </span>
+                  <span className="text-gray-500">
+                    {priceLabel}{price.toFixed(2)}
+                  </span>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
 
       <footer className="mt-12 text-center text-xs text-gray-600">

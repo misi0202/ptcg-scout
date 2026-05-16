@@ -130,6 +130,12 @@ def run_scoring(conn) -> list[dict]:
         sd = sd_analyze(conn, row["id"])
         signal = determine_signal(sd, mention_total)
 
+        cm_row = conn.execute(
+            "SELECT AVG(price) as avg_p FROM prices WHERE card_id=? AND source='cardmarket'",
+            (row["id"],),
+        ).fetchone()
+        cm_price = round(cm_row["avg_p"], 2) if cm_row and cm_row["avg_p"] else 0
+
         results.append({
             "id": score.card_id,
             "name": score.name,
@@ -144,6 +150,7 @@ def run_scoring(conn) -> list[dict]:
             "pop_mult": score.pop_multiplier,
             "composite": score.composite_score,
             "signal": signal,
+            "cm_price": cm_price,
             "signal_label": signal_label(signal),
             "reason": score.reason,
             "avg_price_30d": sd.avg_price_30d if sd else 0,
