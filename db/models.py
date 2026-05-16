@@ -23,11 +23,12 @@ def init_db():
 
 def insert_card(conn: sqlite3.Connection, name: str, set_name: str,
                 card_number: str = "", pokemon_name: str = "",
-                artist: str = "", rarity: str = "", image_url: str = "") -> int:
+                artist: str = "", rarity: str = "", image_url: str = "",
+                game: str = "pokemon") -> int:
     conn.execute(
-        """INSERT OR IGNORE INTO cards (name, set_name, card_number, pokemon_name, artist, rarity, image_url)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
-        (name, set_name, card_number, pokemon_name, artist, rarity, image_url),
+        """INSERT OR IGNORE INTO cards (name, set_name, card_number, pokemon_name, artist, rarity, image_url, game)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        (name, set_name, card_number, pokemon_name, artist, rarity, image_url, game),
     )
     row = conn.execute(
         "SELECT id FROM cards WHERE name=? AND set_name=?",

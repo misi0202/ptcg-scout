@@ -11,6 +11,7 @@ interface Card {
   rarity: string;
   artist: string;
   set_name: string;
+  game: string;
   aesthetic: number;
   ip: number;
   narrative: number;
@@ -21,6 +22,9 @@ interface Card {
   reason: string;
   avg_price_30d: number;
   cm_price: number;
+  jp_price: number;
+  jp_name: string;
+  jp_set: string;
   price_change_pct: number;
   volume_30d: number;
   supply_demand_ratio: number;
@@ -38,13 +42,15 @@ const SIGNAL_COLORS: Record<string, string> = {
 const MARKET_LABELS: Record<string, string> = {
   us: "TCGPlayer",
   eu: "Cardmarket",
+  jp: "JP Market",
 };
 
 export default function Home({ cards }: { cards: Card[] }) {
   const [sortKey, setSortKey] = useState<string>("composite");
   const [filterPokemon, setFilterPokemon] = useState("");
   const [filterSignal, setFilterSignal] = useState("");
-  const [market, setMarket] = useState<"us" | "eu">("us");
+  const [filterGame, setFilterGame] = useState<string>("all");
+  const [market, setMarket] = useState<"us" | "eu" | "jp">("us");
 
   const sorted = useMemo(() => {
     let list = [...cards];
@@ -56,13 +62,16 @@ export default function Home({ cards }: { cards: Card[] }) {
     if (filterSignal) {
       list = list.filter((c) => c.signal === filterSignal);
     }
+    if (filterGame !== "all") {
+      list = list.filter((c) => c.game === filterGame);
+    }
     list.sort((a, b) => {
       const ak = a[sortKey as keyof Card] as number;
       const bk = b[sortKey as keyof Card] as number;
       return (bk || 0) - (ak || 0);
     });
     return list;
-  }, [cards, sortKey, filterPokemon, filterSignal]);
+  }, [cards, sortKey, filterPokemon, filterSignal, filterGame]);
 
   const uniquePokemon = [...new Set(cards.map((c) => c.pokemon).filter(Boolean))].sort();
 
@@ -113,8 +122,23 @@ export default function Home({ cards }: { cards: Card[] }) {
         </select>
 
         <div className="flex items-center gap-2 ml-auto">
-          <span className="text-xs text-gray-500">Market:</span>
-          {(["us", "eu"] as const).map((m) => (
+          <span className="text-xs text-gray-500">Region:</span>
+          {(["all", "pokemon", "pokemon-jp"] as const).map((g) => (
+            <button
+              key={g}
+              onClick={() => setFilterGame(g)}
+              className={`px-3 py-1.5 text-xs rounded border transition-colors ${
+                filterGame === g
+                  ? "bg-blue-600 border-blue-500 text-white"
+                  : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-600"
+              }`}
+            >
+              {g === "all" ? "All" : g === "pokemon" ? "EN" : "JP"}
+            </button>
+          ))}
+          <span className="text-xs text-gray-600 mx-2">|</span>
+          <span className="text-xs text-gray-500">Price:</span>
+          {(["us", "eu", "jp"] as const).map((m) => (
             <button
               key={m}
               onClick={() => setMarket(m)}
@@ -133,8 +157,11 @@ export default function Home({ cards }: { cards: Card[] }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {sorted.map((card) => {
-          const price = market === "eu" && card.cm_price ? card.cm_price : card.avg_price_30d;
-          const priceLabel = market === "eu" ? "€" : "$";
+          const price =
+            market === "jp" && card.jp_price ? card.jp_price
+            : market === "eu" && card.cm_price ? card.cm_price
+            : card.avg_price_30d;
+          const priceLabel = market === "eu" ? "€" : market === "jp" ? "¥" : "$";
           return (
             <Link
               key={card.id}

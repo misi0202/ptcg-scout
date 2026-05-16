@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS cards (
     artist TEXT,
     rarity TEXT,
     image_url TEXT,
+    game TEXT DEFAULT 'pokemon',
     psa10_pop INTEGER DEFAULT 0,
     psa_total_pop INTEGER DEFAULT 0,
     UNIQUE(name, set_name, card_number)

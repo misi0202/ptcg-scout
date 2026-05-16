@@ -7,6 +7,7 @@ from datetime import date
 from dotenv import load_dotenv
 
 from collectors import DiscordCollector, PokemonTCGCollector, RedditCollector
+from collectors.tcgpricelookup import enrich_top_cards
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
 from analyzer.scoring import calculate_score, CardScore
@@ -63,6 +64,7 @@ def store_data(conn, all_data):
                 artist=item.extra.get("artist", ""),
                 rarity=item.extra.get("rarity", ""),
                 image_url=item.extra.get("image_url", ""),
+                game=item.extra.get("game", "pokemon"),
             )
             if item.price is not None and item.price > 0:
                 insert_price(
@@ -98,7 +100,7 @@ def store_data(conn, all_data):
 def run_scoring(conn) -> list[dict]:
     rows = conn.execute("""
         SELECT c.id, c.name, c.pokemon_name, c.set_name,
-               c.psa10_pop, c.psa_total_pop, c.rarity, c.artist, c.image_url
+               c.psa10_pop, c.psa_total_pop, c.rarity, c.artist, c.image_url, c.game
         FROM cards c
     """).fetchall()
 
@@ -144,6 +146,7 @@ def run_scoring(conn) -> list[dict]:
             "rarity": row["rarity"] or "",
             "artist": row["artist"] or "",
             "set_name": row["set_name"] or "",
+            "game": row["game"] or "pokemon",
             "aesthetic": score.aesthetic_score,
             "ip": score.ip_score,
             "narrative": score.narrative_score,
@@ -186,6 +189,9 @@ def main():
     top30 = run_scoring(conn)
     logger.info("TOP 30 scored, #1: %s (%.2f)", top30[0]["name"] if top30 else "N/A",
                 top30[0]["composite"] if top30 else 0)
+
+    # Enrich with JP market data
+    top30 = enrich_top_cards(top30, max_lookups=30)
 
     save_json("cards.json", top30)
     save_history_snapshot(top30)
