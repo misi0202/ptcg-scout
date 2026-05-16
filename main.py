@@ -7,7 +7,7 @@ from datetime import date
 from dotenv import load_dotenv
 
 from collectors import DiscordCollector, PokemonTCGCollector, RedditCollector
-from collectors.tcgpricelookup import enrich_top_cards
+from collectors.justtcg import enrich_top_cards
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
 from analyzer.scoring import calculate_score, CardScore
@@ -163,7 +163,7 @@ def run_scoring(conn) -> list[dict]:
         })
 
     results.sort(key=lambda x: x["composite"], reverse=True)
-    return results[:30]
+    return results[:50]
 
 
 def save_history_snapshot(results: list[dict]):
@@ -186,15 +186,15 @@ def main():
 
     store_data(conn, all_data)
 
-    top30 = run_scoring(conn)
-    logger.info("TOP 30 scored, #1: %s (%.2f)", top30[0]["name"] if top30 else "N/A",
-                top30[0]["composite"] if top30 else 0)
+    top50 = run_scoring(conn)
+    logger.info("TOP 50 scored, #1: %s (%.2f)", top50[0]["name"] if top50 else "N/A",
+                top50[0]["composite"] if top50 else 0)
 
     # Enrich with JP market data
-    top30 = enrich_top_cards(top30, max_lookups=30)
+    top50 = enrich_top_cards(top50, max_lookups=30)
 
-    save_json("cards.json", top30)
-    save_history_snapshot(top30)
+    save_json("cards.json", top50)
+    save_history_snapshot(top50)
 
     boxes = analyze_boxes()
     save_boxes(boxes)
@@ -202,11 +202,11 @@ def main():
 
     conn.close()
 
-    top10 = top30[:10]
+    top10 = top50[:10]
     send_daily_report(top10)
 
     alerts = [
-        c for c in top30
+        c for c in top50
         if abs(c["price_change_pct"]) > 10
     ]
     if alerts:
