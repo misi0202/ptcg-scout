@@ -22,6 +22,7 @@ TARGET_RARITIES = [
     "Shiny Ultra Rare",
     "ACE SPEC Rare",
     "Master Ball",
+    "Promo",
 ]
 
 
@@ -81,19 +82,11 @@ class PokemonTCGCollector(BaseCollector):
             rarity_query = " OR ".join(f'rarity:"{r}"' for r in TARGET_RARITIES)
 
             for set_id in all_sets:
-                # Fetch high-rarity cards from this set
+                # Fetch high-rarity cards from this set (Promo included in rarity filter)
                 query = f'set.id:{set_id} ({rarity_query})'
                 cards = self._fetch_cards(query)
 
-                promo_cards = []
-                # Also fetch promos from this set (regardless of rarity)
-                try:
-                    promo_query = f'set.id:{set_id} subtypes:promo'
-                    promo_cards = self._fetch_cards(promo_query)
-                except Exception:
-                    pass
-
-                all_set_cards = cards + promo_cards
+                all_set_cards = cards
 
                 for card in all_set_cards:
                     card_id = card.get("id", "")
@@ -127,6 +120,10 @@ class PokemonTCGCollector(BaseCollector):
 
                     pokemon_name = name
 
+                    cm = card.get("cardmarket", {}) or {}
+                    cm_prices = cm.get("prices", {}) or {}
+                    cm_price = cm_prices.get("trendPrice") or cm_prices.get("averageSellPrice")
+
                     results.append(CardData(
                         name=name,
                         set_name=set_name,
@@ -141,6 +138,8 @@ class PokemonTCGCollector(BaseCollector):
                             "tcgplayer_low": (tcg_prices.get("normal", {}) or {}).get("low"),
                             "tcgplayer_mid": (tcg_prices.get("normal", {}) or {}).get("mid"),
                             "tcgplayer_high": (tcg_prices.get("normal", {}) or {}).get("high"),
+                            "cardmarket_trend": cm_prices.get("trendPrice"),
+                            "cardmarket_avg": cm_price,
                         },
                     ))
 

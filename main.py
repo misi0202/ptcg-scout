@@ -70,6 +70,17 @@ def store_data(conn, all_data):
                     price=item.price, condition=item.condition,
                     sale_date=item.sale_date,
                 )
+            # Also store cardmarket price if available
+            cm_price = item.extra.get("cardmarket_avg")
+            if cm_price and cm_price > 0:
+                try:
+                    insert_price(
+                        conn, card_id=card_id, source="cardmarket",
+                        price=float(cm_price), condition=item.condition,
+                        sale_date=item.sale_date,
+                    )
+                except (ValueError, TypeError):
+                    pass
             if item.source in ("reddit", "discord") and item.pokemon_name:
                 mention_count = item.extra.get("score") or item.extra.get("reactions") or 1
                 mention_date = item.extra.get("created_utc") or item.extra.get("timestamp") or ""
@@ -126,6 +137,7 @@ def run_scoring(conn) -> list[dict]:
             "image_url": row["image_url"] or "",
             "rarity": row["rarity"] or "",
             "artist": row["artist"] or "",
+            "set_name": row["set_name"] or "",
             "aesthetic": score.aesthetic_score,
             "ip": score.ip_score,
             "narrative": score.narrative_score,

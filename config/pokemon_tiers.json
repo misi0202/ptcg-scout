@@ -38,11 +38,19 @@
     },
     "collaboration": {
       "score": 90,
-      "keywords": ["collab", "collaboration", "联名", " × ", " x Pokemon", "Pokemon x "]
+      "keywords": [
+        "collab", "collaboration", "联名",
+        " × ", " x Pokemon", "Pokemon x ",
+        "Van Gogh", "Grey Felt Hat", "Munch", "museum"
+      ]
     },
     "special_artist": {
       "score": 85,
-      "keywords": ["Mitsuhiro Arita", "Ken Sugimori", "Hitoshi Ariga", "TOKIYA", "Naoki Saito"]
+      "keywords": [
+        "Mitsuhiro Arita", "Ken Sugimori", "Hitoshi Ariga", "TOKIYA",
+        "Naoki Saito", "Naoyo Kimura", "Shinji Kanda", "sowsow",
+        "Gemi", "DOM", "Saya Tsuruta", "Akira Egawa"
+      ]
     },
     "retired_artist": {
       "score": 95,
