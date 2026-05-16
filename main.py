@@ -6,7 +6,7 @@ from datetime import date
 
 from dotenv import load_dotenv
 
-from collectors import DiscordCollector, PokemonTCGCollector, RedditCollector
+from collectors import PokemonTCGCollector, RedditCollector
 from collectors.justtcg import enrich_top_cards
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
@@ -39,7 +39,6 @@ def collect_all():
     collectors = [
         PokemonTCGCollector(),
         RedditCollector(),
-        DiscordCollector(),
     ]
     all_data = []
     for collector in collectors:
@@ -83,7 +82,7 @@ def store_data(conn, all_data):
                     )
                 except (ValueError, TypeError):
                     pass
-            if item.source in ("reddit", "discord") and item.pokemon_name:
+            if item.source == "reddit" and item.pokemon_name:
                 mention_count = item.extra.get("score") or item.extra.get("reactions") or 1
                 mention_date = item.extra.get("created_utc") or item.extra.get("timestamp") or ""
                 insert_mention(
