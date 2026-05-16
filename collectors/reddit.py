@@ -4,8 +4,6 @@ import logging
 import time
 from datetime import datetime
 
-import requests
-
 from .base import BaseCollector, CardData
 
 logger = logging.getLogger(__name__)
@@ -33,25 +31,43 @@ class RedditCollector(BaseCollector):
     name = "reddit"
 
     def __init__(self):
-        super().__init__(min_delay=2.0, max_delay=4.0)
+        super().__init__(min_delay=3.0, max_delay=5.0)
         self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            ),
+            "Accept": "application/json, text/plain, */*",
         })
 
     def _fetch_subreddit(self, subreddit: str, sort: str = "hot", limit: int = 50) -> list[dict]:
-        url = f"https://old.reddit.com/r/{subreddit}/{sort}.json?limit={limit}"
-        try:
-            resp = self.session.get(url, timeout=20)
-            if resp.status_code != 200:
+        url = f"https://www.reddit.com/r/{subreddit}/{sort}.json?limit={limit}"
+        for attempt in range(3):
+            try:
+                resp = self.session.get(url, timeout=20)
+
+                if resp.status_code == 200:
+                    data = resp.json()
+                    posts = data.get("data", {}).get("children", [])
+                    return [p["data"] for p in posts if p.get("kind") == "t3"]
+
+                if resp.status_code in (403, 429):
+                    wait = (attempt + 1) * 5
+                    logger.warning("[reddit] r/%s %s: %d (retry in %ds)", subreddit, sort, resp.status_code, wait)
+                    time.sleep(wait)
+                    continue
+
                 logger.warning("[reddit] r/%s %s: %d", subreddit, sort, resp.status_code)
                 return []
 
-            data = resp.json()
-            posts = data.get("data", {}).get("children", [])
-            return [p["data"] for p in posts if p.get("kind") == "t3"]
-        except Exception as e:
-            logger.error("[reddit] r/%s fetch error: %s", subreddit, e)
-            return []
+            except Exception as e:
+                logger.error("[reddit] r/%s fetch error: %s", subreddit, e)
+                if attempt < 2:
+                    time.sleep(3)
+                else:
+                    return []
+
+        return []
 
     def collect(self) -> list[CardData]:
         results = []
@@ -94,7 +110,7 @@ class RedditCollector(BaseCollector):
                 logger.info("[reddit] r/%s: %d posts, %d pokemon mentions",
                            subreddit, len(posts), len(results))
 
-                time.sleep(2.0)
+                time.sleep(3.0)
 
             except Exception as e:
                 logger.error("[reddit] r/%s failed: %s", subreddit, e)

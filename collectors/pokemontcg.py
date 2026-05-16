@@ -33,12 +33,12 @@ class PokemonTCGCollector(BaseCollector):
         super().__init__(min_delay=1.0, max_delay=2.0)
         self.session.headers.update({"Accept": "application/json"})
 
-    def _get_all_sets(self) -> list[str]:
-        """Fetch all set IDs from the API."""
+    def _get_all_sets(self) -> list[dict]:
+        """Fetch all set IDs with series info from the API."""
         try:
-            resp = self.session.get(f"{API_BASE}/sets", params={"select": "id"}, timeout=30)
+            resp = self.session.get(f"{API_BASE}/sets", params={"select": "id,series"}, timeout=30)
             data = resp.json()
-            return [s["id"] for s in data.get("data", [])]
+            return data.get("data", [])
         except Exception as e:
             logger.error("[pokemontcg] Failed to fetch sets: %s", e)
             return []
@@ -74,27 +74,26 @@ class PokemonTCGCollector(BaseCollector):
         seen = set()
 
         try:
-            # First, get all sets
             all_sets = self._get_all_sets()
             logger.info("[pokemontcg] Found %d sets total", len(all_sets))
 
-            # Build rarity filter for query
             rarity_query = " OR ".join(f'rarity:"{r}"' for r in TARGET_RARITIES)
 
-            for set_id in all_sets:
-                # Fetch high-rarity cards from this set (Promo included in rarity filter)
+            for s in all_sets:
+                set_id = s.get("id", "")
+                series = (s.get("series", "") or "").lower()
+                is_jp = any(kw in series for kw in ("japan", "japanese", "jp"))
+                game = "pokemon-jp" if is_jp else "pokemon"
+
                 query = f'set.id:{set_id} ({rarity_query})'
                 cards = self._fetch_cards(query)
 
-                all_set_cards = cards
-
-                for card in all_set_cards:
+                for card in cards:
                     card_id = card.get("id", "")
                     if card_id in seen:
                         continue
                     seen.add(card_id)
 
-                    # Skip non-Pokemon
                     supertype = card.get("supertype", "")
                     if supertype in ("Trainer", "Energy"):
                         continue
@@ -135,6 +134,7 @@ class PokemonTCGCollector(BaseCollector):
                             "rarity": rarity,
                             "artist": artist,
                             "image_url": image_url,
+                            "game": game,
                             "tcgplayer_low": (tcg_prices.get("normal", {}) or {}).get("low"),
                             "tcgplayer_mid": (tcg_prices.get("normal", {}) or {}).get("mid"),
                             "tcgplayer_high": (tcg_prices.get("normal", {}) or {}).get("high"),
@@ -143,8 +143,8 @@ class PokemonTCGCollector(BaseCollector):
                         },
                     ))
 
-                if all_set_cards:
-                    logger.info("[pokemontcg] Set %s: %d cards (total: %d)", set_id, len(all_set_cards), len(results))
+                if cards:
+                    logger.info("[pokemontcg] Set %s (%s): %d cards (total: %d)", set_id, game, len(cards), len(results))
 
             logger.info("[pokemontcg] Collected %d high-rarity cards from %d sets", len(results), len(all_sets))
 

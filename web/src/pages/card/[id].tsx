@@ -26,6 +26,7 @@ interface Card {
   avg_price_30d: number;
   cm_price: number;
   jp_price: number;
+  us_price: number;
   jp_set: string;
   price_change_pct: number;
 }
@@ -97,8 +98,8 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
               <span className="text-sm text-stone-400 ml-1">composite score</span>
             </div>
             <div className="space-y-1">
-              {card.avg_price_30d > 0 && (
-                <p className="text-sm text-stone-600">US <span className="font-semibold">${card.avg_price_30d.toFixed(2)}</span></p>
+              {(card.avg_price_30d > 0 || card.us_price > 0) && (
+                <p className="text-sm text-stone-600">US <span className="font-semibold">${(card.avg_price_30d || card.us_price).toFixed(2)}</span></p>
               )}
               {card.cm_price > 0 && (
                 <p className="text-sm text-stone-600">EU <span className="font-semibold">€{card.cm_price.toFixed(2)}</span></p>

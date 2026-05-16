@@ -138,6 +138,12 @@ def run_scoring(conn) -> list[dict]:
         ).fetchone()
         cm_price = round(cm_row["avg_p"], 2) if cm_row and cm_row["avg_p"] else 0
 
+        us_row = conn.execute(
+            "SELECT AVG(price) as avg_p FROM prices WHERE card_id=? AND source='pokemontcg'",
+            (row["id"],),
+        ).fetchone()
+        us_price = round(us_row["avg_p"], 2) if us_row and us_row["avg_p"] else 0
+
         results.append({
             "id": score.card_id,
             "name": score.name,
@@ -154,6 +160,7 @@ def run_scoring(conn) -> list[dict]:
             "composite": score.composite_score,
             "signal": signal,
             "cm_price": cm_price,
+            "us_price": us_price,
             "signal_label": signal_label(signal),
             "reason": score.reason,
             "avg_price_30d": sd.avg_price_30d if sd else 0,

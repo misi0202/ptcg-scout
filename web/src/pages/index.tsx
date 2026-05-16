@@ -23,6 +23,7 @@ interface Card {
   avg_price_30d: number;
   cm_price: number;
   jp_price: number;
+  us_price: number;
   price_change_pct: number;
 }
 
@@ -155,6 +156,8 @@ export default function Home({ cards }: { cards: Card[] }) {
                         <span className="text-lg font-semibold">€{hero.cm_price.toFixed(2)}</span>
                       ) : hero.avg_price_30d > 0 ? (
                         <span className="text-lg font-semibold">${hero.avg_price_30d.toFixed(2)}</span>
+                      ) : hero.us_price > 0 ? (
+                        <span className="text-lg font-semibold">${hero.us_price.toFixed(2)}</span>
                       ) : (
                         <span className="text-sm text-stone-400">No price data</span>
                       )}
@@ -181,7 +184,8 @@ export default function Home({ cards }: { cards: Card[] }) {
           const price =
             market === "jp" && card.jp_price ? card.jp_price
             : market === "eu" && card.cm_price ? card.cm_price
-            : card.avg_price_30d;
+            : card.avg_price_30d > 0 ? card.avg_price_30d
+            : card.us_price;
           const priceLabel = market === "eu" ? "€" : market === "jp" ? "¥" : "$";
 
           return (

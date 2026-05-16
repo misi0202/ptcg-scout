@@ -6,7 +6,6 @@ Rate-limited per IP; designed for once-daily use via GitHub Actions."""
 import logging
 import re
 import time
-from datetime import datetime
 
 from bs4 import BeautifulSoup
 
@@ -24,6 +23,7 @@ BASE_URL = (
     "https://www.ebay.com/sch/i.html"
     "?_nkw={query}&LH_Sold=1&LH_Complete=1&_ipg=60&_sop=13"
 )
+BEAUTIFULSOUP_PARSER = "lxml"
 
 POKEMON_NAMES = [
     "pikachu", "charizard", "gengar", "mewtwo", "mew",
@@ -77,21 +77,27 @@ class EbayCollector(BaseCollector):
         results = []
 
         self._prime_cookies()
-        time.sleep(2)
+        time.sleep(3)
 
         for query in EBAY_SEARCHES:
             try:
+                self._rotate_ua()
                 url = BASE_URL.format(query=query)
                 resp = self.session.get(url, timeout=30)
 
                 if resp.status_code == 403:
-                    logger.warning("[ebay] 403 Forbidden — IP likely rate-limited, skipping")
+                    logger.warning("[ebay] 403 Forbidden on '%s' — IP rate-limited, trying next query", query)
+                    time.sleep(10)
                     continue
                 if resp.status_code != 200:
-                    logger.warning("[ebay] %d for query=%s", resp.status_code, query)
+                    logger.warning("[ebay] %d for query='%s'", resp.status_code, query)
                     continue
 
-                soup = BeautifulSoup(resp.text, "lxml")
+                try:
+                    soup = BeautifulSoup(resp.text, BEAUTIFULSOUP_PARSER)
+                except Exception:
+                    soup = BeautifulSoup(resp.text, "html.parser")
+
                 items = soup.select("li.s-item")
                 logger.info("[ebay] Query '%s': %d items", query, len(items))
 
@@ -119,7 +125,6 @@ class EbayCollector(BaseCollector):
                     if not pokemon_name:
                         continue
 
-                    # Extract PSA grade from title
                     grade = ""
                     gm = re.search(r"PSA\s*(\d+)", title, re.IGNORECASE)
                     if gm:
@@ -139,7 +144,7 @@ class EbayCollector(BaseCollector):
                         },
                     ))
 
-                time.sleep(3)
+                time.sleep(5)
 
             except Exception as e:
                 logger.error("[ebay] Query '%s' failed: %s", query, e)
