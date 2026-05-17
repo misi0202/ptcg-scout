@@ -57,8 +57,10 @@ export default function Home({ cards }: { cards: Card[] }) {
 
   const sorted = useMemo(() => {
     let list = [...cards];
-    if (filterGame !== "all") {
-      list = list.filter((c) => c.game === filterGame);
+    if (filterGame === "pokemon-jp") {
+      list = list.filter((c) => c.game === "pokemon-jp" || c.jp_price);
+    } else if (filterGame === "pokemon") {
+      list = list.filter((c) => c.game === "pokemon");
     }
     return list;
   }, [cards, filterGame]);

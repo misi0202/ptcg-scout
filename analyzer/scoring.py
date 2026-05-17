@@ -16,12 +16,26 @@ for tier_data in TIER_CONFIG.values():
         for pokemon in tier_data["pokemon"]:
             TIER_MAP[pokemon.lower()] = tier_data["score"]
 
-NARRATIVE_TAGS: list[tuple[str, float, list[str]]] = []
+NARRATIVE_TAGS: list[tuple[float, list[str]]] = []
 for tag_info in TIER_CONFIG.get("narrative_tags", {}).values():
     if isinstance(tag_info, dict):
         tag_score = float(tag_info.get("score", 0))
         keywords = tag_info.get("keywords", [])
         NARRATIVE_TAGS.append((tag_score, keywords))
+
+# Per-card narrative scores (name-level + special case overrides)
+NARRATIVE_SCORES: dict[str, dict] = {}
+NARRATIVE_SPECIAL: list[dict] = []
+_narrative_path = os.path.join(CONFIG_DIR, "narrative_scores.json")
+try:
+    with open(_narrative_path, encoding="utf-8") as f:
+        ns_data = json.load(f)
+    NARRATIVE_SCORES = ns_data.get("scores", {})
+    NARRATIVE_SPECIAL = ns_data.get("special_cases", [])
+    logger.info("Loaded %d per-card narrative scores + %d special cases",
+                len(NARRATIVE_SCORES), len(NARRATIVE_SPECIAL))
+except Exception:
+    logger.warning("narrative_scores.json not found, using keyword matching only")
 
 ART_KEYWORDS = [
     "art", "beautiful", "fire", "stunning", "gorgeous",
@@ -62,13 +76,32 @@ def get_aesthetic_score(keywords: list[str], mention_count: int) -> float:
     return score
 
 
-def get_narrative_score(name: str, set_name: str, rarity: str = "", artist: str = "") -> float:
+def get_narrative_score(name: str, set_name: str, rarity: str = "", artist: str = "", card_number: str = "") -> float:
+    # 1) Check special case overrides (name + set + artist/card_number)
+    for case in NARRATIVE_SPECIAL:
+        if case.get("name") == name and case.get("set_name") == set_name:
+            if case.get("artist") == artist:
+                return float(case["score"])
+            if case.get("card_number") and case.get("card_number") == card_number:
+                return float(case["score"])
+
+    # 2) Check name-level score
+    if name in NARRATIVE_SCORES:
+        return float(NARRATIVE_SCORES[name]["score"])
+
+    # 3) Keyword fallback
     text = f"{name} {set_name} {rarity} {artist}".lower()
     best = 0.0
     for tag_score, keywords in NARRATIVE_TAGS:
         for kw in keywords:
             if kw.lower() in text:
                 best = max(best, tag_score)
+
+    if best > 0:
+        logger.debug("Narrative keyword match for '%s': %.0f", name, best)
+    else:
+        logger.debug("Narrative unscored: '%s' (artist=%s) — using default 10", name, artist)
+
     return best if best > 0 else 10.0
 
 
@@ -96,10 +129,11 @@ def calculate_score(
     set_name: str = "",
     rarity: str = "",
     artist: str = "",
+    card_number: str = "",
 ) -> CardScore:
     aesthetic = get_aesthetic_score(keywords, mention_count)
     ip = get_ip_score(pokemon_name)
-    narrative = get_narrative_score(name, set_name, rarity, artist)
+    narrative = get_narrative_score(name, set_name, rarity, artist, card_number)
     pop_mult = get_pop_multiplier(psa10_pop)
 
     base = aesthetic * 0.35 + ip * 0.40 + narrative * 0.25

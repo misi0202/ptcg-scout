@@ -100,7 +100,8 @@ def store_data(conn, all_data):
 def run_scoring(conn) -> list[dict]:
     rows = conn.execute("""
         SELECT c.id, c.name, c.pokemon_name, c.set_name,
-               c.psa10_pop, c.psa_total_pop, c.rarity, c.artist, c.image_url, c.game
+               c.psa10_pop, c.psa_total_pop, c.rarity, c.artist, c.image_url, c.game,
+               c.card_number
         FROM cards c
     """).fetchall()
 
@@ -127,6 +128,7 @@ def run_scoring(conn) -> list[dict]:
             set_name=row["set_name"] or "",
             rarity=row["rarity"] or "",
             artist=row["artist"] or "",
+            card_number=row["card_number"] or "",
         )
 
         sd = sd_analyze(conn, row["id"])

@@ -1,0 +1,40 @@
+{
+  "_description": "Per-card narrative scores based on background significance. Name-level scores (section 1) are used as default. Special cases (section 2) override by matching name+artist or name+card_number within a set.",
+  "scores": {
+    "Pikachu with Grey Felt Hat": {"score": 95, "reason": "Van Gogh Museum collaboration — one of the most unique PTCG crossovers ever. Extremely limited distribution."},
+    "Team Rocket's Mewtwo ex": {"score": 85, "reason": "Team Rocket's Pokemon — iconic villain-owned Pokemon with nostalgic anime/game lore. SAR rarity."},
+    "Mewtwo V-UNION": {"score": 78, "reason": "V-UNION 4-card assembly mechanic — only a handful of Pokemon got this. Mewtwo is the face of the mechanic."},
+    "Shining Lugia": {"score": 78, "reason": "Shining Pokemon subset — special foil pattern from SM era. Fan-favorite legendary duo."},
+    "Shining Ho-Oh": {"score": 75, "reason": "Shining Pokemon subset — paired with Shining Lugia. Special foil treatment."},
+    "Hop's Zacian ex": {"score": 70, "reason": "Trainer's Pokemon mechanic debut (Journey Together). Hop is a major game character. SAR."},
+    "Charizard ex": {"score": 65, "reason": "Modern Charizard SAR chase card — market-defining Pokemon in most desirable modern rarity."},
+    "Mega Dragonite ex": {"score": 68, "reason": "Mega evolution return + Dragonite's first Mega. Fan-favorite pseudo-legendary power-up."},
+    "Pikachu VMAX": {"score": 55, "reason": "Popular modern Pikachu variant but one of many Pika promos — not exceptionally rare."},
+    "Pikachu-EX": {"score": 55, "reason": "EX-era Pikachu promo. Nostalgic mechanic but standard among Pika variants."},
+    "Mewtwo": {"score": 45, "reason": "Classic Mewtwo by Sugimori — iconic base-set-era art by original Pokemon artist. Historical but common."},
+    "Mew": {"score": 42, "reason": "Classic Mew promo. Beloved mythical but these early promos are straightforward."},
+    "Pikachu": {"score": 38, "reason": "Standard Pikachu promo — one of many prints of the mascot."},
+    "Eevee": {"score": 38, "reason": "Standard Eevee promo. Fan-favorite but produced in large quantities."},
+    "Rayquaza": {"score": 50, "reason": "Fan-favorite legendary with strong design. Solid but not exceptional promo."},
+    "Ho-oh": {"score": 45, "reason": "Classic Johto legendary phoenix. Arita's art captures the mythic feel."},
+    "Gyarados": {"score": 45, "reason": "TOKIYA's unique art on the iconic rage-evolution Pokemon."},
+    "Jirachi": {"score": 40, "reason": "Wish-making mythical. Cute but less market impact than Mew/Celebi."},
+    "Celebi": {"score": 42, "reason": "Time-travel mythical. Gen 2 nostalgia helps but standard promo."},
+    "Arceus": {"score": 55, "reason": "The God Pokemon — creator of the universe. Lore significance above typical promos."},
+    "Lucario": {"score": 35, "reason": "Popular aura Pokemon. Standard promo treatment."},
+    "Snorlax": {"score": 38, "reason": "Beloved Gen 1 chonky boy. Nostalgic but standard promo."},
+    "Darkrai": {"score": 38, "reason": "Dark-type mythical with cool design. Standard promo."},
+    "Mimikyu": {"score": 42, "reason": "Tragic backstory — wanted to be loved like Pikachu. Fan-resonant Gen 7 standout."},
+    "Zoroark": {"score": 38, "reason": "Illusion fox Pokemon. Gen 5 standout but standard BW promo."},
+    "Salamence": {"score": 35, "reason": "Pseudo-legendary dragon. Solid but unremarkable promo version."},
+    "Light Toxtricity": {"score": 32, "reason": "Gen 8 punk-rock Pokemon. Less collector demand than earlier generations."},
+    "Alakazam ex": {"score": 45, "reason": "Gen 1 psychic icon. Arita's art elevates this promo."}
+  },
+
+  "special_cases": [
+    {"name": "Mewtwo", "set_name": "Wizards Black Star Promos", "artist": "Christopher Rush", "score": 70, "reason": "Christopher Rush is MTG's most iconic artist (Black Lotus). His only PTCG illustrations make this historically significant across TCG communities."},
+    {"name": "Mewtwo", "set_name": "Wizards Black Star Promos", "artist": "Benimaru Itoh", "score": 48, "reason": "Benimaru Itoh's distinctive manga-influenced art style. Cult following."},
+    {"name": "Pikachu", "set_name": "Wizards Black Star Promos", "card_number": "1", "score": 55, "reason": "The very first Wizards Black Star Promo (#1). Historical milestone."},
+    {"name": "Mewtwo", "set_name": "Wizards Black Star Promos", "artist": "Ken Sugimori", "score": 48, "reason": "Sugimori's Mewtwo — the original Pokemon artist drawing the original legendary. Above-average for a standard promo."}
+  ]
+}

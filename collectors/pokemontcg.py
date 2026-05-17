@@ -1,10 +1,14 @@
 import logging
+import re
 
 import requests
 
 from .base import BaseCollector, CardData
 
 logger = logging.getLogger(__name__)
+
+# Japanese set ID patterns: sv1a, sm2d, xy1a, etc. (number+letter suffix)
+_JP_SET_RE = re.compile(r"^(sv|sm|xy|bw|dp)\d+[a-z]$", re.IGNORECASE)
 
 API_BASE = "https://api.pokemontcg.io/v2"
 
@@ -82,7 +86,9 @@ class PokemonTCGCollector(BaseCollector):
             for s in all_sets:
                 set_id = s.get("id", "")
                 series = (s.get("series", "") or "").lower()
-                is_jp = any(kw in series for kw in ("japan", "japanese", "jp"))
+                is_jp = _JP_SET_RE.match(set_id) or any(
+                    kw in series for kw in ("japan", "japanese", "jp")
+                )
                 game = "pokemon-jp" if is_jp else "pokemon"
 
                 query = f'set.id:{set_id} ({rarity_query})'
