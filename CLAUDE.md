@@ -65,13 +65,13 @@ data/                    #   Output: cards.json, boxes.json, history/YYYY-MM-DD.
 ## Scoring Formula
 
 ```
-Score = Price_Signal × 0.6 + Volume_Signal × 0.4 + Momentum
+Score = Price_Signal × 0.4 + IP_Heat × 0.3 + Volume_Signal × 0.2 + Momentum × 0.1
 
-Price_Signal: normalized market price (0-100). Best available: US > EU > JP. Default 30.
-Volume_Signal: normalized Reddit mention count (0-100). Default 30.
-Momentum: price trend bonus (-10 to +10). +10 for >20% gain, -8 for >15% drop.
+Price_Signal: normalized best market price (US/EU/JP). Default 30.
+IP_Heat: Pokemon popularity tier from config/pokemon_tiers.json (T1=100 to T4=50, default 30).
+Volume_Signal: normalized Reddit mention count. Default 30.
+Momentum: price trend 0-100 (50=neutral). From JustTCG 30d/7d change or supply_demand history.
 All scores capped to 5-100 range.
-Data sources: PokemonTCG API (US), Cardmarket (EU), JustTCG (JP), Reddit (mentions).
 ```
 
 ## GitHub Actions

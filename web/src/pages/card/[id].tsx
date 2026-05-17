@@ -16,6 +16,7 @@ interface Card {
   artist: string;
   set_name: string;
   price_signal: number;
+  ip_signal: number;
   volume_signal: number;
   momentum: number;
   composite: number;
@@ -54,10 +55,10 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
   }
 
   const radarData = [
+    { name: "IP热度", value: card.ip_signal, fullMark: 100 },
     { name: "价格信号", value: card.price_signal, fullMark: 100 },
     { name: "需求信号", value: card.volume_signal, fullMark: 100 },
-    { name: "动量", value: card.momentum > 0 ? 50 + card.momentum * 5 : 50 + card.momentum * 5, fullMark: 100 },
-    { name: "综合分", value: card.composite, fullMark: 100 },
+    { name: "趋势动量", value: card.momentum, fullMark: 100 },
   ];
 
   const sig = SIGNAL_STYLES[card.signal] || SIGNAL_STYLES.neutral;
@@ -134,9 +135,10 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
           </h3>
           <div className="space-y-3">
             {[
+              ["IP Heat", card.ip_signal, 100],
               ["Price Signal", card.price_signal, 100],
               ["Volume Signal", card.volume_signal, 100],
-              ["Momentum", card.momentum > 0 ? 50 + card.momentum * 5 : 50, 100],
+              ["Momentum", card.momentum, 100],
             ].map(([label, val, max]) => (
               <div key={label as string}>
                 <div className="flex justify-between text-sm mb-1">
@@ -154,7 +156,7 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
             <div className="pt-2 border-t border-stone-100">
               <div className="flex justify-between text-sm">
                 <span className="text-stone-600">Score Formula</span>
-                <span className="font-semibold text-xs text-stone-500">Price×0.6 + Volume×0.4 + Momentum</span>
+                <span className="font-semibold text-xs text-stone-500">Price×0.4 + IP×0.3 + Volume×0.2 + Trend×0.1</span>
               </div>
             </div>
           </div>

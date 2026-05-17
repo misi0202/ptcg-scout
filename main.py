@@ -129,6 +129,33 @@ def run_scoring(conn) -> list[dict]:
     for pr in price_rows:
         card_prices.setdefault(pr["card_id"], {})[pr["source"]] = round(pr["avg_p"], 2)
 
+    # Load JP price trends from caches (JustTCG enrichment + JP card cache)
+    import json as _json
+    jp_trends: dict[str, dict] = {}
+    for _cache_file in ("jp_cache.json", "jp_cards_cache.json"):
+        _jp_cache_path = os.path.join(DATA_DIR, _cache_file)
+        try:
+            with open(_jp_cache_path, encoding="utf-8") as f:
+                jp_cache = _json.load(f)
+            if _cache_file == "jp_cache.json":
+                for card_name, data in jp_cache.items():
+                    if isinstance(data, dict) and data.get("jp_price"):
+                        jp_trends[card_name] = {
+                            "change_7d": data.get("jp_price_change_7d") or 0,
+                            "change_30d": data.get("jp_price_change_30d") or 0,
+                        }
+            else:  # jp_cards_cache.json
+                for card_data in jp_cache.get("cards", []):
+                    name = card_data.get("name", "")
+                    extra = card_data.get("extra", {})
+                    if name and (extra.get("jp_price_change_7d") or extra.get("jp_price_change_30d")):
+                        jp_trends[name] = {
+                            "change_7d": extra.get("jp_price_change_7d") or 0,
+                            "change_30d": extra.get("jp_price_change_30d") or 0,
+                        }
+        except Exception:
+            pass
+
     # Build card inputs for compute_scores
     card_inputs = []
     for row in rows:
@@ -137,15 +164,21 @@ def run_scoring(conn) -> list[dict]:
         mention_total = card_mentions.get(cid, 0)
         sd = sd_analyze(conn, cid)
 
+        # Look up JP price trends from cache
+        name = row["name"] or ""
+        jp_trend = jp_trends.get(name, {})
+
         card_inputs.append({
             "id": cid,
-            "name": row["name"],
+            "name": name,
             "pokemon": row["pokemon_name"] or "",
             "us_price": prices.get("pokemontcg", 0),
             "cm_price": prices.get("cardmarket", 0),
             "jp_price": prices.get("justtcg", 0),
             "mention_count": mention_total,
             "price_change_pct": sd.price_change_pct if sd else 0,
+            "jp_price_change_7d": jp_trend.get("change_7d", 0),
+            "jp_price_change_30d": jp_trend.get("change_30d", 0),
             "image_url": row["image_url"] or "",
             "rarity": row["rarity"] or "",
             "artist": row["artist"] or "",
@@ -175,6 +208,7 @@ def run_scoring(conn) -> list[dict]:
             "game": row["game"] or "pokemon",
             "composite": score.composite_score,
             "price_signal": score.price_signal,
+            "ip_signal": score.ip_signal,
             "volume_signal": score.volume_signal,
             "momentum": score.momentum,
             "signal": signal,

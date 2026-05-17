@@ -13,6 +13,7 @@ interface Card {
   set_name: string;
   game: string;
   price_signal: number;
+  ip_signal: number;
   volume_signal: number;
   momentum: number;
   composite: number;
