@@ -53,11 +53,13 @@ class EbayCollector(BaseCollector):
             "Cache-Control": "no-cache",
         })
 
-    def _prime_cookies(self):
+    def _can_reach_ebay(self) -> bool:
+        """Quick connectivity check — avoids blocking the pipeline on slow/timeout eBay."""
         try:
-            self.session.get("https://www.ebay.com", timeout=10)
+            resp = self.session.get("https://www.ebay.com", timeout=8)
+            return resp.status_code == 200
         except Exception:
-            pass
+            return False
 
     def _parse_price(self, text: str) -> float | None:
         text = text.replace("$", "").replace(",", "").strip()
@@ -74,16 +76,18 @@ class EbayCollector(BaseCollector):
         return ""
 
     def collect(self) -> list[CardData]:
-        results = []
+        if not self._can_reach_ebay():
+            logger.warning("[ebay] eBay unreachable — blocked or timeout. Skipping.")
+            return []
 
-        self._prime_cookies()
-        time.sleep(3)
+        results = []
+        time.sleep(2)
 
         for query in EBAY_SEARCHES:
             try:
                 self._rotate_ua()
                 url = BASE_URL.format(query=query)
-                resp = self.session.get(url, timeout=30)
+                resp = self.session.get(url, timeout=12)
 
                 if resp.status_code == 403:
                     logger.warning("[ebay] 403 Forbidden on '%s' — IP rate-limited, trying next query", query)

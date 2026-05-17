@@ -12,10 +12,9 @@ interface Card {
   artist: string;
   set_name: string;
   game: string;
-  aesthetic: number;
-  ip: number;
-  narrative: number;
-  pop_mult: number;
+  price_signal: number;
+  volume_signal: number;
+  momentum: number;
   composite: number;
   signal: string;
   signal_label: string;

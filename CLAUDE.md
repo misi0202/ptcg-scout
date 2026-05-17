@@ -29,7 +29,7 @@ collectors/              # Data sources, each returns list[CardData]
   justtcg.py             #   JP prices via JustTCG API ($JUSTTCG_API_KEY), daily cached
   base.py                #   BaseCollector ABC with rate-limiting, UA rotation, retries
 analyzer/
-  scoring.py             #   4-quadrant model: (aesthetic×0.35 + IP×0.40 + narrative×0.25) × PopMultiplier
+  scoring.py             #   Data-driven: Price×0.6 + Volume×0.4 + Momentum — no subjective tiers
   supply_demand.py       #   30-day volume-price analysis from prices table
   trends.py              #   Signal: bullish/cautious/bearish/watch based on SD + mentions
   boxes.py               #   Booster box low-point detection (post-release window rules)
@@ -65,12 +65,13 @@ data/                    #   Output: cards.json, boxes.json, history/YYYY-MM-DD.
 ## Scoring Formula
 
 ```
-Composite = (Aesthetic × 0.35 + IP_Strength × 0.40 + Narrative × 0.25) × Pop_Multiplier
+Score = Price_Signal × 0.6 + Volume_Signal × 0.4 + Momentum
 
-Aesthetic: keyword mentions in Reddit posts (default 30 if no data)
-IP_Strength: Pokemon name substring match against config/pokemon_tiers.json (default 30)
-Narrative: artist/set/card name keyword match (default 10, up to 100)
-Pop_Multiplier: 1.15 (<100 PSA10 pop) → 0.85 (>5000)
+Price_Signal: normalized market price (0-100). Best available: US > EU > JP. Default 30.
+Volume_Signal: normalized Reddit mention count (0-100). Default 30.
+Momentum: price trend bonus (-10 to +10). +10 for >20% gain, -8 for >15% drop.
+All scores capped to 5-100 range.
+Data sources: PokemonTCG API (US), Cardmarket (EU), JustTCG (JP), Reddit (mentions).
 ```
 
 ## GitHub Actions

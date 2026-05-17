@@ -58,11 +58,13 @@ def send_daily_report(top10: list[dict]):
     lines = []
     for i, card in enumerate(top10, 1):
         emoji = SIGNAL_EMOJI.get(card["signal"], "⚪")
+        ps = card.get("price_signal", 0)
+        vs = card.get("volume_signal", 0)
+        mom = card.get("momentum", 0)
         lines.append(
-            f"{i}. **{card['name']}** | 综合分 **{card['composite']}** | {emoji} {card['signal_label']}\n"
-            f"   IP: {card['ip']:.0f} · 审美: {card['aesthetic']:.0f} · 叙事: {card['narrative']:.0f} "
-            f"· Pop×{card['pop_mult']:.2f}\n"
-            f"   30日均价 ${card['avg_price_30d']:.2f} "
+            f"{i}. **{card['name']}** | Score **{card['composite']}** | {emoji} {card['signal_label']}\n"
+            f"   Price: {ps:.0f} · Volume: {vs:.0f} · Momentum: {mom:+.0f}\n"
+            f"   30d avg ${card['avg_price_30d']:.2f} "
             f"({card['price_change_pct']:+.1f}%) | {card['reason']}"
         )
 

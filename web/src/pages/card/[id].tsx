@@ -15,10 +15,9 @@ interface Card {
   rarity: string;
   artist: string;
   set_name: string;
-  aesthetic: number;
-  ip: number;
-  narrative: number;
-  pop_mult: number;
+  price_signal: number;
+  volume_signal: number;
+  momentum: number;
   composite: number;
   signal: string;
   signal_label: string;
@@ -55,10 +54,10 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
   }
 
   const radarData = [
-    { name: "IP强度", value: card.ip, fullMark: 100 },
-    { name: "审美共识", value: card.aesthetic, fullMark: 100 },
-    { name: "叙事价值", value: card.narrative, fullMark: 100 },
-    { name: "稀有度", value: ((card.pop_mult - 0.85) / 0.30) * 100, fullMark: 100 },
+    { name: "价格信号", value: card.price_signal, fullMark: 100 },
+    { name: "需求信号", value: card.volume_signal, fullMark: 100 },
+    { name: "动量", value: card.momentum > 0 ? 50 + card.momentum * 5 : 50 + card.momentum * 5, fullMark: 100 },
+    { name: "综合分", value: card.composite, fullMark: 100 },
   ];
 
   const sig = SIGNAL_STYLES[card.signal] || SIGNAL_STYLES.neutral;
@@ -135,9 +134,9 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
           </h3>
           <div className="space-y-3">
             {[
-              ["IP Strength", card.ip, 100],
-              ["Aesthetic", card.aesthetic, 100],
-              ["Narrative", card.narrative, 100],
+              ["Price Signal", card.price_signal, 100],
+              ["Volume Signal", card.volume_signal, 100],
+              ["Momentum", card.momentum > 0 ? 50 + card.momentum * 5 : 50, 100],
             ].map(([label, val, max]) => (
               <div key={label as string}>
                 <div className="flex justify-between text-sm mb-1">
@@ -147,15 +146,15 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
                 <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all duration-500"
-                    style={{ width: `${Math.min(100, (val as number) / (max as number) * 100)}%` }}
+                    style={{ width: `${Math.min(100, Math.abs(val as number) / (max as number) * 100)}%` }}
                   />
                 </div>
               </div>
             ))}
             <div className="pt-2 border-t border-stone-100">
               <div className="flex justify-between text-sm">
-                <span className="text-stone-600">Pop Multiplier</span>
-                <span className="font-semibold">×{card.pop_mult.toFixed(2)}</span>
+                <span className="text-stone-600">Score Formula</span>
+                <span className="font-semibold text-xs text-stone-500">Price×0.6 + Volume×0.4 + Momentum</span>
               </div>
             </div>
           </div>
