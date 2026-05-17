@@ -1,20 +1,73 @@
 {
   "cards": [
-    {"name": "Pikachu ex", "set_name": "Triplet Beat", "card_number": "091/073", "pokemon_name": "Pikachu ex", "price": 12800, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Art Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 250}},
-    {"name": "Mew ex", "set_name": "Ruler of the Black Flame", "card_number": "108/108", "pokemon_name": "Mew ex", "price": 6800, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Ultra Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 0}},
-    {"name": "Charizard ex", "set_name": "Ruler of the Black Flame", "card_number": "109/108", "pokemon_name": "Charizard ex", "price": 35000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 500, "jp_price_change_30d": 2000}},
-    {"name": "Mewtwo VSTAR", "set_name": "VSTAR Universe", "card_number": "221/172", "pokemon_name": "Mewtwo VSTAR", "price": 4500, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Ultra Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": -200}},
-    {"name": "Giratina VSTAR", "set_name": "VSTAR Universe", "card_number": "222/172", "pokemon_name": "Giratina VSTAR", "price": 25000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 300, "jp_price_change_30d": 1000}},
-    {"name": "Arceus VSTAR", "set_name": "VSTAR Universe", "card_number": "220/172", "pokemon_name": "Arceus VSTAR", "price": 15000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 500}},
-    {"name": "Umbreon VMAX", "set_name": "Eevee Heroes", "card_number": "095/069", "pokemon_name": "Umbreon VMAX", "price": 45000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 1000, "jp_price_change_30d": 5000}},
-    {"name": "Sylveon VMAX", "set_name": "Eevee Heroes", "card_number": "094/069", "pokemon_name": "Sylveon VMAX", "price": 22000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 1500}},
-    {"name": "Gengar VMAX", "set_name": "Fusion Arts", "card_number": "100/100", "pokemon_name": "Gengar VMAX", "price": 18000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 200, "jp_price_change_30d": 800}},
-    {"name": "Pikachu", "set_name": "151", "card_number": "166/165", "pokemon_name": "Pikachu", "price": 8500, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Ultra Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 300}},
-    {"name": "Mimikyu", "set_name": "VSTAR Universe", "card_number": "223/172", "pokemon_name": "Mimikyu", "price": 4500, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Ultra Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": -100}},
-    {"name": "Lugia VSTAR", "set_name": "Paradigm Trigger", "card_number": "112/098", "pokemon_name": "Lugia VSTAR", "price": 5500, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Ultra Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 200}},
-    {"name": "Rayquaza VMAX", "set_name": "Blue Sky Stream", "card_number": "093/067", "pokemon_name": "Rayquaza VMAX", "price": 9500, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 0, "jp_price_change_30d": 500}},
-    {"name": "Mew ex", "set_name": "151", "card_number": "205/165", "pokemon_name": "Mew ex", "price": 12000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 200, "jp_price_change_30d": 1000}},
-    {"name": "Charizard ex", "set_name": "Shiny Treasure ex", "card_number": "336/190", "pokemon_name": "Charizard ex", "price": 55000, "source": "justtcg", "extra": {"game": "pokemon-jp", "rarity": "Special Illustration Rare", "image_url": "", "jp_condition": "Near Mint", "jp_printing": "Normal", "jp_price_change_7d": 1000, "jp_price_change_30d": 3000}}
+    {
+      "name": "Pretend Team Skull Pikachu - 013/SM-P",
+      "set_name": "SM-P: Sun & Moon Promos",
+      "card_number": "013/SM-P",
+      "pokemon_name": "Pretend Team Skull Pikachu - 013/SM-P",
+      "price": 3900.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "",
+        "image_url": "",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": null,
+        "jp_price_change_30d": null
+      }
+    },
+    {
+      "name": "Poncho-wearing Pikachu - 230/XY-P",
+      "set_name": "XY-P: XY Promos",
+      "card_number": "230/XY-P",
+      "pokemon_name": "Poncho-wearing Pikachu - 230/XY-P",
+      "price": 3700.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": null,
+        "jp_price_change_30d": 0
+      }
+    },
+    {
+      "name": "Pretend Magikarp Pikachu - 150/XY-P",
+      "set_name": "XY-P: XY Promos",
+      "card_number": "150/XY-P",
+      "pokemon_name": "Pretend Magikarp Pikachu - 150/XY-P",
+      "price": 3600.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": null,
+        "jp_price_change_30d": 0
+      }
+    },
+    {
+      "name": "Rayquaza VMAX - 083/067",
+      "set_name": "S7R: Blue Sky Stream",
+      "card_number": "083/067",
+      "pokemon_name": "Rayquaza VMAX - 083/067",
+      "price": 2500.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Hyper Rare",
+        "image_url": "",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
+    }
   ],
   "fetched_at": "2026-05-17"
 }

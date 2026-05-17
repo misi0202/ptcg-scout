@@ -21,7 +21,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-16"
+    "fetched_at": "2026-05-17"
   },
   "Pikachu": {
     "jp_price": 3900,
@@ -33,7 +33,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-16"
+    "fetched_at": "2026-05-17"
   },
   "Mew": {
     "jp_price": 3900,
@@ -45,7 +45,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-16"
+    "fetched_at": "2026-05-17"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -69,7 +69,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-16"
+    "fetched_at": "2026-05-17"
   },
   "Eevee": {
     "jp_price": 3900,
@@ -81,7 +81,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-16"
+    "fetched_at": "2026-05-17"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -190,5 +190,65 @@
     "jp_rarity": "",
     "jp_number": "013/SM-P",
     "fetched_at": "2026-05-16"
+  },
+  "Umbreon ex": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-17"
+  },
+  "Charizard-EX": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-17"
+  },
+  "Rayquaza-EX": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-17"
+  },
+  "Mewtwo-EX": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-17"
+  },
+  "Ash's Pikachu": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-17"
   }
 }
