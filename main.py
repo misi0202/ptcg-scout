@@ -211,6 +211,7 @@ def run_scoring(conn) -> list[dict]:
             "ip_signal": score.ip_signal,
             "volume_signal": score.volume_signal,
             "momentum": score.momentum,
+            "divergence_score": score.divergence_score,
             "signal": signal,
             "signal_label": signal_label(signal),
             "reason": score.reason,
@@ -226,7 +227,7 @@ def run_scoring(conn) -> list[dict]:
     results.sort(key=lambda x: x["composite"], reverse=True)
     logger.info("Scored %d cards, TOP 5: %s", len(results),
                 [f"{r['name'][:20]}({r['composite']})" for r in results[:5]])
-    return results[:50]
+    return results[:100]
 
 
 def save_history_snapshot(results: list[dict]):

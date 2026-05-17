@@ -17,6 +17,7 @@ interface Card {
   volume_signal: number;
   momentum: number;
   composite: number;
+  divergence_score: number;
   signal: string;
   signal_label: string;
   reason: string;
@@ -45,15 +46,59 @@ const SIGNAL_BG: Record<string, string> = {
   insufficient_data: "bg-stone-50 border-stone-200",
 };
 
-const MARKET_LABELS: Record<string, string> = {
-  us: "US",
-  eu: "EU",
-  jp: "JP",
-};
+const MARKET_CONFIG = [
+  { key: "us" as const, label: "US", symbol: "$", desc: "TCGPlayer" },
+  { key: "eu" as const, label: "EU", symbol: "€", desc: "Cardmarket" },
+  { key: "jp" as const, label: "JP", symbol: "¥", desc: "JustTCG" },
+  { key: "cny" as const, label: "CNY", symbol: "¥", desc: "汇率换算" },
+];
+
+type MarketKey = typeof MARKET_CONFIG[number]["key"];
+
+function toCNY(card: Card): number {
+  if (card.jp_price) return Math.round(card.jp_price / 100 * 5.0);
+  if (card.cm_price) return Math.round(card.cm_price * 7.8 * 100) / 100;
+  const usd = card.avg_price_30d || card.us_price;
+  if (usd) return Math.round(usd * 7.2 * 100) / 100;
+  return 0;
+}
+
+function HeroPrice({ hero, market }: { hero: Card; market: MarketKey }) {
+  if (market === "cny") {
+    const cny = toCNY(hero);
+    return cny > 0 ? (
+      <span className="text-lg font-semibold">¥{cny.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+    ) : (
+      <span className="text-sm text-stone-400">No data</span>
+    );
+  }
+  if (market === "jp" && hero.jp_price) {
+    return <span className="text-lg font-semibold">¥{hero.jp_price.toLocaleString()}</span>;
+  }
+  if (market === "eu" && hero.cm_price) {
+    return <span className="text-lg font-semibold">€{hero.cm_price.toFixed(2)}</span>;
+  }
+  if (hero.avg_price_30d > 0) {
+    return <span className="text-lg font-semibold">${hero.avg_price_30d.toFixed(2)}</span>;
+  }
+  if (hero.us_price > 0) {
+    return <span className="text-lg font-semibold">${hero.us_price.toFixed(2)}</span>;
+  }
+  return <span className="text-sm text-stone-400">No price data</span>;
+}
+
+function getPrice(card: Card, market: MarketKey) {
+  if (market === "cny") return { price: toCNY(card), label: "¥" };
+  if (market === "jp" && card.jp_price) return { price: card.jp_price, label: "¥" };
+  if (market === "eu" && card.cm_price) return { price: card.cm_price, label: "€" };
+  const price = card.avg_price_30d > 0 ? card.avg_price_30d : card.us_price;
+  return { price, label: "$" };
+}
 
 export default function Home({ cards }: { cards: Card[] }) {
   const [filterGame, setFilterGame] = useState("all");
-  const [market, setMarket] = useState<"us" | "eu" | "jp">("us");
+  const [market, setMarket] = useState<MarketKey>("us");
+  const [scoreMode, setScoreMode] = useState<"composite" | "divergence">("composite");
 
   const sorted = useMemo(() => {
     let list = [...cards];
@@ -62,8 +107,11 @@ export default function Home({ cards }: { cards: Card[] }) {
     } else if (filterGame === "pokemon") {
       list = list.filter((c) => c.game === "pokemon");
     }
+    if (scoreMode === "divergence") {
+      list.sort((a, b) => b.divergence_score - a.divergence_score);
+    }
     return list;
-  }, [cards, filterGame]);
+  }, [cards, filterGame, scoreMode]);
 
   const hero = sorted[0];
   const grid = sorted.slice(1);
@@ -81,7 +129,28 @@ export default function Home({ cards }: { cards: Card[] }) {
       </header>
 
       {/* Filters */}
-      <div className="flex items-center justify-center gap-3 mb-10">
+      <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
+        {/* Score mode toggle */}
+        <span className="text-[10px] text-stone-400 uppercase tracking-wider">评分</span>
+        <div className="flex items-center gap-1 bg-white/60 backdrop-blur rounded-full p-1 border border-white/80 shadow-sm">
+          <button
+            onClick={() => setScoreMode("composite")}
+            className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+              scoreMode === "composite" ? "bg-stone-800 text-white shadow-md" : "text-stone-500 hover:text-stone-700"
+            }`}
+          >评分1</button>
+          <button
+            onClick={() => setScoreMode("divergence")}
+            className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+              scoreMode === "divergence" ? "bg-amber-500 text-white shadow-md" : "text-stone-500 hover:text-stone-700"
+            }`}
+          >评分2</button>
+        </div>
+
+        <span className="text-stone-300">·</span>
+
+        {/* Game filter */}
+        <span className="text-[10px] text-stone-400 uppercase tracking-wider">市场</span>
         <div className="flex items-center gap-1 bg-white/60 backdrop-blur rounded-full p-1 border border-white/80 shadow-sm">
           {(["all", "pokemon", "pokemon-jp"] as const).map((g) => (
             <button
@@ -97,23 +166,29 @@ export default function Home({ cards }: { cards: Card[] }) {
             </button>
           ))}
         </div>
+
         <span className="text-stone-300">·</span>
+
+        {/* Price currency toggle */}
+        <span className="text-[10px] text-stone-400 uppercase tracking-wider">价格</span>
         <div className="flex items-center gap-1 bg-white/60 backdrop-blur rounded-full p-1 border border-white/80 shadow-sm">
-          {(["us", "eu", "jp"] as const).map((m) => (
+          {MARKET_CONFIG.map((m) => (
             <button
-              key={m}
-              onClick={() => setMarket(m)}
+              key={m.key}
+              onClick={() => setMarket(m.key)}
               className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
-                market === m
+                market === m.key
                   ? "bg-stone-800 text-white shadow-md"
                   : "text-stone-500 hover:text-stone-700"
               }`}
             >
-              {MARKET_LABELS[m]}
+              <span>{m.label}</span>
+              <span className="ml-1 opacity-50 text-[10px]">{m.desc}</span>
             </button>
           ))}
         </div>
-        <span className="text-xs text-stone-400 ml-2">{sorted.length} cards</span>
+
+        <span className="text-xs text-stone-400">{sorted.length} cards</span>
       </div>
 
       {/* Hero card */}
@@ -146,25 +221,12 @@ export default function Home({ cards }: { cards: Card[] }) {
                   <div className="flex items-center gap-4">
                     <div>
                       <span className="text-3xl font-bold score-badge-high bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600">
-                        {hero.composite.toFixed(0)}
+                        {(scoreMode === "divergence" ? hero.divergence_score : hero.composite).toFixed(0)}
                       </span>
-                      <span className="text-xs text-stone-400 ml-1">score</span>
+                      <span className="text-xs text-stone-400 ml-1">{scoreMode === "divergence" ? "div" : "score"}</span>
                     </div>
                     <div className="h-8 w-px bg-stone-200" />
-                    <div>
-                      {market === "jp" && hero.jp_price ? (
-                        <span className="text-lg font-semibold">¥{hero.jp_price.toLocaleString()}</span>
-                      ) : market === "eu" && hero.cm_price ? (
-                        <span className="text-lg font-semibold">€{hero.cm_price.toFixed(2)}</span>
-                      ) : hero.avg_price_30d > 0 ? (
-                        <span className="text-lg font-semibold">${hero.avg_price_30d.toFixed(2)}</span>
-                      ) : hero.us_price > 0 ? (
-                        <span className="text-lg font-semibold">${hero.us_price.toFixed(2)}</span>
-                      ) : (
-                        <span className="text-sm text-stone-400">No price data</span>
-                      )}
-                      <span className="text-xs text-stone-400 ml-1">{MARKET_LABELS[market]}</span>
-                    </div>
+                    <HeroPrice hero={hero} market={market} />
                     <div className="h-8 w-px bg-stone-200" />
                     <div className="flex items-center gap-1.5">
                       <span className={`text-xs px-2 py-0.5 rounded-full border ${SIGNAL_BG[hero.signal]}`}>
@@ -183,12 +245,7 @@ export default function Home({ cards }: { cards: Card[] }) {
       {/* Card grid: 5 per row */}
       <div className="card-grid max-w-[1600px] mx-auto">
         {grid.map((card, i) => {
-          const price =
-            market === "jp" && card.jp_price ? card.jp_price
-            : market === "eu" && card.cm_price ? card.cm_price
-            : card.avg_price_30d > 0 ? card.avg_price_30d
-            : card.us_price;
-          const priceLabel = market === "eu" ? "€" : market === "jp" ? "¥" : "$";
+          const { price, label: priceLabel } = getPrice(card, market);
 
           return (
             <Link
@@ -218,8 +275,8 @@ export default function Home({ cards }: { cards: Card[] }) {
                 </p>
                 <div className="flex items-center justify-between mt-auto">
                   <span className="text-sm font-bold tabular-nums">
-                    {card.composite.toFixed(0)}
-                    <span className="text-[10px] text-stone-400 font-normal ml-0.5">pts</span>
+                    {(scoreMode === "divergence" ? card.divergence_score : card.composite).toFixed(0)}
+                    <span className="text-[10px] text-stone-400 font-normal ml-0.5">{scoreMode === "divergence" ? "div" : "pts"}</span>
                   </span>
                   {price > 0 ? (
                     <span className="text-xs tabular-nums text-stone-600">

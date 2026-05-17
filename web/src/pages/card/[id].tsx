@@ -20,6 +20,7 @@ interface Card {
   volume_signal: number;
   momentum: number;
   composite: number;
+  divergence_score: number;
   signal: string;
   signal_label: string;
   reason: string;
@@ -59,6 +60,7 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
     { name: "价格信号", value: card.price_signal, fullMark: 100 },
     { name: "需求信号", value: card.volume_signal, fullMark: 100 },
     { name: "趋势动量", value: card.momentum, fullMark: 100 },
+    { name: "分歧评分", value: card.divergence_score, fullMark: 100 },
   ];
 
   const sig = SIGNAL_STYLES[card.signal] || SIGNAL_STYLES.neutral;
@@ -91,11 +93,19 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
           <p className="text-sm text-stone-500 mb-4">{card.artist}</p>
 
           <div className="flex items-center gap-8 flex-wrap">
-            <div>
-              <span className="text-4xl font-bold bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
-                {card.composite.toFixed(0)}
-              </span>
-              <span className="text-sm text-stone-400 ml-1">composite score</span>
+            <div className="flex gap-4">
+              <div>
+                <span className="text-4xl font-bold bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
+                  {card.composite.toFixed(0)}
+                </span>
+                <span className="text-sm text-stone-400 ml-1">Score1</span>
+              </div>
+              <div className="border-l border-stone-200 pl-4">
+                <span className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  {card.divergence_score.toFixed(0)}
+                </span>
+                <span className="text-sm text-stone-400 ml-1">Score2</span>
+              </div>
             </div>
             <div className="space-y-1">
               {(card.avg_price_30d > 0 || card.us_price > 0) && (
@@ -106,6 +116,16 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
               )}
               {card.jp_price && (
                 <p className="text-sm text-stone-600">JP <span className="font-semibold">¥{card.jp_price.toLocaleString()}</span></p>
+              )}
+              {/* CNY 换算 */}
+              {card.jp_price > 0 && (
+                <p className="text-xs text-stone-400">CNY ≈ ¥{(card.jp_price / 100 * 5.0).toFixed(0)} <span className="text-stone-300">(JP)</span></p>
+              )}
+              {card.cm_price > 0 && (
+                <p className="text-xs text-stone-400">CNY ≈ ¥{(card.cm_price * 7.8).toFixed(0)} <span className="text-stone-300">(EU)</span></p>
+              )}
+              {!card.cm_price && !card.jp_price && (card.avg_price_30d > 0 || card.us_price > 0) && (
+                <p className="text-xs text-stone-400">CNY ≈ ¥{((card.avg_price_30d || card.us_price) * 7.2).toFixed(0)} <span className="text-stone-300">(US)</span></p>
               )}
             </div>
           </div>
@@ -139,6 +159,7 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
               ["Price Signal", card.price_signal, 100],
               ["Volume Signal", card.volume_signal, 100],
               ["Momentum", card.momentum, 100],
+              ["Divergence", card.divergence_score, 100],
             ].map(([label, val, max]) => (
               <div key={label as string}>
                 <div className="flex justify-between text-sm mb-1">
@@ -153,10 +174,14 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
                 </div>
               </div>
             ))}
-            <div className="pt-2 border-t border-stone-100">
-              <div className="flex justify-between text-sm">
-                <span className="text-stone-600">Score Formula</span>
-                <span className="font-semibold text-xs text-stone-500">Price×0.4 + IP×0.3 + Volume×0.2 + Trend×0.1</span>
+            <div className="pt-2 border-t border-stone-100 space-y-1">
+              <div className="flex justify-between text-xs">
+                <span className="text-stone-500">Score1</span>
+                <span className="text-stone-500">Price×0.4 + IP×0.3 + Vol×0.2 + Trend×0.1</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span className="text-purple-500">Score2</span>
+                <span className="text-purple-500">Vol×(100−Trend)/100 — 热度与价格背离度</span>
               </div>
             </div>
           </div>

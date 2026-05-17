@@ -47,6 +47,7 @@ class CardScore:
     volume_signal: float
     momentum: float
     composite_score: float
+    divergence_score: float = 0.0
     reason: str = ""
 
 
@@ -92,6 +93,9 @@ def compute_scores(cards: list[dict]) -> list[CardScore]:
         )
         composite = max(5.0, min(100.0, composite))
 
+        # Divergence: high volume + low momentum = potential sleeper
+        divergence_score = round(volume_signal * (100 - momentum) / 100, 1)
+
         # Build reason
         parts = []
         best_price_src = ""
@@ -121,6 +125,7 @@ def compute_scores(cards: list[dict]) -> list[CardScore]:
             volume_signal=volume_signal,
             momentum=momentum,
             composite_score=composite,
+            divergence_score=divergence_score,
             reason="; ".join(parts) if parts else "no market data yet",
         ))
 
