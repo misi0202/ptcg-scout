@@ -227,7 +227,15 @@ def run_scoring(conn) -> list[dict]:
     results.sort(key=lambda x: x["composite"], reverse=True)
     logger.info("Scored %d cards, TOP 5: %s", len(results),
                 [f"{r['name'][:20]}({r['composite']})" for r in results[:5]])
-    return results[:100]
+
+    # Top 100 by score, plus all JP cards (ensures JP filter has data)
+    output = results[:100]
+    included_ids = {r["id"] for r in output}
+    for r in results[100:]:
+        if r.get("game") == "pokemon-jp" and r["id"] not in included_ids:
+            output.append(r)
+            included_ids.add(r["id"])
+    return output
 
 
 def save_history_snapshot(results: list[dict]):
