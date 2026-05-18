@@ -194,14 +194,23 @@ def collect_jp_cards() -> list[CardData]:
         except Exception as e:
             logger.error("[justtcg_jp] Query '%s' failed: %s", query, e)
 
-    logger.info("[justtcg_jp] Collected %d JP cards", len(collected))
+    logger.info("[justtcg_jp] Collected %d JP cards from API", len(collected))
 
-    # Update cache
+    # Merge with existing cache (keep old cards, add/update new ones)
+    old_cache = _load_cache()
+    old_cards = old_cache.get("cards", [])
+    old_by_name = {c["name"]: c for c in old_cards}
+    new_by_name = {c.name: _carddata_to_dict(c) for c in collected}
+
+    # Update old cards with fresh API data, keep cards not in API results
+    merged = {**old_by_name, **new_by_name}
     cache_data = {
-        "cards": [_carddata_to_dict(c) for c in collected],
+        "cards": list(merged.values()),
         "fetched_at": today,
     }
     _save_cache(cache_data)
+    logger.info("[justtcg_jp] Cache merged: %d old + %d new = %d total",
+                len(old_cards), len(collected), len(cache_data["cards"]))
 
     return collected
 
