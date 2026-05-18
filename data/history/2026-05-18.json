@@ -224,6 +224,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -292,6 +294,8 @@
     "supply_demand_ratio": 0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -358,6 +362,8 @@
     "supply_demand_ratio": 0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -391,6 +397,8 @@
     "supply_demand_ratio": 0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -424,6 +432,8 @@
     "supply_demand_ratio": 0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -457,6 +467,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -490,6 +502,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -523,6 +537,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -556,6 +572,8 @@
     "supply_demand_ratio": 0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -589,6 +607,8 @@
     "supply_demand_ratio": 0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -643,16 +663,21 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
     "jp_set_name": "",
     "reason": "price=$563.65 US; IP T1; momentum=+50",
     "us_price": 563.65,
     "cm_price": 93.88,
-    "jp_price": 0,
+    "jp_price": 3900,
     "avg_price_30d": 328.76,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0
+    "supply_demand_ratio": 1.0,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P"
   },
   {
     "id": 1879,
@@ -716,6 +741,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -749,6 +776,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -782,6 +811,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -850,6 +881,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -916,6 +949,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"

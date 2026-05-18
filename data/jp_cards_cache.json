@@ -3,7 +3,7 @@
     {
       "name": "Pretend Team Skull Pikachu - 013/SM-P",
       "set_name": "SM-P: Sun & Moon Promos",
-      "card_number": "013/SM-P",
+      "card_number": "013",
       "pokemon_name": "Pretend Team Skull Pikachu - 013/SM-P",
       "price": 3900.0,
       "source": "justtcg",
@@ -23,7 +23,7 @@
     {
       "name": "Poncho-wearing Pikachu - 230/XY-P",
       "set_name": "XY-P: XY Promos",
-      "card_number": "230/XY-P",
+      "card_number": "230",
       "pokemon_name": "Poncho-wearing Pikachu - 230/XY-P",
       "price": 3700.0,
       "source": "justtcg",
@@ -43,7 +43,7 @@
     {
       "name": "Pretend Magikarp Pikachu - 150/XY-P",
       "set_name": "XY-P: XY Promos",
-      "card_number": "150/XY-P",
+      "card_number": "150",
       "pokemon_name": "Pretend Magikarp Pikachu - 150/XY-P",
       "price": 3600.0,
       "source": "justtcg",
@@ -63,7 +63,7 @@
     {
       "name": "Rayquaza VMAX - 083/067",
       "set_name": "S7R: Blue Sky Stream",
-      "card_number": "083/067",
+      "card_number": "083",
       "pokemon_name": "Rayquaza VMAX - 083/067",
       "price": 2500.0,
       "source": "justtcg",
@@ -1023,7 +1023,7 @@
     {
       "name": "Mario Pikachu - 293/XY-P",
       "set_name": "XY-P: XY Promos",
-      "card_number": "293/XY-P",
+      "card_number": "293",
       "pokemon_name": "Mario Pikachu - 293/XY-P",
       "price": 2200.0,
       "source": "justtcg",
@@ -1043,7 +1043,7 @@
     {
       "name": "Mega Charizard Y ex -766/742",
       "set_name": "Start Deck 100 Battle Collection",
-      "card_number": "766/742",
+      "card_number": "766",
       "pokemon_name": "Mega Charizard Y ex -766/742",
       "price": 2000.0,
       "source": "justtcg",
@@ -1063,7 +1063,7 @@
     {
       "name": "Latias & Latios GX - 105/095",
       "set_name": "SM9: Tag Bolt",
-      "card_number": "105/095",
+      "card_number": "105",
       "pokemon_name": "Latias & Latios GX - 105/095",
       "price": 1809.01,
       "source": "justtcg",
@@ -1083,7 +1083,7 @@
     {
       "name": "Pikachu - 227/S-P",
       "set_name": "S-P: Sword & Shield Promos",
-      "card_number": "227/S-P",
+      "card_number": "227",
       "pokemon_name": "Pikachu - 227/S-P",
       "price": 1799.0,
       "source": "justtcg",

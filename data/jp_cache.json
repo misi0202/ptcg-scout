@@ -382,5 +382,17 @@
     "jp_rarity": "",
     "jp_number": "013/SM-P",
     "fetched_at": "2026-05-18"
+  },
+  "Charizard": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-18"
   }
 }
