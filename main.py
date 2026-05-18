@@ -62,7 +62,8 @@ def collect_all():
     return all_data
 
 
-_jp_names: dict[int, str] = {}  # card_id -> Japanese name
+_jp_names: dict[int, str] = {}      # card_id -> Japanese name
+_jp_set_names: dict[int, str] = {}  # card_id -> Japanese set name
 
 
 def store_data(conn, all_data):
@@ -98,8 +99,11 @@ def store_data(conn, all_data):
                     pass
             # Track JP card names
             jp_name = item.extra.get("jp_name", "")
+            jp_set_name = item.extra.get("jp_set_name", "")
             if jp_name:
                 _jp_names[card_id] = jp_name
+            if jp_set_name:
+                _jp_set_names[card_id] = jp_set_name
 
             if item.source == "reddit" and item.pokemon_name:
                 mention_count = item.extra.get("score") or item.extra.get("reactions") or 1
@@ -224,6 +228,7 @@ def run_scoring(conn) -> list[dict]:
             "signal": signal,
             "signal_label": signal_label(signal),
             "jp_name": _jp_names.get(cid, "") or (_make_jp_name(row["name"]) if row["game"] == "pokemon-jp" else ""),
+            "jp_set_name": _jp_set_names.get(cid, ""),
             "reason": score.reason,
             "us_price": prices.get("pokemontcg", 0),
             "cm_price": prices.get("cardmarket", 0),

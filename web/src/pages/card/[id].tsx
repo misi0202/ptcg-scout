@@ -86,7 +86,7 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
               {sig.label}
             </span>
             <span className="text-xs text-stone-400">{card.rarity}</span>
-            <span className="text-xs text-stone-400">{card.set_name}</span>
+            <span className="text-xs text-stone-400">{card.jp_set_name || card.set_name}</span>
           </div>
           <h1 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
             {card.jp_name || card.name}

@@ -19,6 +19,7 @@ interface Card {
   composite: number;
   divergence_score: number;
   jp_name: string;
+  jp_set_name: string;
   signal: string;
   signal_label: string;
   reason: string;
@@ -221,7 +222,7 @@ export default function Home({ cards }: { cards: Card[] }) {
                   {hero.jp_name && (
                     <p className="text-xs text-stone-400 mb-1">{hero.name}</p>
                   )}
-                  <p className="text-sm text-stone-500 mb-3">{hero.set_name} · {hero.artist}</p>
+                  <p className="text-sm text-stone-500 mb-3">{hero.jp_set_name || hero.set_name} · {hero.artist}</p>
                   <div className="flex items-center gap-4">
                     <div>
                       <span className="text-3xl font-bold score-badge-high bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600">
@@ -275,7 +276,7 @@ export default function Home({ cards }: { cards: Card[] }) {
                   {card.jp_name || card.name}
                 </h3>
                 <p className="text-[10px] text-stone-400 mb-2 line-clamp-1">
-                  {card.set_name}
+                  {card.jp_set_name || card.set_name}
                 </p>
                 <div className="flex items-center justify-between mt-auto">
                   <span className="text-sm font-bold tabular-nums">

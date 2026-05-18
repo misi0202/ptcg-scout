@@ -48,7 +48,6 @@ def _make_jp_name(en_name: str) -> str:
     words = en_name.lower().replace("-", " ").replace("  ", " ").split()
     out = []
     for w in words:
-        # Strip trailing punctuation for lookup
         clean = w.rstrip(".,;:")
         jp = _POKEMON_JP.get(clean)
         if jp:
@@ -56,6 +55,34 @@ def _make_jp_name(en_name: str) -> str:
         else:
             out.append(w.upper() if w.isupper() else w.title())
     return "".join(out)
+
+# Japanese set name mapping
+_SET_NAMES_JP = {
+    "Eevee Heroes": "イーブイヒーローズ",
+    "Shiny Treasure ex": "シャイニートレジャーex",
+    "VSTAR Universe": "VSTARユニバース",
+    "Ruler of the Black Flame": "黒炎の支配者",
+    "151": "151",
+    "Snow Hazard": "スノーハザード",
+    "Clay Burst": "クレイバースト",
+    "Triplet Beat": "トリプレットビート",
+    "Paradigm Trigger": "パラダイムトリガー",
+    "Fusion Arts": "フュージョンアーツ",
+    "Dark Phantasma": "ダークファンタズマ",
+    "Lost Abyss": "ロストアビス",
+    "Blue Sky Stream": "蒼空ストリーム",
+    "VMAX Climax": "VMAXクライマックス",
+    "Matchless Fighters": "無双ファイターズ",
+    "Tag All Stars": "タッグオールスターズ",
+    "Crimson Haze": "クリムゾンヘイズ",
+    "Wild Force": "ワイルドフォース",
+    "Cyber Judge": "サイバージャッジ",
+    "Star Birth": "スターバース",
+    "Gym Challenge": "ジムチャレンジ",
+    "SM-P: Sun & Moon Promos": "SM-P プロモ",
+    "XY-P: XY Promos": "XY-P プロモ",
+    "S7R: Blue Sky Stream": "蒼空ストリーム",
+}
 CACHE_MAX_AGE_DAYS = 30  # Use cache up to 30 days old if API key unavailable
 
 # Broad search for JP cards across all popular Pokemon
@@ -151,6 +178,8 @@ def _fill_missing_images(cards: list[CardData]) -> list[CardData]:
                 time.sleep(0.3)
         if not c.extra.get("jp_name"):
             c.extra["jp_name"] = _make_jp_name(c.name)
+        if not c.extra.get("jp_set_name"):
+            c.extra["jp_set_name"] = _SET_NAMES_JP.get(c.set_name, c.set_name)
     return cards
 
 
@@ -213,10 +242,12 @@ def collect_jp_cards() -> list[CardData]:
                         time.sleep(0.3)
 
                     jp_name = _make_jp_name(name)
+                    set_name_en = card.get("set_name", "")
+                    jp_set = _SET_NAMES_JP.get(set_name_en, set_name_en)
 
                     collected.append(CardData(
                         name=name,
-                        set_name=card.get("set_name", ""),
+                        set_name=set_name_en,
                         card_number=card.get("number", "") or "",
                         pokemon_name=name,
                         price=float(v.get("price", 0)) if v.get("price") else None,
@@ -226,6 +257,7 @@ def collect_jp_cards() -> list[CardData]:
                             "rarity": card.get("rarity", ""),
                             "image_url": image_url,
                             "jp_name": jp_name,
+                            "jp_set_name": jp_set,
                             "jp_condition": v.get("condition"),
                             "jp_printing": v.get("printing"),
                             "jp_price_change_7d": v.get("priceChange7d"),
