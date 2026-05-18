@@ -18,6 +18,7 @@ interface Card {
   momentum: number;
   composite: number;
   divergence_score: number;
+  jp_name: string;
   signal: string;
   signal_label: string;
   reason: string;
@@ -215,8 +216,11 @@ export default function Home({ cards }: { cards: Card[] }) {
                     <span className="text-xs text-stone-400">{hero.rarity}</span>
                   </div>
                   <h2 className="text-xl font-semibold mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {hero.name}
+                    {hero.jp_name || hero.name}
                   </h2>
+                  {hero.jp_name && (
+                    <p className="text-xs text-stone-400 mb-1">{hero.name}</p>
+                  )}
                   <p className="text-sm text-stone-500 mb-3">{hero.set_name} · {hero.artist}</p>
                   <div className="flex items-center gap-4">
                     <div>
@@ -268,7 +272,7 @@ export default function Home({ cards }: { cards: Card[] }) {
               </div>
               <div className="p-3 flex-1 flex flex-col">
                 <h3 className="text-xs font-semibold line-clamp-2 mb-1 leading-tight">
-                  {card.name}
+                  {card.jp_name || card.name}
                 </h3>
                 <p className="text-[10px] text-stone-400 mb-2 line-clamp-1">
                   {card.set_name}

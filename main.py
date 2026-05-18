@@ -61,6 +61,9 @@ def collect_all():
     return all_data
 
 
+_jp_names: dict[int, str] = {}  # card_id -> Japanese name
+
+
 def store_data(conn, all_data):
     for item in all_data:
         try:
@@ -92,6 +95,11 @@ def store_data(conn, all_data):
                     )
                 except (ValueError, TypeError):
                     pass
+            # Track JP card names
+            jp_name = item.extra.get("jp_name", "")
+            if jp_name:
+                _jp_names[card_id] = jp_name
+
             if item.source == "reddit" and item.pokemon_name:
                 mention_count = item.extra.get("score") or item.extra.get("reactions") or 1
                 mention_date = item.extra.get("created_utc") or item.extra.get("timestamp") or ""
@@ -214,6 +222,7 @@ def run_scoring(conn) -> list[dict]:
             "divergence_score": score.divergence_score,
             "signal": signal,
             "signal_label": signal_label(signal),
+            "jp_name": _jp_names.get(cid, ""),
             "reason": score.reason,
             "us_price": prices.get("pokemontcg", 0),
             "cm_price": prices.get("cardmarket", 0),

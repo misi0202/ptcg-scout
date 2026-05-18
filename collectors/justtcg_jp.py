@@ -20,6 +20,42 @@ POKEMONTCG_API = "https://api.pokemontcg.io/v2"
 API_KEY = os.getenv("JUSTTCG_API_KEY", "")
 
 CACHE_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "jp_cards_cache.json")
+
+# Japanese Pokemon name mapping
+_POKEMON_JP: dict[str, str] = {
+    "pikachu": "ピカチュウ", "charizard": "リザードン", "mew": "ミュウ",
+    "mewtwo": "ミュウツー", "gengar": "ゲンガー", "umbreon": "ブラッキー",
+    "espeon": "エーフィ", "sylveon": "ニンフィア", "vaporeon": "シャワーズ",
+    "jolteon": "サンダース", "flareon": "ブースター", "glaceon": "グレイシア",
+    "leafeon": "リーフィア", "eevee": "イーブイ", "rayquaza": "レックウザ",
+    "lugia": "ルギア", "ho-oh": "ホウオウ", "dragonite": "カイリュー",
+    "gyarados": "ギャラドス", "tyranitar": "バンギラス", "gardevoir": "サーナイト",
+    "lucario": "ルカリオ", "greninja": "ゲッコウガ", "mimikyu": "ミミッキュ",
+    "snorlax": "カビゴン", "blaziken": "バシャーモ", "darkrai": "ダークライ",
+    "celebi": "セレビィ", "jirachi": "ジラーチ", "arceus": "アルセウス",
+    "giratina": "ギラティナ", "garchomp": "ガブリアス", "metagross": "メタグロス",
+    "salamence": "ボーマンダ", "zoroark": "ゾロアーク", "latias": "ラティアス",
+    "latios": "ラティオス", "scizor": "ハッサム", "blastoise": "カメックス",
+    "venusaur": "フシギバナ", "alakazam": "フーディン", "machamp": "カイリキー",
+    "magikarp": "コイキング", "absol": "アブソル", "reshiram": "レシラム",
+    "iono": "イオネ", "erika": "エリカ", "misty": "カスミ",
+    "poncho-wearing": "ポンチョ", "pretend": "なりきり", "team": "団",
+    "skull": "スカル", "magikarp": "コイキング",
+}
+
+def _make_jp_name(en_name: str) -> str:
+    """Convert English card name to Japanese display name."""
+    words = en_name.lower().replace("-", " ").replace("  ", " ").split()
+    out = []
+    for w in words:
+        # Strip trailing punctuation for lookup
+        clean = w.rstrip(".,;:")
+        jp = _POKEMON_JP.get(clean)
+        if jp:
+            out.append(jp)
+        else:
+            out.append(w.upper() if w.isupper() else w.title())
+    return "".join(out)
 CACHE_MAX_AGE_DAYS = 30  # Use cache up to 30 days old if API key unavailable
 
 # Broad search for JP cards across all popular Pokemon
@@ -106,13 +142,15 @@ def _fetch_pokemontcg_image(name: str) -> str:
 
 
 def _fill_missing_images(cards: list[CardData]) -> list[CardData]:
-    """Backfill image_url for cards missing it, using Pokemon TCG API."""
+    """Backfill image_url and jp_name for cards missing them."""
     for c in cards:
         if not c.extra.get("image_url"):
             img = _fetch_pokemontcg_image(c.name)
             if img:
                 c.extra["image_url"] = img
                 time.sleep(0.3)
+        if not c.extra.get("jp_name"):
+            c.extra["jp_name"] = _make_jp_name(c.name)
     return cards
 
 
@@ -170,6 +208,8 @@ def collect_jp_cards() -> list[CardData]:
                         image_url = _fetch_pokemontcg_image(name)
                         time.sleep(0.3)
 
+                    jp_name = _make_jp_name(name)
+
                     collected.append(CardData(
                         name=name,
                         set_name=card.get("set_name", ""),
@@ -181,6 +221,7 @@ def collect_jp_cards() -> list[CardData]:
                             "game": "pokemon-jp",
                             "rarity": card.get("rarity", ""),
                             "image_url": image_url,
+                            "jp_name": jp_name,
                             "jp_condition": v.get("condition"),
                             "jp_printing": v.get("printing"),
                             "jp_price_change_7d": v.get("priceChange7d"),

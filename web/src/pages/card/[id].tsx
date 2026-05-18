@@ -21,6 +21,7 @@ interface Card {
   momentum: number;
   composite: number;
   divergence_score: number;
+  jp_name: string;
   signal: string;
   signal_label: string;
   reason: string;
@@ -88,8 +89,11 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
             <span className="text-xs text-stone-400">{card.set_name}</span>
           </div>
           <h1 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-            {card.name}
+            {card.jp_name || card.name}
           </h1>
+          {card.jp_name && (
+            <p className="text-sm text-stone-400 mb-2">{card.name}</p>
+          )}
           <p className="text-sm text-stone-500 mb-4">{card.artist}</p>
 
           <div className="flex items-center gap-8 flex-wrap">
