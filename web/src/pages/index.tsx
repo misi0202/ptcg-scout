@@ -56,10 +56,10 @@ const MARKET_CONFIG = [
 type MarketKey = typeof MARKET_CONFIG[number]["key"];
 
 function toCNY(card: Card): number {
-  if (card.jp_price) return Math.round(card.jp_price / 100 * 5.0);
-  if (card.cm_price) return Math.round(card.cm_price * 7.8 * 100) / 100;
+  if (card.jp_price) return Math.round(card.jp_price / 100 * 4.65);
+  if (card.cm_price) return Math.round(card.cm_price * 7.85 * 100) / 100;
   const usd = card.avg_price_30d || card.us_price;
-  if (usd) return Math.round(usd * 7.2 * 100) / 100;
+  if (usd) return Math.round(usd * 7.24 * 100) / 100;
   return 0;
 }
 

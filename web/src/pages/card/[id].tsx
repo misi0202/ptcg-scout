@@ -119,13 +119,13 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
               )}
               {/* CNY 换算 */}
               {card.jp_price > 0 && (
-                <p className="text-xs text-stone-400">CNY ≈ ¥{(card.jp_price / 100 * 5.0).toFixed(0)} <span className="text-stone-300">(JP)</span></p>
+                <p className="text-xs text-stone-400">CNY ≈ ¥{(card.jp_price / 100 * 4.65).toFixed(0)} <span className="text-stone-300">(JP)</span></p>
               )}
               {card.cm_price > 0 && (
-                <p className="text-xs text-stone-400">CNY ≈ ¥{(card.cm_price * 7.8).toFixed(0)} <span className="text-stone-300">(EU)</span></p>
+                <p className="text-xs text-stone-400">CNY ≈ ¥{(card.cm_price * 7.85).toFixed(0)} <span className="text-stone-300">(EU)</span></p>
               )}
               {!card.cm_price && !card.jp_price && (card.avg_price_30d > 0 || card.us_price > 0) && (
-                <p className="text-xs text-stone-400">CNY ≈ ¥{((card.avg_price_30d || card.us_price) * 7.2).toFixed(0)} <span className="text-stone-300">(US)</span></p>
+                <p className="text-xs text-stone-400">CNY ≈ ¥{((card.avg_price_30d || card.us_price) * 7.24).toFixed(0)} <span className="text-stone-300">(US)</span></p>
               )}
             </div>
           </div>

@@ -16,6 +16,7 @@ from .base import CardData
 logger = logging.getLogger(__name__)
 
 API_BASE = "https://api.justtcg.com/v1"
+POKEMONTCG_API = "https://api.pokemontcg.io/v2"
 API_KEY = os.getenv("JUSTTCG_API_KEY", "")
 
 CACHE_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "jp_cards_cache.json")
@@ -50,6 +51,35 @@ def _save_cache(data: dict):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def _fetch_pokemontcg_image(name: str) -> str:
+    """Try to get card image from Pokemon TCG API (free, no auth needed)."""
+    try:
+        resp = requests.get(
+            f"{POKEMONTCG_API}/cards",
+            params={"q": f'name:"{name}"', "select": "images", "pageSize": 1},
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            data = resp.json().get("data", [])
+            if data:
+                images = data[0].get("images", {}) or {}
+                return images.get("large") or images.get("small") or ""
+    except Exception:
+        pass
+    return ""
+
+
+def _fill_missing_images(cards: list[CardData]) -> list[CardData]:
+    """Backfill image_url for cards missing it, using Pokemon TCG API."""
+    for c in cards:
+        if not c.extra.get("image_url"):
+            img = _fetch_pokemontcg_image(c.name)
+            if img:
+                c.extra["image_url"] = img
+                time.sleep(0.3)
+    return cards
+
+
 def collect_jp_cards() -> list[CardData]:
     """Collect JP cards from JustTCG. Uses cache if API key is missing."""
     today = date.today().isoformat()
@@ -62,7 +92,9 @@ def collect_jp_cards() -> list[CardData]:
             if days_old <= CACHE_MAX_AGE_DAYS and cache.get("cards"):
                 logger.info("[justtcg_jp] Using cached JP data (%d cards, %d days old)",
                             len(cache["cards"]), days_old)
-                return [_dict_to_carddata(d) for d in cache["cards"]]
+                cards = [_dict_to_carddata(d) for d in cache["cards"]]
+                cards = _fill_missing_images(cards)
+                return cards
         logger.info("[justtcg_jp] No API key and no fresh cache — returning empty")
         return []
 
@@ -97,6 +129,11 @@ def collect_jp_cards() -> list[CardData]:
                     if v.get("condition") not in ("Near Mint", "Lightly Played"):
                         continue
 
+                    image_url = card.get("image_url", "")
+                    if not image_url:
+                        image_url = _fetch_pokemontcg_image(name)
+                        time.sleep(0.3)
+
                     collected.append(CardData(
                         name=name,
                         set_name=card.get("set_name", ""),
@@ -107,7 +144,7 @@ def collect_jp_cards() -> list[CardData]:
                         extra={
                             "game": "pokemon-jp",
                             "rarity": card.get("rarity", ""),
-                            "image_url": card.get("image_url", ""),
+                            "image_url": image_url,
                             "jp_condition": v.get("condition"),
                             "jp_printing": v.get("printing"),
                             "jp_price_change_7d": v.get("priceChange7d"),

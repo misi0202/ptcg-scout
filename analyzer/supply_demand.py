@@ -25,13 +25,13 @@ def analyze(conn: sqlite3.Connection, card_id: int) -> SupplyDemand | None:
 
     current = conn.execute(
         """SELECT AVG(price) as avg_p, COUNT(*) as cnt
-           FROM prices WHERE card_id = ? AND sale_date >= ?""",
+           FROM prices WHERE card_id = ? AND fetched_at >= ?""",
         (card_id, d30.isoformat()),
     ).fetchone()
 
     previous = conn.execute(
         """SELECT AVG(price) as avg_p, COUNT(*) as cnt
-           FROM prices WHERE card_id = ? AND sale_date >= ? AND sale_date < ?""",
+           FROM prices WHERE card_id = ? AND fetched_at >= ? AND fetched_at < ?""",
         (card_id, d60.isoformat(), d30.isoformat()),
     ).fetchone()
 
@@ -47,7 +47,7 @@ def analyze(conn: sqlite3.Connection, card_id: int) -> SupplyDemand | None:
     volume_change = ((volume - prev_volume) / prev_volume * 100) if prev_volume > 0 else 0
 
     sold = conn.execute(
-        "SELECT COUNT(*) as cnt FROM prices WHERE card_id = ? AND sale_date >= ?",
+        "SELECT COUNT(*) as cnt FROM prices WHERE card_id = ? AND fetched_at >= ?",
         (card_id, d30.isoformat()),
     ).fetchone()
 
