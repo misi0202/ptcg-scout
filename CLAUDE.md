@@ -80,3 +80,15 @@ All scores capped to 5-100 range.
 - `scout` job runs Python pipeline, commits `data/` back
 - `deploy` job builds Next.js and deploys to GitHub Pages
 - Secrets needed: `FEISHU_WEBHOOK_URL`, `JUSTTCG_API_KEY`
+
+## Network Rules
+
+Avoid using WebFetch when possible.
+Prefer:
+- curl
+- wget
+- Invoke-WebRequest
+- local scripts
+
+Reason:
+Fetch domain verification is unreliable in this environment.
