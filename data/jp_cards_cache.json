@@ -15,7 +15,9 @@
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
         "jp_price_change_30d": null,
-        "image_source": "missing_jp_scan"
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウ013/SM",
+        "jp_set_name": "SM-P"
       }
     },
     {
@@ -33,7 +35,9 @@
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
         "jp_price_change_30d": 0,
-        "image_source": "missing_jp_scan"
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウ230/XY",
+        "jp_set_name": "XY-P"
       }
     },
     {
@@ -51,7 +55,9 @@
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
         "jp_price_change_30d": 0,
-        "image_source": "missing_jp_scan"
+        "image_source": "missing_jp_scan",
+        "jp_name": "コイキングピカチュウ150/XY",
+        "jp_set_name": "XY-P"
       }
     },
     {
@@ -64,12 +70,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Hyper Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/M2a/048649_P_REKKUUZA.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0,
-        "image_source": "missing_jp_scan"
+        "image_source": "pokemon-card.com",
+        "jp_name": "レックウザVMAX083/067",
+        "jp_set_name": "蒼空ストリーム"
       }
     },
     {
@@ -82,11 +90,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV4a/044638_P_RIZADONEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 1000,
-        "jp_price_change_30d": 3000
+        "jp_price_change_30d": 3000,
+        "jp_name": "リザードンex",
+        "jp_set_name": "シャイニートレジャーex",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -99,11 +110,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/049162_P_BURAKKIEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 1000,
-        "jp_price_change_30d": 5000
+        "jp_price_change_30d": 5000,
+        "jp_name": "ブラッキーVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -116,11 +130,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/049015_P_NINFUIAEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 1500
+        "jp_price_change_30d": 1500,
+        "jp_name": "ニンフィアVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -133,11 +150,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/049014_P_EFUIEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 200,
-        "jp_price_change_30d": 800
+        "jp_price_change_30d": 800,
+        "jp_name": "エーフィVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -150,11 +170,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV8a/046691_P_SHIXYAWAZU.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 200
+        "jp_price_change_30d": 200,
+        "jp_name": "シャワーズVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -167,11 +190,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048954_P_SANDASUEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 100
+        "jp_price_change_30d": 100,
+        "jp_name": "サンダースVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -184,11 +210,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048810_P_BUSUTAEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ブースターVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -201,11 +230,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/M3/049682_P_GENGA.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 200,
-        "jp_price_change_30d": 800
+        "jp_price_change_30d": 800,
+        "jp_name": "ゲンガーVMAX",
+        "jp_set_name": "フュージョンアーツ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -218,11 +250,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/205/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 200,
-        "jp_price_change_30d": 1000
+        "jp_price_change_30d": 1000,
+        "jp_name": "ミュウex",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -235,11 +270,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/221/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": -200
+        "jp_price_change_30d": -200,
+        "jp_name": "ミュウツーVSTAR",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -252,11 +290,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/222/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 300,
-        "jp_price_change_30d": 1000
+        "jp_price_change_30d": 1000,
+        "jp_name": "ギラティナVSTAR",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -269,11 +310,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/220/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 500
+        "jp_price_change_30d": 500,
+        "jp_name": "アルセウスVSTAR",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -286,11 +330,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12/112/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 200
+        "jp_price_change_30d": 200,
+        "jp_name": "ルギアVSTAR",
+        "jp_set_name": "パラダイムトリガー",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -303,11 +350,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S9/096/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "V",
+        "jp_set_name": "スターバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -320,11 +370,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Art Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048943_P_PIKACHIXYUUEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 250
+        "jp_price_change_30d": 250,
+        "jp_name": "ピカチュウex",
+        "jp_set_name": "トリプレットビート",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -337,11 +390,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/223/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": -100
+        "jp_price_change_30d": -100,
+        "jp_name": "ミミッキュ",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -354,11 +410,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV5a/045/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 100,
-        "jp_price_change_30d": 400
+        "jp_price_change_30d": 400,
+        "jp_name": "ゲッコウガex",
+        "jp_set_name": "クリムゾンヘイズ",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -371,11 +430,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV4a/044605_P_SANAITOEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 500
+        "jp_price_change_30d": 500,
+        "jp_name": "サーナイトex",
+        "jp_set_name": "スノーハザード",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -388,11 +450,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/215/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": -100
+        "jp_price_change_30d": -100,
+        "jp_name": "ルカリオVSTAR",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -405,11 +470,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV1a/042988_P_GIXYARADOSU.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 300
+        "jp_price_change_30d": 300,
+        "jp_name": "ギャラドスex",
+        "jp_set_name": "トリプレットビート",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -422,11 +490,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/166/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 200
+        "jp_price_change_30d": 200,
+        "jp_name": "カビゴン",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -439,11 +510,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S9/098/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "カイリューV",
+        "jp_set_name": "スターバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -456,11 +530,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SVM/046532_P_BANGIRASUEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "バンギラスex",
+        "jp_set_name": "スノーハザード",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -473,11 +550,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV5K/078/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ガブリアスex",
+        "jp_set_name": "ワイルドフォース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -490,11 +570,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV5M/045265_P_METAGUROSU.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "メタグロスex",
+        "jp_set_name": "サイバージャッジ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -507,11 +590,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV10/047413_P_BASHIXYAMO.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "バシャーモVMAX",
+        "jp_set_name": "双璧のファイター",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -524,11 +610,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/184/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "カメックスex",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -541,11 +630,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/183/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "フシギバナex",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -558,11 +650,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S9/097/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "セレビィV",
+        "jp_set_name": "スターバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -575,11 +670,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/218/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ジラーチ",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -592,11 +690,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/049172_P_DAKURAIEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ダークライVSTAR",
+        "jp_set_name": "ダークファンタズマ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -609,11 +710,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/049184_P_ZOROAKU.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ゾロアークVSTAR",
+        "jp_set_name": "ダークファンタズマ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -626,11 +730,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/217/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ハッサム",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -643,11 +750,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2P/074/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ボーマンダex",
+        "jp_set_name": "スノーハザード",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -660,11 +770,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048941_P_PIKACHIXYUU.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 100
+        "jp_price_change_30d": 100,
+        "jp_name": "ピカチュウVMAX",
+        "jp_set_name": "VMAXクライマックス",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -677,11 +790,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/S/S12a/190/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "ピカチュウV",
+        "jp_set_name": "VSTARユニバース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -694,11 +810,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Art Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048941_P_PIKACHIXYUU.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 200
+        "jp_price_change_30d": 200,
+        "jp_name": "ピカチュウ",
+        "jp_set_name": "ロストアビス",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -711,11 +830,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/168/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 100
+        "jp_price_change_30d": 100,
+        "jp_name": "イーブイ",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -728,11 +850,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048878_P_GUREISHIAEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "グレイシアVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -745,11 +870,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/MC/048753_P_RIFUIA.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "リーフィアVMAX",
+        "jp_set_name": "イーブイヒーローズ",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -766,7 +894,10 @@
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 500
+        "jp_price_change_30d": 500,
+        "jp_name": "レシラム&リザードンGX",
+        "jp_set_name": "タッグオールスターズ",
+        "image_source": "missing_jp_scan"
       }
     },
     {
@@ -779,11 +910,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2D/098/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 500,
-        "jp_price_change_30d": 2000
+        "jp_price_change_30d": 2000,
+        "jp_name": "イオノ",
+        "jp_set_name": "クレイバースト",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -796,11 +930,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Special Illustration Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/206/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 500
+        "jp_price_change_30d": 500,
+        "jp_name": "エリカ",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -813,11 +950,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV2a/201/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "フーディンex",
+        "jp_set_name": "ポケモンカード151",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -830,11 +970,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SV2a/043389_P_KAIRIKI.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "カイリキーVMAX",
+        "jp_set_name": "VMAXクライマックス",
+        "image_source": "pokemon-card.com"
       }
     },
     {
@@ -847,11 +990,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Ultra Rare",
-        "image_url": "",
+        "image_url": "https://assets.tcgdex.net/ja/SV/SV5K/079/high.webp",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "アブソルex",
+        "jp_set_name": "ワイルドフォース",
+        "image_source": "tcgdex"
       }
     },
     {
@@ -868,7 +1014,10 @@
         "jp_condition": "Near Mint",
         "jp_printing": "Normal - Japanese",
         "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": 0,
+        "jp_name": "Misty's Tears",
+        "jp_set_name": "ジム拡張第2弾 闇からの挑戦",
+        "image_source": "missing_jp_scan"
       }
     },
     {
@@ -886,7 +1035,9 @@
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0,
-        "image_source": "missing_jp_scan"
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウ293/XY",
+        "jp_set_name": "XY-P"
       }
     },
     {
@@ -899,12 +1050,14 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Common",
-        "image_url": "",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/SVJL/045806_P_RIZADONEX.jpg",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
         "jp_price_change_30d": null,
-        "image_source": "missing_jp_scan"
+        "image_source": "pokemon-card.com",
+        "jp_name": "リザードンex766/742",
+        "jp_set_name": "スタートデッキ100"
       }
     },
     {
@@ -922,7 +1075,9 @@
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0,
-        "image_source": "missing_jp_scan"
+        "image_source": "missing_jp_scan",
+        "jp_name": "ラティアス&ラティオスGX105/095",
+        "jp_set_name": "タッグボルト"
       }
     },
     {
@@ -940,7 +1095,9 @@
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0,
-        "image_source": "missing_jp_scan"
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウ227/S",
+        "jp_set_name": "S-P"
       }
     }
   ],
