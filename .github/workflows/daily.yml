@@ -4,9 +4,11 @@ on:
   schedule:
     - cron: "0 22 * * *"  # UTC 22:00 = BJT 06:00
   workflow_dispatch:       # manual trigger
+  push:                    # auto-deploy on push (scout skipped to preserve API quota)
 
 jobs:
   scout:
+    if: github.event_name != 'push'  # skip pipeline on push to preserve API quota
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -39,6 +41,9 @@ jobs:
 
   deploy:
     needs: scout
+    if: |
+      always() &&
+      (needs.scout.result == 'success' || needs.scout.result == 'skipped')
     runs-on: ubuntu-latest
     permissions:
       contents: read
