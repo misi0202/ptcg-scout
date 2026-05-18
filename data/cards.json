@@ -1,6 +1,6 @@
 [
   {
-    "id": 2273,
+    "id": 2254,
     "name": "Pretend Team Skull Pikachu - 013/SM-P",
     "pokemon": "Pretend Team Skull Pikachu - 013/SM-P",
     "image_url": "",
@@ -28,7 +28,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2274,
+    "id": 2255,
     "name": "Poncho-wearing Pikachu - 230/XY-P",
     "pokemon": "Poncho-wearing Pikachu - 230/XY-P",
     "image_url": "",
@@ -56,7 +56,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2275,
+    "id": 2256,
     "name": "Pretend Magikarp Pikachu - 150/XY-P",
     "pokemon": "Pretend Magikarp Pikachu - 150/XY-P",
     "image_url": "",
@@ -84,7 +84,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2276,
+    "id": 2257,
     "name": "Rayquaza VMAX - 083/067",
     "pokemon": "Rayquaza VMAX - 083/067",
     "image_url": "",
@@ -112,7 +112,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2277,
+    "id": 2258,
     "name": "Mario Pikachu - 293/XY-P",
     "pokemon": "Mario Pikachu - 293/XY-P",
     "image_url": "",
@@ -140,7 +140,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2278,
+    "id": 2259,
     "name": "Mega Charizard Y ex -766/742",
     "pokemon": "Mega Charizard Y ex -766/742",
     "image_url": "",
@@ -168,7 +168,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2280,
+    "id": 2261,
     "name": "Pikachu - 227/S-P",
     "pokemon": "Pikachu - 227/S-P",
     "image_url": "",
@@ -266,7 +266,7 @@
     "jp_number": "013/SM-P"
   },
   {
-    "id": 2156,
+    "id": 2154,
     "name": "Pikachu ex",
     "pokemon": "Pikachu ex",
     "image_url": "https://images.scrydex.com/pokemon/me2pt5-276/large",
@@ -334,7 +334,7 @@
     "jp_number": "013/SM-P"
   },
   {
-    "id": 2161,
+    "id": 2163,
     "name": "Team Rocket's Mewtwo ex",
     "pokemon": "Team Rocket's Mewtwo ex",
     "image_url": "https://images.scrydex.com/pokemon/me2pt5-281/large",
@@ -369,7 +369,7 @@
     "jp_number": "013/SM-P"
   },
   {
-    "id": 2164,
+    "id": 2165,
     "name": "Mega Gengar ex",
     "pokemon": "Mega Gengar ex",
     "image_url": "https://images.scrydex.com/pokemon/me2pt5-284/large",
@@ -544,7 +544,7 @@
     "jp_number": "013/SM-P"
   },
   {
-    "id": 2136,
+    "id": 2145,
     "name": "Team Rocket's Mimikyu",
     "pokemon": "Team Rocket's Mimikyu",
     "image_url": "https://images.scrydex.com/pokemon/me2pt5-238/large",
@@ -675,6 +675,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P"
@@ -2949,7 +2951,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 2279,
+    "id": 2260,
     "name": "Latias & Latios GX - 105/095",
     "pokemon": "Latias & Latios GX - 105/095",
     "image_url": "",
