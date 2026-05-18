@@ -22,18 +22,21 @@ API_KEY = os.getenv("JUSTTCG_API_KEY", "")
 CACHE_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "jp_cards_cache.json")
 CACHE_MAX_AGE_DAYS = 30  # Use cache up to 30 days old if API key unavailable
 
-# Popular JP-exclusive or JP-primary cards to discover
+# Broad search for JP cards across all popular Pokemon
 JP_SEARCH_QUERIES = [
-    "pikachu",
-    "charizard",
-    "mew",
-    "mewtwo",
-    "eevee",
-    "umbreon",
-    "gengar",
-    "rayquaza",
-    "lugia",
-    "ho-oh",
+    # T1 (highest demand)
+    "pikachu", "charizard", "mew", "mewtwo", "eevee",
+    "umbreon", "gengar", "rayquaza",
+    # T2
+    "lugia", "ho-oh", "espeon", "sylveon", "vaporeon",
+    "jolteon", "flareon", "gyarados", "dragonite",
+    "tyranitar", "gardevoir", "lucario", "greninja",
+    "mimikyu", "snorlax", "blaziken", "darkrai",
+    "celebi", "jirachi", "arceus",
+    # T3-T4 (popular but lower tier)
+    "garchomp", "metagross", "salamence", "zoroark",
+    "latias", "latios", "giratina", "scizor",
+    "blastoise", "venusaur", "alakazam", "machamp",
 ]
 
 
@@ -52,20 +55,53 @@ def _save_cache(data: dict):
 
 
 def _fetch_pokemontcg_image(name: str) -> str:
-    """Try to get card image from Pokemon TCG API (free, no auth needed)."""
-    try:
-        resp = requests.get(
-            f"{POKEMONTCG_API}/cards",
-            params={"q": f'name:"{name}"', "select": "images", "pageSize": 1},
-            timeout=10,
-        )
-        if resp.status_code == 200:
-            data = resp.json().get("data", [])
-            if data:
-                images = data[0].get("images", {}) or {}
-                return images.get("large") or images.get("small") or ""
-    except Exception:
-        pass
+    """Try to get card image from Pokemon TCG API (free, no auth needed).
+    Tries multiple search strategies for cards not in the English API."""
+    import re
+
+    # Build search candidates: exact → stripped → first word → Pokemon name match
+    queries = [name]
+    base = re.sub(r"\s*[-–]\s*\d+[\s/].*$", "", name).strip()
+    if base != name:
+        queries.append(base)
+
+    first_word = name.split()[0]
+    if first_word not in queries:
+        queries.append(first_word)
+
+    # Match against known Pokemon names for JP-exclusive promos
+    _POKEMON_NAMES = [
+        "pikachu", "charizard", "mewtwo", "mew", "eevee", "umbreon",
+        "espeon", "sylveon", "vaporeon", "jolteon", "flareon", "gengar",
+        "rayquaza", "lugia", "ho-oh", "gyarados", "dragonite", "tyranitar",
+        "gardevoir", "lucario", "greninja", "mimikyu", "snorlax",
+        "blaziken", "darkrai", "celebi", "jirachi", "arceus",
+        "garchomp", "metagross", "salamence", "zoroark",
+        "latias", "latios", "giratina", "scizor", "blastoise",
+        "venusaur", "alakazam", "machamp", "magikarp", "absol",
+    ]
+    name_lower = name.lower()
+    for pk in _POKEMON_NAMES:
+        if pk in name_lower and pk not in queries:
+            queries.append(pk)
+            break
+
+    for q in queries[:4]:
+        try:
+            resp = requests.get(
+                f"{POKEMONTCG_API}/cards",
+                params={"q": f'name:"{q}"', "select": "images", "pageSize": 1},
+                timeout=10,
+            )
+            if resp.status_code == 200:
+                data = resp.json().get("data", [])
+                if data:
+                    images = data[0].get("images", {}) or {}
+                    img = images.get("large") or images.get("small") or ""
+                    if img:
+                        return img
+        except Exception:
+            pass
     return ""
 
 
@@ -104,7 +140,7 @@ def collect_jp_cards() -> list[CardData]:
 
     for query in JP_SEARCH_QUERIES:
         try:
-            params = {"game": "pokemon-japan", "name": query, "limit": 5}
+            params = {"game": "pokemon-japan", "name": query, "limit": 10}
             resp = requests.get(f"{API_BASE}/cards", headers=headers, params=params, timeout=20)
 
             if resp.status_code == 429:
