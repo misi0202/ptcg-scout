@@ -223,7 +223,7 @@ def run_scoring(conn) -> list[dict]:
             "divergence_score": score.divergence_score,
             "signal": signal,
             "signal_label": signal_label(signal),
-            "jp_name": _jp_names.get(cid, "") or (_make_jp_name(row["name"]) if row.get("game") == "pokemon-jp" else ""),
+            "jp_name": _jp_names.get(cid, "") or (_make_jp_name(row["name"]) if row["game"] == "pokemon-jp" else ""),
             "reason": score.reason,
             "us_price": prices.get("pokemontcg", 0),
             "cm_price": prices.get("cardmarket", 0),
