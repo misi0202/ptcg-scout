@@ -26,13 +26,19 @@ def insert_card(conn: sqlite3.Connection, name: str, set_name: str,
                 artist: str = "", rarity: str = "", image_url: str = "",
                 game: str = "pokemon") -> int:
     conn.execute(
-        """INSERT OR IGNORE INTO cards (name, set_name, card_number, pokemon_name, artist, rarity, image_url, game)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        """INSERT INTO cards (name, set_name, card_number, pokemon_name, artist, rarity, image_url, game)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+           ON CONFLICT(name, set_name, card_number) DO UPDATE SET
+             pokemon_name = excluded.pokemon_name,
+             artist = excluded.artist,
+             rarity = excluded.rarity,
+             image_url = excluded.image_url,
+             game = excluded.game""",
         (name, set_name, card_number, pokemon_name, artist, rarity, image_url, game),
     )
     row = conn.execute(
-        "SELECT id FROM cards WHERE name=? AND set_name=?",
-        (name, set_name),
+        "SELECT id FROM cards WHERE name=? AND set_name=? AND card_number=?",
+        (name, set_name, card_number),
     ).fetchone()
     return row["id"] if row else -1
 

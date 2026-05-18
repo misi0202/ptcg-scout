@@ -168,14 +168,17 @@ def _fetch_pokemontcg_image(name: str) -> str:
     return ""
 
 
+def _is_english_fallback_image(url: str) -> bool:
+    url = url or ""
+    return bool(url) and "pokemon-card.com/assets/images/card_images" not in url
+
+
 def _fill_missing_images(cards: list[CardData]) -> list[CardData]:
-    """Backfill image_url and jp_name for cards missing them."""
+    """Normalize JP display fields without pretending EN scans are JP card faces."""
     for c in cards:
-        if not c.extra.get("image_url"):
-            img = _fetch_pokemontcg_image(c.name)
-            if img:
-                c.extra["image_url"] = img
-                time.sleep(0.3)
+        if _is_english_fallback_image(c.extra.get("image_url", "")):
+            c.extra["image_url"] = ""
+            c.extra["image_source"] = "missing_jp_scan"
         if not c.extra.get("jp_name"):
             c.extra["jp_name"] = _make_jp_name(c.name)
         if not c.extra.get("jp_set_name"):
@@ -232,14 +235,16 @@ def collect_jp_cards() -> list[CardData]:
                     if v.get("condition") not in ("Near Mint", "Lightly Played"):
                         continue
 
-                    # Try all possible image URL fields from JustTCG API
+                    # Try only image fields provided by the JP-price source.
+                    # Do not backfill from PokemonTCG: those are English scans and
+                    # misrepresent the card when the user switches to JP market.
                     image_url = (
                         card.get("image_url") or card.get("image") or
                         card.get("img_url") or card.get("picture") or ""
                     )
-                    if not image_url:
-                        image_url = _fetch_pokemontcg_image(name)
-                        time.sleep(0.3)
+                    if _is_english_fallback_image(image_url):
+                        image_url = ""
+                    image_source = "official_jp_scan" if image_url else "missing_jp_scan"
 
                     jp_name = _make_jp_name(name)
                     set_name_en = card.get("set_name", "")
@@ -256,6 +261,7 @@ def collect_jp_cards() -> list[CardData]:
                             "game": "pokemon-jp",
                             "rarity": card.get("rarity", ""),
                             "image_url": image_url,
+                            "image_source": image_source,
                             "jp_name": jp_name,
                             "jp_set_name": jp_set,
                             "jp_condition": v.get("condition"),

@@ -15,6 +15,7 @@ interface Card {
   rarity: string;
   artist: string;
   set_name: string;
+  game: string;
   price_signal: number;
   ip_signal: number;
   volume_signal: number;
@@ -77,8 +78,12 @@ export default function CardDetail({ card, history }: { card: Card | null; histo
       {/* Card header */}
       <div className="flex flex-col md:flex-row gap-8 mb-10">
         <div className="w-56 shrink-0 glass-card p-3 flex items-center justify-center bg-stone-50/50">
-          {card.image_url && (
+          {card.image_url ? (
             <img src={card.image_url} alt={card.name} className="w-full rounded-xl shadow-lg" />
+          ) : (
+            <div className="px-3 text-center text-xs leading-relaxed text-stone-400">
+              {card.game === "pokemon-jp" ? "JP card image unavailable" : "No image"}
+            </div>
           )}
         </div>
         <div className="flex-1">

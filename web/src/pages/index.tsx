@@ -200,13 +200,17 @@ export default function Home({ cards }: { cards: Card[] }) {
             <div className="gradient-border p-0.5">
               <div className="glass-card rounded-[1.2rem] p-0 flex flex-row overflow-hidden">
                 <div className="w-52 shrink-0 bg-stone-50 flex items-center justify-center p-2">
-                  {hero.image_url && (
+                  {hero.image_url ? (
                     <img
                       src={hero.image_url}
                       alt={hero.name}
                       className="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
                       loading="eager"
                     />
+                  ) : (
+                    <div className="px-3 text-center text-xs leading-relaxed text-stone-400">
+                      {hero.game === "pokemon-jp" ? "JP card image unavailable" : "No image"}
+                    </div>
                   )}
                 </div>
                 <div className="flex-1 p-6 flex flex-col justify-center">
@@ -268,7 +272,9 @@ export default function Home({ cards }: { cards: Card[] }) {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="text-stone-300 text-xs">No image</div>
+                  <div className="px-2 text-center text-stone-300 text-xs leading-relaxed">
+                    {card.game === "pokemon-jp" ? "JP card image unavailable" : "No image"}
+                  </div>
                 )}
               </div>
               <div className="p-3 flex-1 flex flex-col">
