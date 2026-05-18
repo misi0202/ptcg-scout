@@ -539,9 +539,12 @@ def collect_jp_cards() -> list[CardData]:
                     days_old,
                 )
                 cards = [_dict_to_carddata(item) for item in cache["cards"]]
-                cards, changed = _fill_missing_images(cards)
-                if changed:
-                    _save_cache({"cards": [_carddata_to_dict(card) for card in cards], "fetched_at": cached_date})
+                try:
+                    cards, changed = _fill_missing_images(cards)
+                    if changed:
+                        _save_cache({"cards": [_carddata_to_dict(card) for card in cards], "fetched_at": cached_date})
+                except Exception as exc:
+                    logger.warning("[justtcg_jp] Image resolution failed for cached data: %s", exc)
                 return cards
         logger.info("[justtcg_jp] No API key and no fresh cache, returning empty")
         return []
@@ -585,11 +588,14 @@ def collect_jp_cards() -> list[CardData]:
                     if _is_verified_jp_image(raw_image):
                         image_url = raw_image
 
+                    raw_number = item.get("number", "") or ""
+                    card_number = raw_number.split("/")[0] if "/" in raw_number else raw_number
+
                     collected.append(
                         CardData(
                             name=name,
                             set_name=set_name_en,
-                            card_number=item.get("number", "") or "",
+                            card_number=card_number,
                             pokemon_name=name,
                             price=float(variant.get("price", 0)) if variant.get("price") else None,
                             source="justtcg",
@@ -647,10 +653,12 @@ def _carddata_to_dict(card: CardData) -> dict:
 
 
 def _dict_to_carddata(data: dict) -> CardData:
+    raw_number = data.get("card_number", "") or ""
+    card_number = raw_number.split("/")[0] if "/" in raw_number else raw_number
     return CardData(
         name=data.get("name", ""),
         set_name=data.get("set_name", ""),
-        card_number=data.get("card_number", ""),
+        card_number=card_number,
         pokemon_name=data.get("pokemon_name", ""),
         price=data.get("price"),
         source=data.get("source", "justtcg"),

@@ -119,6 +119,21 @@ def store_data(conn, all_data):
     conn.commit()
 
 
+def _best_image(name: str, row, jp_images: dict[str, str]) -> str:
+    """Return the best available image URL for a card.
+
+    For JP cards, prefer the cache-resolved JP image (TCGdex or pokemon-card.com)
+    over the EN PokemonTCG image that may have been stored by the EN collector.
+    """
+    db_url = row["image_url"] or ""
+    game = row["game"] or "pokemon"
+    if game == "pokemon-jp":
+        jp_url = jp_images.get(name, "")
+        if jp_url:
+            return jp_url
+    return db_url
+
+
 def run_scoring(conn) -> list[dict]:
     rows = conn.execute("""
         SELECT c.id, c.name, c.pokemon_name, c.set_name,
@@ -142,9 +157,10 @@ def run_scoring(conn) -> list[dict]:
     for pr in price_rows:
         card_prices.setdefault(pr["card_id"], {})[pr["source"]] = round(pr["avg_p"], 2)
 
-    # Load JP price trends from caches (JustTCG enrichment + JP card cache)
+    # Load JP price trends + image URLs from caches (JustTCG enrichment + JP card cache)
     import json as _json
     jp_trends: dict[str, dict] = {}
+    jp_images: dict[str, str] = {}  # card_name -> best JP image URL
     for _cache_file in ("jp_cache.json", "jp_cards_cache.json"):
         _jp_cache_path = os.path.join(DATA_DIR, _cache_file)
         try:
@@ -166,6 +182,8 @@ def run_scoring(conn) -> list[dict]:
                             "change_7d": extra.get("jp_price_change_7d") or 0,
                             "change_30d": extra.get("jp_price_change_30d") or 0,
                         }
+                    if name and extra.get("image_url"):
+                        jp_images[name] = extra["image_url"]
         except Exception:
             pass
 
@@ -192,7 +210,7 @@ def run_scoring(conn) -> list[dict]:
             "price_change_pct": sd.price_change_pct if sd else 0,
             "jp_price_change_7d": jp_trend.get("change_7d", 0),
             "jp_price_change_30d": jp_trend.get("change_30d", 0),
-            "image_url": row["image_url"] or "",
+            "image_url": _best_image(name, row, jp_images),
             "rarity": row["rarity"] or "",
             "artist": row["artist"] or "",
             "set_name": row["set_name"] or "",
@@ -214,7 +232,7 @@ def run_scoring(conn) -> list[dict]:
             "id": score.card_id,
             "name": score.name,
             "pokemon": score.pokemon_name,
-            "image_url": row["image_url"] or "",
+            "image_url": _best_image(score.name, row, jp_images),
             "rarity": row["rarity"] or "",
             "artist": row["artist"] or "",
             "set_name": row["set_name"] or "",
