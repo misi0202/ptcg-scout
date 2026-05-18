@@ -203,7 +203,11 @@ def collect_jp_cards() -> list[CardData]:
                     if v.get("condition") not in ("Near Mint", "Lightly Played"):
                         continue
 
-                    image_url = card.get("image_url", "")
+                    # Try all possible image URL fields from JustTCG API
+                    image_url = (
+                        card.get("image_url") or card.get("image") or
+                        card.get("img_url") or card.get("picture") or ""
+                    )
                     if not image_url:
                         image_url = _fetch_pokemontcg_image(name)
                         time.sleep(0.3)
