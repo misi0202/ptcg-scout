@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 from collectors import EbayCollector, PokemonTCGCollector, RedditCollector, collect_jp_cards
 from collectors.justtcg import enrich_top_cards
+from collectors.justtcg_jp import _make_jp_name
 from db.models import get_connection, init_db, insert_card, insert_mention, insert_price
 from analyzer.boxes import analyze_boxes, save_boxes
 from analyzer.scoring import compute_scores
@@ -222,7 +223,7 @@ def run_scoring(conn) -> list[dict]:
             "divergence_score": score.divergence_score,
             "signal": signal,
             "signal_label": signal_label(signal),
-            "jp_name": _jp_names.get(cid, ""),
+            "jp_name": _jp_names.get(cid, "") or (_make_jp_name(row["name"]) if row.get("game") == "pokemon-jp" else ""),
             "reason": score.reason,
             "us_price": prices.get("pokemontcg", 0),
             "cm_price": prices.get("cardmarket", 0),
