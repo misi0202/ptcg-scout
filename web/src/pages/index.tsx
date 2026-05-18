@@ -220,7 +220,7 @@ export default function Home({ cards }: { cards: Card[] }) {
                     {hero.jp_name || hero.name}
                   </h2>
                   {hero.jp_name && (
-                    <p className="text-xs text-stone-400 mb-1">{hero.name}</p>
+                    <p className="text-xs text-stone-400 mb-1">{hero.name} <span className="text-[10px] bg-red-50 text-red-500 px-1 rounded ml-1">日版</span></p>
                   )}
                   <p className="text-sm text-stone-500 mb-3">{hero.jp_set_name || hero.set_name} · {hero.artist}</p>
                   <div className="flex items-center gap-4">
@@ -274,6 +274,7 @@ export default function Home({ cards }: { cards: Card[] }) {
               <div className="p-3 flex-1 flex flex-col">
                 <h3 className="text-xs font-semibold line-clamp-2 mb-1 leading-tight">
                   {card.jp_name || card.name}
+                  {card.jp_name && <span className="text-[8px] bg-red-50 text-red-400 px-0.5 rounded ml-0.5 align-middle">日</span>}
                 </h3>
                 <p className="text-[10px] text-stone-400 mb-2 line-clamp-1">
                   {card.jp_set_name || card.set_name}
