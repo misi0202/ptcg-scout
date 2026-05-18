@@ -22,6 +22,7 @@ interface Card {
   composite: number;
   divergence_score: number;
   jp_name: string;
+  jp_set_name: string;
   signal: string;
   signal_label: string;
   reason: string;
