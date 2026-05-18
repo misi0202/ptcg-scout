@@ -10,7 +10,7 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "",
-        "image_url": "",
+        "image_url": "https://images.pokemontcg.io/basep/1_hires.png",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
@@ -27,7 +27,7 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Common",
-        "image_url": "",
+        "image_url": "https://images.pokemontcg.io/basep/1_hires.png",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
@@ -44,7 +44,7 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Common",
-        "image_url": "",
+        "image_url": "https://images.pokemontcg.io/basep/1_hires.png",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
@@ -61,7 +61,7 @@
       "extra": {
         "game": "pokemon-jp",
         "rarity": "Hyper Rare",
-        "image_url": "",
+        "image_url": "https://images.pokemontcg.io/swsh7/111_hires.png",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": 0,
@@ -866,7 +866,75 @@
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0
       }
+    },
+    {
+      "name": "Mario Pikachu - 293/XY-P",
+      "set_name": "XY-P: XY Promos",
+      "card_number": "293/XY-P",
+      "pokemon_name": "Mario Pikachu - 293/XY-P",
+      "price": 2200.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "https://images.pokemontcg.io/basep/1_hires.png",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
+    },
+    {
+      "name": "Mega Charizard Y ex -766/742",
+      "set_name": "Start Deck 100 Battle Collection",
+      "card_number": "766/742",
+      "pokemon_name": "Mega Charizard Y ex -766/742",
+      "price": 2000.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "https://images.scrydex.com/pokemon/me2pt5-22/large",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": null,
+        "jp_price_change_30d": null
+      }
+    },
+    {
+      "name": "Latias & Latios GX - 105/095",
+      "set_name": "SM9: Tag Bolt",
+      "card_number": "105/095",
+      "pokemon_name": "Latias & Latios GX - 105/095",
+      "price": 1809.01,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Super Rare",
+        "image_url": "https://images.pokemontcg.io/pop7/3_hires.png",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
+    },
+    {
+      "name": "Pikachu - 227/S-P",
+      "set_name": "S-P: Sword & Shield Promos",
+      "card_number": "227/S-P",
+      "pokemon_name": "Pikachu - 227/S-P",
+      "price": 1799.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "https://images.pokemontcg.io/basep/1_hires.png",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
     }
   ],
-  "fetched_at": "2026-05-17"
+  "fetched_at": "2026-05-18"
 }
