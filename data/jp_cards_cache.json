@@ -5,7 +5,7 @@
       "set_name": "SM-P: Sun & Moon Promos",
       "card_number": "013",
       "pokemon_name": "Pretend Team Skull Pikachu - 013/SM-P",
-      "price": 3499.99,
+      "price": 3900.0,
       "source": "justtcg",
       "extra": {
         "game": "pokemon-jp",
@@ -14,10 +14,10 @@
         "image_source": "missing_jp_scan",
         "jp_name": "ピカチュウ013/SM",
         "jp_set_name": "SM-P",
-        "jp_condition": "Lightly Played",
+        "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
-        "jp_price_change_7d": 0,
-        "jp_price_change_30d": 0
+        "jp_price_change_7d": null,
+        "jp_price_change_30d": null
       }
     },
     {
@@ -1101,5 +1101,5 @@
       }
     }
   ],
-  "fetched_at": "2026-05-26"
+  "fetched_at": "2026-05-27"
 }
