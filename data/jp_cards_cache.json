@@ -57,7 +57,7 @@
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
         "jp_price_change_7d": null,
-        "jp_price_change_30d": 0
+        "jp_price_change_30d": null
       }
     },
     {
@@ -1101,5 +1101,5 @@
       }
     }
   ],
-  "fetched_at": "2026-05-28"
+  "fetched_at": "2026-05-29"
 }

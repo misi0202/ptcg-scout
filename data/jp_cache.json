@@ -9,7 +9,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mewtwo": {
     "jp_price": 3700,
@@ -24,16 +24,16 @@
     "fetched_at": "2026-05-26"
   },
   "Pikachu": {
-    "jp_price": 3700,
+    "jp_price": 3900,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Poncho-wearing Pikachu - 230/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "230/XY-P",
-    "fetched_at": "2026-05-26"
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-05-29"
   },
   "Mew": {
     "jp_price": 3700,
@@ -69,7 +69,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Eevee": {
     "jp_price": 3700,
@@ -117,7 +117,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Team Rocket's Mewtwo ex": {
     "jp_price": 3900,
@@ -129,7 +129,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Ho-oh": {
     "jp_price": 3700,
@@ -261,7 +261,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mega Gengar ex": {
     "jp_price": 3900,
@@ -273,7 +273,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mega Charizard Y ex": {
     "jp_price": 3900,
@@ -285,7 +285,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mew ex": {
     "jp_price": 3900,
@@ -297,7 +297,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mega Charizard X ex": {
     "jp_price": 3900,
@@ -309,7 +309,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Team Rocket's Mimikyu": {
     "jp_price": 3900,
@@ -321,7 +321,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mega Dragonite ex": {
     "jp_price": 3900,
@@ -333,7 +333,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Rocket's Mewtwo": {
     "jp_price": 3900,
@@ -345,7 +345,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Rayquaza ex": {
     "jp_price": 3900,
@@ -357,7 +357,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Special Delivery Pikachu": {
     "jp_price": 3900,
@@ -369,7 +369,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mewtwo & Mew-GX": {
     "jp_price": 3900,
@@ -381,7 +381,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-21"
+    "fetched_at": "2026-05-29"
   },
   "Charizard": {
     "jp_price": 3900,
@@ -393,7 +393,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Mega Greninja ex": {
     "jp_price": 3900,
@@ -405,7 +405,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-05-25"
+    "fetched_at": "2026-05-29"
   },
   "Flying Pikachu": {
     "jp_price": 3700,
