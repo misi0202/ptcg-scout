@@ -6,7 +6,7 @@
     "release_date": "2023-09-22",
     "reprint_status": "等待再贩信号",
     "current_price": 0,
-    "months_since_release": 33.6,
+    "months_since_release": 33.7,
     "reprint_cycle_months": 6,
     "low_point_alert": 1
   },
@@ -28,7 +28,7 @@
     "release_date": "2022-12-02",
     "reprint_status": "等待再贩信号",
     "current_price": 0,
-    "months_since_release": 43.4,
+    "months_since_release": 43.5,
     "reprint_cycle_months": 3,
     "low_point_alert": 1
   },
@@ -72,7 +72,7 @@
     "release_date": "2024-01-26",
     "reprint_status": "等待再贩信号",
     "current_price": 0,
-    "months_since_release": 29.4,
+    "months_since_release": 29.5,
     "reprint_cycle_months": 3,
     "low_point_alert": 1
   }
