@@ -21,7 +21,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Pikachu": {
     "jp_price": 3900,
@@ -33,7 +33,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-01"
+    "fetched_at": "2026-07-02"
   },
   "Mew": {
     "jp_price": 3900,
@@ -45,7 +45,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -69,7 +69,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-01"
+    "fetched_at": "2026-07-02"
   },
   "Eevee": {
     "jp_price": 3900,
@@ -81,7 +81,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -213,7 +213,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Rayquaza-EX": {
     "jp_price": 3900,
@@ -225,7 +225,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Mewtwo-EX": {
     "jp_price": 3900,
@@ -357,7 +357,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-01"
+    "fetched_at": "2026-07-02"
   },
   "Special Delivery Pikachu": {
     "jp_price": 3900,
@@ -501,7 +501,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "_____'s Pikachu": {
     "jp_price": 3900,
@@ -513,7 +513,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "M Gengar-EX": {
     "jp_price": 3900,
@@ -525,7 +525,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Charizard G LV.X": {
     "jp_price": 3900,
@@ -537,7 +537,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Umbreon": {
     "jp_price": 3900,
@@ -549,7 +549,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Pikachu δ": {
     "jp_price": 3900,
@@ -561,7 +561,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-06-30"
+    "fetched_at": "2026-07-02"
   },
   "Mew-EX": {
     "jp_price": 3900,
@@ -574,5 +574,17 @@
     "jp_rarity": "",
     "jp_number": "013/SM-P",
     "fetched_at": "2026-06-30"
+  },
+  "Mewtwo LV.X": {
+    "jp_price": 3900,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": null,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-07-02"
   }
 }
