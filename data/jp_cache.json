@@ -21,7 +21,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-02"
+    "fetched_at": "2026-07-15"
   },
   "Pikachu": {
     "jp_price": 3900,
@@ -33,7 +33,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "Mew": {
     "jp_price": 3900,
@@ -45,7 +45,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -81,7 +81,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -357,7 +357,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-13"
+    "fetched_at": "2026-07-15"
   },
   "Special Delivery Pikachu": {
     "jp_price": 3900,
@@ -408,28 +408,28 @@
     "fetched_at": "2026-07-13"
   },
   "Flying Pikachu": {
-    "jp_price": 3700,
+    "jp_price": 3900,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Poncho-wearing Pikachu - 230/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "230/XY-P",
-    "fetched_at": "2026-05-26"
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-07-15"
   },
   "Surfing Pikachu": {
-    "jp_price": 3700,
+    "jp_price": 3900,
     "jp_price_change_7d": null,
     "jp_price_change_30d": null,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Poncho-wearing Pikachu - 230/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "230/XY-P",
-    "fetched_at": "2026-05-26"
+    "jp_name": "Pretend Team Skull Pikachu - 013/SM-P",
+    "jp_set": "SM-P: Sun & Moon Promos",
+    "jp_rarity": "",
+    "jp_number": "013/SM-P",
+    "fetched_at": "2026-07-15"
   },
   "Snorlax": {
     "jp_price": 3700,
@@ -501,7 +501,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "_____'s Pikachu": {
     "jp_price": 3900,
@@ -513,7 +513,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "M Gengar-EX": {
     "jp_price": 3900,
@@ -537,7 +537,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "Umbreon": {
     "jp_price": 3900,
@@ -549,7 +549,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-14"
+    "fetched_at": "2026-07-15"
   },
   "Pikachu δ": {
     "jp_price": 3900,
@@ -561,7 +561,7 @@
     "jp_set": "SM-P: Sun & Moon Promos",
     "jp_rarity": "",
     "jp_number": "013/SM-P",
-    "fetched_at": "2026-07-02"
+    "fetched_at": "2026-07-15"
   },
   "Mew-EX": {
     "jp_price": 3900,
