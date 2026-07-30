@@ -1099,7 +1099,27 @@
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0
       }
+    },
+    {
+      "name": "Mario Pikachu - 294/XY-P",
+      "set_name": "XY-P: XY Promos",
+      "card_number": "294",
+      "pokemon_name": "Mario Pikachu - 294/XY-P",
+      "price": 5399.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "",
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウ294/XY",
+        "jp_set_name": "XY-P",
+        "jp_condition": "Lightly Played",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
     }
   ],
-  "fetched_at": "2026-07-29"
+  "fetched_at": "2026-07-30"
 }
