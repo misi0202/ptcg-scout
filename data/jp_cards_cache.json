@@ -1116,7 +1116,7 @@
         "jp_set_name": "XY-P",
         "jp_condition": "Lightly Played",
         "jp_printing": "Holofoil - Japanese",
-        "jp_price_change_7d": 0,
+        "jp_price_change_7d": null,
         "jp_price_change_30d": 0
       }
     },
@@ -1141,5 +1141,5 @@
       }
     }
   ],
-  "fetched_at": "2026-08-24"
+  "fetched_at": "2026-08-25"
 }
