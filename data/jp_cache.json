@@ -13,7 +13,7 @@
   },
   "Mewtwo": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -21,11 +21,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Pikachu": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -33,11 +33,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Mew": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -45,7 +45,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -73,7 +73,7 @@
   },
   "Eevee": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -81,7 +81,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -133,7 +133,7 @@
   },
   "Ho-oh": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -141,7 +141,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-15"
+    "fetched_at": "2026-08-27"
   },
   "Gyarados": {
     "jp_price": 3900,
@@ -181,7 +181,7 @@
   },
   "Celebi": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -189,7 +189,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Umbreon ex": {
     "jp_price": 3900,
@@ -409,7 +409,7 @@
   },
   "Flying Pikachu": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -417,11 +417,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Surfing Pikachu": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -429,11 +429,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Snorlax": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -441,11 +441,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Dragonite": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -453,11 +453,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Scizor": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -465,11 +465,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Venusaur": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -477,11 +477,11 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Scyther": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -489,7 +489,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-22"
+    "fetched_at": "2026-08-27"
   },
   "Rayquaza C LV.X": {
     "jp_price": 5399,
