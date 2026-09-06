@@ -21,7 +21,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Pikachu": {
     "jp_price": 5399,
@@ -33,7 +33,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Mew": {
     "jp_price": 5399,
@@ -45,7 +45,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -81,7 +81,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -157,7 +157,7 @@
   },
   "Jirachi": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -165,7 +165,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-18"
+    "fetched_at": "2026-09-06"
   },
   "Arceus": {
     "jp_price": 3900,
@@ -189,7 +189,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Umbreon ex": {
     "jp_price": 3900,
@@ -417,7 +417,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Surfing Pikachu": {
     "jp_price": 5399,
@@ -429,7 +429,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Snorlax": {
     "jp_price": 5399,
@@ -441,7 +441,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-05"
+    "fetched_at": "2026-09-06"
   },
   "Dragonite": {
     "jp_price": 5399,
@@ -513,7 +513,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-01"
+    "fetched_at": "2026-09-06"
   },
   "M Gengar-EX": {
     "jp_price": 3900,
@@ -553,7 +553,7 @@
   },
   "Pikachu δ": {
     "jp_price": 5399,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Lightly Played",
     "jp_printing": "Holofoil - Japanese",
@@ -561,7 +561,7 @@
     "jp_set": "XY-P: XY Promos",
     "jp_rarity": "Common",
     "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-18"
+    "fetched_at": "2026-09-06"
   },
   "Mew-EX": {
     "jp_price": 3900,
