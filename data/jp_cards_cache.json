@@ -1139,7 +1139,47 @@
         "jp_price_change_7d": 0,
         "jp_price_change_30d": 0
       }
+    },
+    {
+      "name": "M Charizard EX - 091/087",
+      "set_name": "CP6: Expansion Pack 20th Anniversary",
+      "card_number": "091",
+      "pokemon_name": "M Charizard EX - 091/087",
+      "price": 1500.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Super Rare",
+        "image_url": "",
+        "image_source": "missing_jp_scan",
+        "jp_name": "リザードンex091/087",
+        "jp_set_name": "CP6: Expansion Pack 20th Anniversary",
+        "jp_condition": "Near Mint",
+        "jp_printing": "1st Edition Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
+    },
+    {
+      "name": "Pikachu EX",
+      "set_name": "CP6: Expansion Pack 20th Anniversary",
+      "card_number": "094",
+      "pokemon_name": "Pikachu EX",
+      "price": 1500.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Double Rare",
+        "image_url": "",
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウex",
+        "jp_set_name": "CP6: Expansion Pack 20th Anniversary",
+        "jp_condition": "Near Mint",
+        "jp_printing": "1st Edition Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
     }
   ],
-  "fetched_at": "2026-10-01"
+  "fetched_at": "2026-10-02"
 }
