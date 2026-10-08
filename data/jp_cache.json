@@ -21,7 +21,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Pikachu": {
     "jp_price": 2500,
@@ -33,7 +33,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Mew": {
     "jp_price": 2500,
@@ -45,7 +45,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -81,7 +81,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -348,16 +348,16 @@
     "fetched_at": "2026-07-19"
   },
   "Rayquaza ex": {
-    "jp_price": 5399,
-    "jp_price_change_7d": null,
+    "jp_price": 2500,
+    "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
-    "jp_condition": "Lightly Played",
+    "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Mario Pikachu - 294/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "294/XY-P",
-    "fetched_at": "2026-09-12"
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-10-08"
   },
   "Special Delivery Pikachu": {
     "jp_price": 3900,
@@ -417,7 +417,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Surfing Pikachu": {
     "jp_price": 2500,
@@ -429,7 +429,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Snorlax": {
     "jp_price": 2500,
@@ -492,16 +492,16 @@
     "fetched_at": "2026-10-06"
   },
   "Rayquaza C LV.X": {
-    "jp_price": 5399,
+    "jp_price": 2500,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
-    "jp_condition": "Lightly Played",
+    "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Mario Pikachu - 294/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-01"
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-10-08"
   },
   "_____'s Pikachu": {
     "jp_price": 2500,
@@ -513,7 +513,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "M Gengar-EX": {
     "jp_price": 3900,
@@ -528,16 +528,16 @@
     "fetched_at": "2026-07-17"
   },
   "Charizard G LV.X": {
-    "jp_price": 5399,
+    "jp_price": 2500,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
-    "jp_condition": "Lightly Played",
+    "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Mario Pikachu - 294/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-01"
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-10-08"
   },
   "Umbreon": {
     "jp_price": 3900,
@@ -561,7 +561,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
   },
   "Mew-EX": {
     "jp_price": 3900,
@@ -576,16 +576,16 @@
     "fetched_at": "2026-07-17"
   },
   "Mewtwo LV.X": {
-    "jp_price": 5399,
+    "jp_price": 2500,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
-    "jp_condition": "Lightly Played",
+    "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
-    "jp_name": "Mario Pikachu - 294/XY-P",
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "294/XY-P",
-    "fetched_at": "2026-08-01"
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-10-08"
   },
   "Armored Mewtwo": {
     "jp_price": 3900,
@@ -729,6 +729,30 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-07"
+    "fetched_at": "2026-10-08"
+  },
+  "Arceus LV.X": {
+    "jp_price": 2500,
+    "jp_price_change_7d": 0,
+    "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-10-08"
+  },
+  "Darkrai LV.X": {
+    "jp_price": 2500,
+    "jp_price_change_7d": 0,
+    "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-10-08"
   }
 }
