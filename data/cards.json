@@ -1,6 +1,6 @@
 [
   {
-    "id": 126,
+    "id": 133,
     "name": "Rayquaza VMAX - 083/067",
     "pokemon": "Rayquaza VMAX - 083/067",
     "image_url": "",
@@ -28,7 +28,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 128,
+    "id": 135,
     "name": "M Charizard EX - 091/087",
     "pokemon": "M Charizard EX - 091/087",
     "image_url": "",
@@ -56,7 +56,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 129,
+    "id": 136,
     "name": "Pikachu EX",
     "pokemon": "Pikachu EX",
     "image_url": "",
@@ -84,7 +84,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 127,
+    "id": 134,
     "name": "Psyduck - 286/SM-P",
     "pokemon": "Psyduck - 286/SM-P",
     "image_url": "",
@@ -140,6 +140,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -173,6 +175,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -206,6 +210,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -272,6 +278,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -305,6 +313,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -338,6 +348,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -371,6 +383,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -404,6 +418,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -635,6 +651,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -668,6 +686,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -689,16 +709,21 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "",
+    "jp_name": "Rayquaza VMAX - 083/067",
     "jp_set_name": "",
     "reason": "price=$53.48 US; IP T2; momentum=+50",
     "us_price": 53.48,
     "cm_price": 90.77,
-    "jp_price": 0,
+    "jp_price": 2500,
     "avg_price_30d": 72.12,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0
+    "supply_demand_ratio": 1.0,
+    "jp_price_change_7d": 0,
+    "jp_price_change_30d": 0,
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067"
   },
   {
     "id": 39,
@@ -729,6 +754,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -762,6 +789,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -795,6 +824,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -828,6 +859,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -861,6 +894,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -894,6 +929,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
@@ -927,6 +964,8 @@
     "supply_demand_ratio": 1.0,
     "jp_price_change_7d": 0,
     "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067"
