@@ -1136,7 +1136,7 @@
         "jp_set_name": "SM-P",
         "jp_condition": "Lightly Played",
         "jp_printing": "Holofoil - Japanese",
-        "jp_price_change_7d": 0,
+        "jp_price_change_7d": null,
         "jp_price_change_30d": 0
       }
     },
@@ -1176,10 +1176,10 @@
         "jp_set_name": "CP6: Expansion Pack 20th Anniversary",
         "jp_condition": "Near Mint",
         "jp_printing": "1st Edition Holofoil - Japanese",
-        "jp_price_change_7d": 0,
+        "jp_price_change_7d": null,
         "jp_price_change_30d": 0
       }
     }
   ],
-  "fetched_at": "2026-10-20"
+  "fetched_at": "2026-10-21"
 }
