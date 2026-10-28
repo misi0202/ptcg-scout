@@ -1179,7 +1179,47 @@
         "jp_price_change_7d": null,
         "jp_price_change_30d": 0
       }
+    },
+    {
+      "name": "Rayquaza - 232/XY-P",
+      "set_name": "XY-P: XY Promos",
+      "card_number": "232",
+      "pokemon_name": "Rayquaza - 232/XY-P",
+      "price": 1299.99,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "Common",
+        "image_url": "",
+        "image_source": "missing_jp_scan",
+        "jp_name": "レックウザ232/XY",
+        "jp_set_name": "XY-P",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
+    },
+    {
+      "name": "Celebi ex",
+      "set_name": "PLAY Promotional cards",
+      "card_number": "006",
+      "pokemon_name": "Celebi ex",
+      "price": 1250.0,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "None",
+        "image_url": "https://www.pokemon-card.com/assets/images/card_images/large/M1L/047739_P_SEREBII.jpg",
+        "image_source": "pokemon-card.com",
+        "jp_name": "セレビィex",
+        "jp_set_name": "PLAY Promotional cards",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": null,
+        "jp_price_change_30d": 0
+      }
     }
   ],
-  "fetched_at": "2026-10-27"
+  "fetched_at": "2026-10-28"
 }
