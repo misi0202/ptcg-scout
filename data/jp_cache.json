@@ -21,7 +21,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Pikachu": {
     "jp_price": 2500,
@@ -33,7 +33,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Mew": {
     "jp_price": 2500,
@@ -45,7 +45,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -141,7 +141,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Gyarados": {
     "jp_price": 3900,
@@ -165,7 +165,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-19"
+    "fetched_at": "2026-11-04"
   },
   "Arceus": {
     "jp_price": 3900,
@@ -189,7 +189,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Umbreon ex": {
     "jp_price": 3900,
@@ -357,7 +357,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-08"
+    "fetched_at": "2026-11-04"
   },
   "Special Delivery Pikachu": {
     "jp_price": 3900,
@@ -417,7 +417,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Surfing Pikachu": {
     "jp_price": 2500,
@@ -429,7 +429,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Snorlax": {
     "jp_price": 2500,
@@ -441,7 +441,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Dragonite": {
     "jp_price": 2500,
@@ -453,7 +453,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Scizor": {
     "jp_price": 2500,
@@ -513,7 +513,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "M Gengar-EX": {
     "jp_price": 3900,
@@ -561,7 +561,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-19"
+    "fetched_at": "2026-11-04"
   },
   "Mew-EX": {
     "jp_price": 3900,
@@ -681,7 +681,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-01"
+    "fetched_at": "2026-11-04"
   },
   "Magmar": {
     "jp_price": 2500,
@@ -729,7 +729,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-10-19"
+    "fetched_at": "2026-11-04"
   },
   "Arceus LV.X": {
     "jp_price": 2500,
@@ -754,5 +754,17 @@
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
     "fetched_at": "2026-10-08"
+  },
+  "Torchic": {
+    "jp_price": 2500,
+    "jp_price_change_7d": 0,
+    "jp_price_change_30d": 0,
+    "jp_condition": "Near Mint",
+    "jp_printing": "Holofoil - Japanese",
+    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067",
+    "fetched_at": "2026-11-04"
   }
 }
