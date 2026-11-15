@@ -76,7 +76,7 @@
         "jp_set_name": "蒼空ストリーム",
         "jp_condition": "Near Mint",
         "jp_printing": "Holofoil - Japanese",
-        "jp_price_change_7d": 0,
+        "jp_price_change_7d": null,
         "jp_price_change_30d": 0
       }
     },
@@ -1221,5 +1221,5 @@
       }
     }
   ],
-  "fetched_at": "2026-11-14"
+  "fetched_at": "2026-11-15"
 }
