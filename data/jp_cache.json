@@ -13,7 +13,7 @@
   },
   "Mewtwo": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -21,11 +21,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Pikachu": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -33,11 +33,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Mew": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -45,7 +45,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Rayquaza": {
     "jp_price": 3900,
@@ -73,7 +73,7 @@
   },
   "Eevee": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -81,7 +81,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Mewtwo V-UNION": {
     "jp_price": 3900,
@@ -181,7 +181,7 @@
   },
   "Celebi": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -189,7 +189,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Umbreon ex": {
     "jp_price": 3900,
@@ -409,7 +409,7 @@
   },
   "Flying Pikachu": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -417,11 +417,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Surfing Pikachu": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -429,11 +429,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Snorlax": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -441,11 +441,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Dragonite": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -453,11 +453,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Scizor": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -465,11 +465,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Venusaur": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -477,11 +477,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Scyther": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -489,7 +489,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Rayquaza C LV.X": {
     "jp_price": 2500,
@@ -505,7 +505,7 @@
   },
   "_____'s Pikachu": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -513,7 +513,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-04"
+    "fetched_at": "2026-11-16"
   },
   "M Gengar-EX": {
     "jp_price": 3900,
@@ -673,7 +673,7 @@
   },
   "Machamp": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -681,11 +681,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-04"
+    "fetched_at": "2026-11-16"
   },
   "Magmar": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -693,11 +693,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Arcanine": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -705,11 +705,11 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Electabuzz": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -717,7 +717,7 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   },
   "Mudkip": {
     "jp_price": 2500,
@@ -769,7 +769,7 @@
   },
   "Dark Persian": {
     "jp_price": 2500,
-    "jp_price_change_7d": 0,
+    "jp_price_change_7d": null,
     "jp_price_change_30d": 0,
     "jp_condition": "Near Mint",
     "jp_printing": "Holofoil - Japanese",
@@ -777,6 +777,6 @@
     "jp_set": "S7R: Blue Sky Stream",
     "jp_rarity": "Hyper Rare",
     "jp_number": "083/067",
-    "fetched_at": "2026-11-14"
+    "fetched_at": "2026-11-16"
   }
 }

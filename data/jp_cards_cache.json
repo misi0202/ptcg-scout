@@ -1219,7 +1219,27 @@
         "jp_price_change_7d": null,
         "jp_price_change_30d": 0
       }
+    },
+    {
+      "name": "Ooyama's Pikachu",
+      "set_name": "Vending Machine cards Series 3 (Green)",
+      "card_number": "N",
+      "pokemon_name": "Ooyama's Pikachu",
+      "price": 999.99,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "None",
+        "image_url": "",
+        "image_source": "missing_jp_scan",
+        "jp_name": "ピカチュウ",
+        "jp_set_name": "Vending Machine cards Series 3 (Green)",
+        "jp_condition": "Lightly Played",
+        "jp_printing": "Normal - Japanese",
+        "jp_price_change_7d": 0,
+        "jp_price_change_30d": 0
+      }
     }
   ],
-  "fetched_at": "2026-11-15"
+  "fetched_at": "2026-11-16"
 }
