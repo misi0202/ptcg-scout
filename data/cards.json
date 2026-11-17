@@ -1,6 +1,6 @@
 [
   {
-    "id": 116,
+    "id": 142,
     "name": "Rayquaza VMAX - 083/067",
     "pokemon": "Rayquaza VMAX - 083/067",
     "image_url": "",
@@ -28,7 +28,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 117,
+    "id": 143,
     "name": "Rayquaza - 232/XY-P",
     "pokemon": "Rayquaza - 232/XY-P",
     "image_url": "",
@@ -56,7 +56,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 118,
+    "id": 144,
     "name": "Ooyama's Pikachu",
     "pokemon": "Ooyama's Pikachu",
     "image_url": "",
@@ -100,21 +100,16 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_name": "",
     "jp_set_name": "",
     "reason": "price=$494.36 US; IP T1; momentum=+50",
     "us_price": 494.36,
     "cm_price": 337.95,
-    "jp_price": 2500,
+    "jp_price": 0,
     "avg_price_30d": 416.15,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0,
-    "jp_price_change_7d": null,
-    "jp_price_change_30d": 0,
-    "jp_set": "S7R: Blue Sky Stream",
-    "jp_rarity": "Hyper Rare",
-    "jp_number": "083/067"
+    "supply_demand_ratio": 1.0
   },
   {
     "id": 43,
@@ -661,16 +656,21 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "",
+    "jp_name": "Rayquaza VMAX - 083/067",
     "jp_set_name": "",
     "reason": "price=$53.48 US; IP T2; momentum=+50",
     "us_price": 53.48,
     "cm_price": 90.77,
-    "jp_price": 0,
+    "jp_price": 2500,
     "avg_price_30d": 72.12,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0
+    "supply_demand_ratio": 1.0,
+    "jp_price_change_7d": null,
+    "jp_price_change_30d": 0,
+    "jp_set": "S7R: Blue Sky Stream",
+    "jp_rarity": "Hyper Rare",
+    "jp_number": "083/067"
   },
   {
     "id": 39,
@@ -689,21 +689,16 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "Rayquaza VMAX - 083/067",
+    "jp_name": "",
     "jp_set_name": "",
     "reason": "price=$77.33 US; IP T3; momentum=+50",
     "us_price": 77.33,
     "cm_price": 45.83,
-    "jp_price": 2500,
+    "jp_price": 0,
     "avg_price_30d": 61.58,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0,
-    "jp_price_change_7d": null,
-    "jp_price_change_30d": 0,
-    "jp_set": "S7R: Blue Sky Stream",
-    "jp_rarity": "Hyper Rare",
-    "jp_number": "083/067"
+    "supply_demand_ratio": 1.0
   },
   {
     "id": 32,
