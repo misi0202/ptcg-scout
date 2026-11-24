@@ -1,6 +1,6 @@
 [
   {
-    "id": 142,
+    "id": 106,
     "name": "Rayquaza - 232/XY-P",
     "pokemon": "Rayquaza - 232/XY-P",
     "image_url": "",
@@ -28,7 +28,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 143,
+    "id": 107,
     "name": "Ooyama's Pikachu",
     "pokemon": "Ooyama's Pikachu",
     "image_url": "",
@@ -56,7 +56,7 @@
     "supply_demand_ratio": 1.0
   },
   {
-    "id": 144,
+    "id": 108,
     "name": "Poncho-wearing Eevee - 143/SM-P",
     "pokemon": "Poncho-wearing Eevee - 143/SM-P",
     "image_url": "",
@@ -100,21 +100,16 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "Rayquaza - 232/XY-P",
+    "jp_name": "",
     "jp_set_name": "",
     "reason": "price=$494.36 US; IP T1; momentum=+50",
     "us_price": 494.36,
     "cm_price": 337.95,
-    "jp_price": 1299.99,
+    "jp_price": 0,
     "avg_price_30d": 416.15,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0,
-    "jp_price_change_7d": 0,
-    "jp_price_change_30d": 0,
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "232/XY-P"
+    "supply_demand_ratio": 1.0
   },
   {
     "id": 45,
@@ -661,16 +656,21 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "",
+    "jp_name": "Rayquaza - 232/XY-P",
     "jp_set_name": "",
     "reason": "price=$53.48 US; IP T2; momentum=+50",
     "us_price": 53.48,
     "cm_price": 90.77,
-    "jp_price": 0,
+    "jp_price": 1299.99,
     "avg_price_30d": 72.12,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0
+    "supply_demand_ratio": 1.0,
+    "jp_price_change_7d": 0,
+    "jp_price_change_30d": 0,
+    "jp_set": "XY-P: XY Promos",
+    "jp_rarity": "Common",
+    "jp_number": "232/XY-P"
   },
   {
     "id": 13,
@@ -689,21 +689,16 @@
     "divergence_score": 15.0,
     "signal": "neutral",
     "signal_label": "⚪ 中性",
-    "jp_name": "Rayquaza - 232/XY-P",
+    "jp_name": "",
     "jp_set_name": "",
     "reason": "price=$279.51 US; momentum=+50",
     "us_price": 279.51,
     "cm_price": 118.95,
-    "jp_price": 1299.99,
+    "jp_price": 0,
     "avg_price_30d": 199.23,
     "price_change_pct": 0.0,
     "volume_30d": 2,
-    "supply_demand_ratio": 1.0,
-    "jp_price_change_7d": 0,
-    "jp_price_change_30d": 0,
-    "jp_set": "XY-P: XY Promos",
-    "jp_rarity": "Common",
-    "jp_number": "232/XY-P"
+    "supply_demand_ratio": 1.0
   },
   {
     "id": 39,
