@@ -1279,7 +1279,27 @@
         "jp_price_change_7d": 4.17,
         "jp_price_change_30d": 4.17
       }
+    },
+    {
+      "name": "Poncho-wearing Eevee - 139/SM-P",
+      "set_name": "SM-P: Sun & Moon Promos",
+      "card_number": "139",
+      "pokemon_name": "Poncho-wearing Eevee - 139/SM-P",
+      "price": 880.99,
+      "source": "justtcg",
+      "extra": {
+        "game": "pokemon-jp",
+        "rarity": "",
+        "image_url": "",
+        "image_source": "missing_jp_scan",
+        "jp_name": "イーブイ139/SM",
+        "jp_set_name": "SM-P",
+        "jp_condition": "Near Mint",
+        "jp_printing": "Holofoil - Japanese",
+        "jp_price_change_7d": 9.71,
+        "jp_price_change_30d": 9.71
+      }
     }
   ],
-  "fetched_at": "2026-11-26"
+  "fetched_at": "2026-11-27"
 }
